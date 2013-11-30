@@ -1,0 +1,8 @@
+@anchor{Function drei:object-drawer}
+@deffn {Function} {drei:object-drawer}
+@findex drei:object-drawer
+Return a closure capable of functioning as a stroke drawer. It
+expects its stroke to cover a single-object non-character buffer
+region, which will be presented with its appropriate presentation
+type (found via @code{presentation-type-of}) to generate output.
+@end deffn

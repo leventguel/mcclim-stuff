@@ -1,0 +1,11 @@
+@anchor{Macro drei-syntax:define-option-for-syntax}
+@deffn {Macro} {drei-syntax:define-option-for-syntax} syntax option-name (syntax-symbol value-symbol) &body body
+@findex drei-syntax:define-option-for-syntax
+Define an option for the syntax specified by the symbol
+  @code{syntax}. @code{option-name} should be a string that will be the
+  name of the option. The name will automatically be converted to
+  uppercase. When the option is being evaluated, @code{body} will be
+  run, with @code{syntax-symbol} bound to the syntax object the option
+  is being evaluated for, and @code{value-symbol} bound to the value
+  of the option.
+@end deffn

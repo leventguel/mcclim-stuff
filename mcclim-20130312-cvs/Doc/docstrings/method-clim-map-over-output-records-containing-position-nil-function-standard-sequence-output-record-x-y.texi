@@ -1,0 +1,10 @@
+@anchor{Method clim:map-over-output-records-containing-position (function
+                                                  (record
+                                                   standard-sequence-output-record)
+                                                  x y &optional (x-offset 0)
+                                                  (y-offset 0) &rest
+                                                  function-args)}
+@deffn {Method} {clim:map-over-output-records-containing-position} function (record standard-sequence-output-record) x y &optional (x-offset 0) (y-offset 0) &rest function-args
+Applies FUNCTION to children, containing (X,Y), in the reversed
+order they were added.
+@end deffn

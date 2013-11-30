@@ -1,0 +1,5 @@
+@anchor{Generic-Function clim:extended-output-stream-p}
+@deffn {Generic Function} {clim:extended-output-stream-p} object
+@findex clim:extended-output-stream-p
+Protocol predicate checking for class EXTENDED-OUTPUT-STREAM
+@end deffn

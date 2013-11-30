@@ -1,0 +1,9 @@
+@anchor{Generic-Function clim:stream-scan-pointer}
+@deffn {Generic Function} {clim:stream-scan-pointer} stream
+@findex clim:stream-scan-pointer
+Returns an integer corresponding to the
+current scan pointer in the input editing stream streams
+buffer, that is, the point in the buffer at which calls to
+@code{accept} have stopped parsing input. The scan pointer will always
+be less than or equal to (stream-insertion-pointer stream).
+@end deffn

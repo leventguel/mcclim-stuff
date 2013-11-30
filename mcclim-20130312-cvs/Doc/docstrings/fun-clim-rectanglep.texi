@@ -1,0 +1,5 @@
+@anchor{Generic-Function clim:rectanglep}
+@deffn {Generic Function} {clim:rectanglep} object
+@findex clim:rectanglep
+Protocol predicate checking for class RECTANGLE
+@end deffn

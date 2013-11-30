@@ -1,0 +1,5 @@
+@anchor{Generic-Function clim:command-table-p}
+@deffn {Generic Function} {clim:command-table-p} object
+@findex clim:command-table-p
+Protocol predicate checking for class COMMAND-TABLE
+@end deffn

@@ -1,0 +1,7 @@
+@anchor{Generic-Function clim:immediate-rescan}
+@deffn {Generic Function} {clim:immediate-rescan} stream
+@findex clim:immediate-rescan
+Invokes a rescan operation immediately by
+"throwing" out to the most recent invocation of
+@code{with-input-editing}.
+@end deffn

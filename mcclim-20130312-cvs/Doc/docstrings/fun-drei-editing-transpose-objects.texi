@@ -1,0 +1,5 @@
+@anchor{Function drei-editing:transpose-objects}
+@deffn {Function} {drei-editing:transpose-objects} mark
+@findex drei-editing:transpose-objects
+Transpose two objects at @code{mark}.
+@end deffn

@@ -1,0 +1,7 @@
+@anchor{Class clim:command-table}
+@deftp {Class} {clim:command-table}
+@tindex clim:command-table
+Class precedence list: @code{@w{command-table}, @w{standard-object}, @w{slot-object}, @w{t}}
+
+CLIM protocol class
+@end deftp

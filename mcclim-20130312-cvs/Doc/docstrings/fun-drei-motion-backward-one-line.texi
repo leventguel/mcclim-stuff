@@ -1,0 +1,6 @@
+@anchor{Generic-Function drei-motion:backward-one-line}
+@deffn {Generic Function} {drei-motion:backward-one-line} mark syntax
+@findex drei-motion:backward-one-line
+Move @code{mark} backward to the previous line, preserving column.
+Return @code{t} if successful, or NIL if the buffer limit was reached.
+@end deffn

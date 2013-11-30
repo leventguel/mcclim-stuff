@@ -1,0 +1,7 @@
+@anchor{Generic-Function drei:point-of}
+@deffn {Generic Function} {drei:point-of} object
+@findex drei:point-of
+Return the mark object that is the point of
+@code{object}. Some objects have their own points, for example Drei
+buffer-views and buffers.
+@end deffn

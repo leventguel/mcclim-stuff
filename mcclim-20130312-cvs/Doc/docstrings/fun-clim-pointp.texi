@@ -1,0 +1,5 @@
+@anchor{Generic-Function clim:pointp}
+@deffn {Generic Function} {clim:pointp} object
+@findex clim:pointp
+Protocol predicate checking for class POINT
+@end deffn

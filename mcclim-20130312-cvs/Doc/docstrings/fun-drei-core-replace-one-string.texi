@@ -1,0 +1,6 @@
+@anchor{Function drei-core:replace-one-string}
+@deffn {Function} {drei-core:replace-one-string} mark length newstring &optional use-region-case
+@findex drei-core:replace-one-string
+Replace @code{length} objects at @code{mark} with @code{newstring},
+using the case of those objects if @code{use-region-case} is true.
+@end deffn

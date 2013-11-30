@@ -1,0 +1,8 @@
+@anchor{Generic-Function clim:stream-process-gesture}
+@deffn {Generic Function} {clim:stream-process-gesture} stream gesture type
+@findex clim:stream-process-gesture
+If gesture is an input editing command,
+stream-process-gesture performs the input editing operation on
+the input editing stream stream and returns NIL. Otherwise, it
+returns the two values gesture and type.
+@end deffn

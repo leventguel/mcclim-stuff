@@ -1,0 +1,7 @@
+@anchor{Generic-Function clim:stream-element-type}
+@deffn {Generic Function} {clim:stream-element-type} stream
+@findex clim:stream-element-type
+Return a type specifier for the kind of object returned by the
+  STREAM. The class @code{fundamental-character-stream} provides a default method
+  which returns @code{character}.
+@end deffn

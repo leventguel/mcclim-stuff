@@ -1,0 +1,5 @@
+@anchor{Generic-Function drei-editing:forward-delete-expression}
+@deffn {Generic Function} {drei-editing:forward-delete-expression} mark syntax &optional count limit-action
+@findex drei-editing:forward-delete-expression
+Delete @code{count} expressions beginning from @code{mark}.
+@end deffn

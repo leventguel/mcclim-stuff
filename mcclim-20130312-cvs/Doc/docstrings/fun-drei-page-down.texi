@@ -1,0 +1,6 @@
+@anchor{Generic-Function drei:page-down}
+@deffn {Generic Function} {drei:page-down} pane view
+@findex drei:page-down
+Scroll @code{view}, which is displayed on @code{pane}, a
+page up.
+@end deffn

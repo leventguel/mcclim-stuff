@@ -1,0 +1,5 @@
+@anchor{Generic-Function drei-editing:transpose-sentences}
+@deffn {Generic Function} {drei-editing:transpose-sentences} mark syntax
+@findex drei-editing:transpose-sentences
+Transpose two sentences at @code{mark}.
+@end deffn

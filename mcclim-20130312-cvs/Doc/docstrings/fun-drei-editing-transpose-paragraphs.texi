@@ -1,0 +1,5 @@
+@anchor{Generic-Function drei-editing:transpose-paragraphs}
+@deffn {Generic Function} {drei-editing:transpose-paragraphs} mark syntax
+@findex drei-editing:transpose-paragraphs
+Transpose two paragraphs at @code{mark}.
+@end deffn

@@ -1,0 +1,18 @@
+@anchor{Class drei:drei-input-editing-mixin}
+@deftp {Class} {drei:drei-input-editing-mixin}
+@tindex drei:drei-input-editing-mixin
+Class precedence list: @code{@w{drei-input-editing-mixin}, @w{standard-object}, @w{slot-object}, @w{t}}
+
+Slots:
+@itemize
+@item @code{%input-buffer-array} 
+
+After a command has been
+executed, the contents of the Drei area instance shall be
+replaced by the contents of this array, if non-NIL.
+@end itemize
+
+An mixin that helps in implementing Drei-based
+input-editing streams. This class should not be directly
+instantiated.
+@end deftp

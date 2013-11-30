@@ -1,0 +1,8 @@
+@anchor{Variable clim:*completion-gestures*}
+@defvr {Variable} {clim:*completion-gestures*}
+@vindex clim:*completion-gestures*
+A list of the gesture names that cause @code{complete-input} to
+complete the user's input as fully as possible. The exact global
+contents of this list is unspecified, but must include the
+:complete gesture name.
+@end defvr

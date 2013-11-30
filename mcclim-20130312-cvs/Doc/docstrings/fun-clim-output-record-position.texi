@@ -1,0 +1,8 @@
+@anchor{Generic-Function clim:output-record-position}
+@deffn {Generic Function} {clim:output-record-position} record
+@findex clim:output-record-position
+Returns the x and y position of RECORD. The position is the
+position of the upper-left corner of its bounding rectangle. The
+position is relative to the stream, where (0,0) is (initially) the
+upper-left corner of the stream.
+@end deffn

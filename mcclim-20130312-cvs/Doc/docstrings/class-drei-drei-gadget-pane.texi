@@ -1,0 +1,16 @@
+@anchor{Class drei:drei-gadget-pane}
+@deftp {Class} {drei:drei-gadget-pane}
+@tindex drei:drei-gadget-pane
+Class precedence list: @code{@w{drei-gadget-pane}, @w{drei-pane}, @w{drei}, @w{application-pane}, @w{cut-and-paste-mixin}, @w{mouse-wheel-scroll-mixin}, @w{clim-stream-pane}, @w{value-gadget}, @w{action-gadget}, @w{basic-gadget}, @w{permanent-medium-sheet-output-mixin}, @w{sheet-with-medium-mixin}, @w{standard-extended-input-stream}, @w{extended-input-stream}, @w{fundamental-character-input-stream}, @w{fundamental-input-stream}, @w{standard-extended-output-stream}, @w{extended-output-stream}, @w{standard-output-stream}, @w{fundamental-character-output-stream}, @w{fundamental-output-stream}, @w{fundamental-character-stream}, @w{fundamental-stream}, @w{standard-output-recording-stream}, @w{output-recording-stream}, @w{sheet-multiple-child-mixin}, @w{basic-pane}, @w{sheet-parent-mixin}, @w{mirrored-sheet-mixin}, @w{gadget}, @w{pane}, @w{standard-repainting-mixin}, @w{standard-sheet-input-mixin}, @w{sheet-transformation-mixin}, @w{basic-sheet}, @w{sheet}, @w{bounding-rectangle}, @w{asynchronous-command-processor}, @w{dead-key-merging-command-processor}, @w{command-processor}, @w{instant-macro-execution-mixin}, @w{standard-object}, @w{slot-object}, @w{stream}, @w{t}}
+
+Slots:
+@itemize
+@item @code{%previous-focus} 
+
+The pane that previously had
+keyboard focus
+@end itemize
+
+An actual, instantiable Drei gadget with
+ event-based command processing.
+@end deftp

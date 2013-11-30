@@ -1,0 +1,9 @@
+@anchor{Macro drei-base:as-region}
+@deffn {Macro} {drei-base:as-region} (mark1 mark2) &body body
+@findex drei-base:as-region
+Rebind @code{mark1} and @code{mark2} to be a proper region. That
+is, (mark>= mark2 mark1) will hold. @code{mark1} and @code{mark2} must be
+symbols bound to marks or integers (but they must be of the same
+type). It is a good idea to use this macro when dealing with
+regions.
+@end deffn

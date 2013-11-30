@@ -1,0 +1,7 @@
+@anchor{Function drei:require-minibuffer}
+@deffn {Function} {drei:require-minibuffer} &optional drei-instance
+@findex drei:require-minibuffer
+Check that the provided Drei instance (defaulting to the one
+currently running) has an available minibuffer. If not, signal an
+error of type @code{no-available-minibuffer}.
+@end deffn

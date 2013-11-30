@@ -1,0 +1,7 @@
+@anchor{Generic-Function drei-core:preceding-targets-p}
+@deffn {Generic Function} {drei-core:preceding-targets-p} target-specification
+@findex drei-core:preceding-targets-p
+Return true if there are targets to act on in
+sequence before the current target, that is, if the
+@code{previous-target} function would not signal an error.
+@end deffn

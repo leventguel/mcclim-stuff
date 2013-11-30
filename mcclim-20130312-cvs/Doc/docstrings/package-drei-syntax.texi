@@ -1,0 +1,6 @@
+@anchor{Package drei-syntax}
+@defvr {Package} {drei-syntax}
+The syntax protocol. Contains functions that
+  can be used to implement higher-level operations on buffer
+  contents.
+@end defvr

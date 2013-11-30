@@ -1,0 +1,7 @@
+@anchor{Generic-Function drei-motion:forward-one-expression}
+@deffn {Generic Function} {drei-motion:forward-one-expression} mark syntax
+@findex drei-motion:forward-one-expression
+Move @code{mark} forward over the next expression.
+Return @code{t} if successful, or NIL if the buffer limit or the end of the
+  enclosing expression was reached.
+@end deffn

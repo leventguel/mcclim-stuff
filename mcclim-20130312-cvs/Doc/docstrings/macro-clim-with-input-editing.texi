@@ -1,0 +1,30 @@
+@anchor{Macro clim:with-input-editing}
+@deffn {Macro} {clim:with-input-editing} (&optional stream &rest args &key input-sensitizer initial-contents class) &body body
+@findex clim:with-input-editing
+Establishes a context in which the user can edit the input
+typed in on the interactive stream stream. Body is then
+executed in this context, and the values returned by body are
+returned as the values of @code{with-input-editing}. Body may have
+zero or more declarations as its first forms.
+
+The stream argument is not evaluated, and must be a symbol that
+is bound to an input stream. If stream is @code{t} (the default),
+*standard-input* is used. If stream is a stream that is not an
+interactive stream, then @code{with-input-editing} is equivalent to
+progn.
+
+input-sensitizer, if supplied, is a function of two arguments,
+a stream and a continuation function; the function has dynamic
+extent. The continuation, supplied by CLIM, is responsible for
+displaying output corresponding to the user's input on the
+stream. The input-sensitizer function will typically call
+@code{with-output-as-presentation} in order to make the output
+produced by the continuation sensitive.
+
+If initial-contents is supplied, it must be either a string or
+a list of two elements, an object and a presentation type. If it
+is a string, the string will be inserted into the input buffer
+using @code{replace-input}. If it is a list, the printed
+representation of the object will be inserted into the input
+buffer using @code{presentation-replace-input}.
+@end deffn

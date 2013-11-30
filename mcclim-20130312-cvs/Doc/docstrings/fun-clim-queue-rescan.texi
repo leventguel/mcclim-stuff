@@ -1,0 +1,8 @@
+@anchor{Generic-Function clim:queue-rescan}
+@deffn {Generic Function} {clim:queue-rescan} stream
+@findex clim:queue-rescan
+Indicates that a rescan operation on the input
+editing stream stream should take place after the next
+non-input editing gesture is read by setting the "rescan
+queued" flag to true. 
+@end deffn

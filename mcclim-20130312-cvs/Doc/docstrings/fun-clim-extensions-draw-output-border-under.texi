@@ -1,0 +1,6 @@
+@anchor{Generic-Function clim-extensions:draw-output-border-under}
+@deffn {Generic Function} {clim-extensions:draw-output-border-under} shape stream record &rest drawing-options &key circle min-radius min-radius-x min-radius-y radius radius-x radius-y radius-left radius-right radius-top radius-bottom outline-ink background ink filled padding padding-x padding-y padding-left padding-right padding-top padding-bottom shadow shadow-offset line-thickness &allow-other-keys
+@findex clim-extensions:draw-output-border-under
+Draws the portion of border shape which is visible underneath the surrounded
+    output
+@end deffn

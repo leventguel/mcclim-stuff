@@ -1,0 +1,6 @@
+@anchor{Generic-Function clim-extensions:draw-output-border-over}
+@deffn {Generic Function} {clim-extensions:draw-output-border-over} shape stream record &rest drawing-options &allow-other-keys
+@findex clim-extensions:draw-output-border-over
+Draws the portion of border shape which is visible above the surrounded
+    output
+@end deffn

@@ -1,0 +1,5 @@
+@anchor{Generic-Function (setf clim:output-record-parent)}
+@deffn {Generic Function} {(setf clim:output-record-parent)} parent record
+@findex (setf clim:output-record-parent)
+Non-standard function.
+@end deffn

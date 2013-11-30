@@ -1,0 +1,6 @@
+@anchor{Function drei-base:just-n-spaces}
+@deffn {Function} {drei-base:just-n-spaces} mark1 n
+@findex drei-base:just-n-spaces
+Remove all spaces around @code{mark}, leaving behind @code{n}
+spaces. @code{mark} will be moved to after any spaces inserted.
+@end deffn

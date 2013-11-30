@@ -1,0 +1,5 @@
+@anchor{Variable drei:*string-drawing-options*}
+@defvr {Variable} {drei:*string-drawing-options*}
+@vindex drei:*string-drawing-options*
+The drawing options used for syntax-highlighting strings.
+@end defvr

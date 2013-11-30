@@ -1,0 +1,5 @@
+@anchor{Function esa:com-extended-command}
+@deffn {Function} {esa:com-extended-command}
+@findex esa:com-extended-command
+Prompt for a command name and arguments, then run it.
+@end deffn

@@ -1,0 +1,5 @@
+@anchor{Generic-Function drei-motion:backward-page}
+@deffn {Generic Function} {drei-motion:backward-page} mark syntax &optional count limit-action
+@findex drei-motion:backward-page
+Move @code{mark} backward by @code{count} pages.
+@end deffn

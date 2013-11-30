@@ -1,0 +1,8 @@
+@anchor{Method drei:synchronize-view ((view drei-syntax-view) &key (begin 0)
+                       (end (size (buffer view))) force-p)}
+@deffn {Method} {drei:synchronize-view} (view drei-syntax-view) &key (begin 0) (end (size (buffer view))) force-p
+Synchronize the syntax view with the underlying
+buffer. @code{begin} and @code{end} are offsets specifying the region of
+the buffer that must be synchronised, defaulting to 0 and the
+size of the buffer respectively.
+@end deffn

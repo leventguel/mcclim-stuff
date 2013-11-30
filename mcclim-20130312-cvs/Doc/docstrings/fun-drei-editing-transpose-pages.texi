@@ -1,0 +1,5 @@
+@anchor{Generic-Function drei-editing:transpose-pages}
+@deffn {Generic Function} {drei-editing:transpose-pages} mark syntax
+@findex drei-editing:transpose-pages
+Transpose two pages at @code{mark}.
+@end deffn

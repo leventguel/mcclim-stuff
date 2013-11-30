@@ -1,0 +1,5 @@
+@anchor{Generic-Function clim:text-style-p}
+@deffn {Generic Function} {clim:text-style-p} object
+@findex clim:text-style-p
+Protocol predicate checking for class TEXT-STYLE
+@end deffn

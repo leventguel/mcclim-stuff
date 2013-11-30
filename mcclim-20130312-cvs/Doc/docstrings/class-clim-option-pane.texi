@@ -1,0 +1,10 @@
+@anchor{Class clim:option-pane}
+@deftp {Class} {clim:option-pane}
+@tindex clim:option-pane
+Class precedence list: @code{@w{option-pane}, @w{value-gadget}, @w{basic-gadget}, @w{permanent-medium-sheet-output-mixin}, @w{sheet-with-medium-mixin}, @w{basic-pane}, @w{sheet-parent-mixin}, @w{mirrored-sheet-mixin}, @w{gadget}, @w{pane}, @w{standard-repainting-mixin}, @w{standard-sheet-input-mixin}, @w{sheet-transformation-mixin}, @w{basic-sheet}, @w{sheet}, @w{bounding-rectangle}, @w{standard-object}, @w{slot-object}, @w{t}}
+
+The instantiable class that implements an abstract option pane, that is, a
+    gadget whose semantics are identical to a list pane, but whose visual
+    appearance is a single push button which, when pressed, pops up a menu of
+    selections.
+@end deftp

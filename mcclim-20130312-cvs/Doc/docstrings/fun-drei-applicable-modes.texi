@@ -1,0 +1,6 @@
+@anchor{Function drei:applicable-modes}
+@deffn {Function} {drei:applicable-modes} drei
+@findex drei:applicable-modes
+Return a list of the names of all modes applicable for
+@code{drei}.
+@end deffn

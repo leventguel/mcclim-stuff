@@ -1,0 +1,6 @@
+@anchor{Function drei:line-containing-offset}
+@deffn {Function} {drei:line-containing-offset} view mark-or-offset
+@findex drei:line-containing-offset
+Return the line @code{mark-or-offset} is in for @code{view}. @code{view}
+must be a @code{drei-buffer-view}.
+@end deffn

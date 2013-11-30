@@ -1,0 +1,11 @@
+@anchor{Macro clim:with-input-editor-typeout}
+@deffn {Macro} {clim:with-input-editor-typeout} (&optional stream &rest args &key erase) &body body
+@findex clim:with-input-editor-typeout
+Clear space above the input-editing stream stream and
+evaluate body, capturing output done to stream. Place will be
+obtained above the input-editing area and the output put
+there. Nothing will be displayed until body finishes. Stream
+is not evaluated and must be a symbol. If @code{t} (the default),
+*standard-input* will be used. Stream will be bound to an
+@code{extended-output-stream} while body is being evaluated.
+@end deffn

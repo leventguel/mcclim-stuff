@@ -1,0 +1,10 @@
+@anchor{Generic-Function clim:stream-read-char-no-hang}
+@deffn {Generic Function} {clim:stream-read-char-no-hang} stream
+@findex clim:stream-read-char-no-hang
+This is used to implement READ-CHAR-NO-HANG. It returns either a
+  character, or NIL if no input is currently available, or :EOF if
+  end-of-file is reached. The default method provided by
+  @code{fundamental-character-input-stream} simply calls @code{stream-read-char}; this
+  is sufficient for file streams, but interactive streams should define
+  their own method.
+@end deffn

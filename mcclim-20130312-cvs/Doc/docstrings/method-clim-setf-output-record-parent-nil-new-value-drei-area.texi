@@ -1,0 +1,5 @@
+@anchor{Method (setf clim:output-record-parent) (new-value (drei-area drei-area))}
+@deffn {Method} {(setf clim:output-record-parent)} new-value (drei-area drei-area)
+The parent output
+record of the Drei area instance.
+@end deffn

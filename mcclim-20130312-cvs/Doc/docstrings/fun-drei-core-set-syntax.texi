@@ -1,0 +1,7 @@
+@anchor{Generic-Function drei-core:set-syntax}
+@deffn {Generic Function} {drei-core:set-syntax} view syntax
+@findex drei-core:set-syntax
+Set the syntax for the provided view to the
+specified syntax. @code{syntax} may be a string containing the name of
+a known syntax.
+@end deffn

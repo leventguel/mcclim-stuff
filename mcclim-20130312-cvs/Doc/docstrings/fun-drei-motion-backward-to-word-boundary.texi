@@ -1,0 +1,5 @@
+@anchor{Function drei-motion:backward-to-word-boundary}
+@deffn {Function} {drei-motion:backward-to-word-boundary} mark syntax
+@findex drei-motion:backward-to-word-boundary
+Move the mark backward to the end of the previous word.
+@end deffn

@@ -1,0 +1,9 @@
+@anchor{Class drei-buffer:delegating-buffer}
+@deftp {Class} {drei-buffer:delegating-buffer}
+@tindex drei-buffer:delegating-buffer
+Class precedence list: @code{@w{delegating-buffer}, @w{buffer}, @w{standard-object}, @w{slot-object}, @w{t}}
+
+Buffer class that delegates the buffer
+protocol functionality to a buffer implementation object stored
+in the @code{implementation} slot.
+@end deftp

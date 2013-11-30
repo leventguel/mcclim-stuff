@@ -1,0 +1,4 @@
+@anchor{Method clim:output-record-parent ((basic-output-record basic-output-record))}
+@deffn {Method} {clim:output-record-parent} (basic-output-record basic-output-record)
+automatically generated reader method
+@end deffn

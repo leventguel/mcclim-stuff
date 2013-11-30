@@ -1,0 +1,5 @@
+@anchor{Function esa:com-where-is}
+@deffn {Function} {esa:com-where-is}
+@findex esa:com-where-is
+Prompt for a command name and show the key that invokes it.
+@end deffn

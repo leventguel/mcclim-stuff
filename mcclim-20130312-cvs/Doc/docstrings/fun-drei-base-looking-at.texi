@@ -1,0 +1,5 @@
+@anchor{Function drei-base:looking-at}
+@deffn {Function} {drei-base:looking-at} mark vector &key test
+@findex drei-base:looking-at
+return true if and only if @code{buffer} contains @code{vector} after MARK
+@end deffn

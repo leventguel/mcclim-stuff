@@ -1,0 +1,7 @@
+@anchor{Class drei:point}
+@deftp {Class} {drei:point}
+@tindex drei:point
+Class precedence list: @code{@w{point}, @w{region}, @w{design}, @w{bounding-rectangle}, @w{standard-object}, @w{slot-object}, @w{t}}
+
+CLIM protocol class
+@end deftp

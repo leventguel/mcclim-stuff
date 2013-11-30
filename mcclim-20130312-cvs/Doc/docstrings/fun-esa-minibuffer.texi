@@ -1,0 +1,6 @@
+@anchor{Generic-Function esa:minibuffer}
+@deffn {Generic Function} {esa:minibuffer} application-frame
+@findex esa:minibuffer
+Return the minibuffer of
+  @code{application-frame}.
+@end deffn

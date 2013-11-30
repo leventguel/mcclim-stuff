@@ -1,0 +1,12 @@
+@anchor{Condition clim:simple-parse-error}
+@deftp {Condition} {clim:simple-parse-error}
+@tindex clim:simple-parse-error
+Class precedence list: @code{@w{simple-parse-error}, @w{simple-condition}, @w{parse-error}, @w{error}, @w{serious-condition}, @w{condition}, @w{slot-object}, @w{t}}
+
+The error that is signalled by
+@code{simple-parse-error}. This is a subclass of parse-error.
+
+This condition handles two initargs, :format-string and
+:format-arguments, which are used to specify a control string
+and arguments for a call to format.
+@end deftp

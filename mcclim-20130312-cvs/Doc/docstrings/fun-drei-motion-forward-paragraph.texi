@@ -1,0 +1,5 @@
+@anchor{Generic-Function drei-motion:forward-paragraph}
+@deffn {Generic Function} {drei-motion:forward-paragraph} mark syntax &optional count limit-action
+@findex drei-motion:forward-paragraph
+Move @code{mark} forward by @code{count} paragraphs.
+@end deffn

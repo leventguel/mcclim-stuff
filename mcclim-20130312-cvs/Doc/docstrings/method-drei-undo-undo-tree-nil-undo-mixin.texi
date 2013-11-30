@@ -1,0 +1,4 @@
+@anchor{Method drei-undo:undo-tree ((undo-mixin undo-mixin))}
+@deffn {Method} {drei-undo:undo-tree} (undo-mixin undo-mixin)
+Returns the undo-tree of the buffer.
+@end deffn

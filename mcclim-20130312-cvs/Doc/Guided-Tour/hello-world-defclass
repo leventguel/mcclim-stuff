@@ -1,0 +1,2 @@
+(defclass hello-world-pane
+  (clim-stream-pane) ())

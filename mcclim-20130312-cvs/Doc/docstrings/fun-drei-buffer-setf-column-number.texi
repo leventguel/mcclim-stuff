@@ -1,0 +1,8 @@
+@anchor{Generic-Function (setf drei-buffer:column-number)}
+@deffn {Generic Function} {(setf drei-buffer:column-number)} number mark
+@findex (setf drei-buffer:column-number)
+Set the column number of the mark, return the
+  column number. Note that if @code{number} is larger than the length
+  of the line @code{mark} is in, @code{mark} will be moved to end of
+  line.
+@end deffn

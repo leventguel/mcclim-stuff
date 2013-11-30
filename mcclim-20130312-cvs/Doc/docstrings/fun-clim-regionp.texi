@@ -1,0 +1,5 @@
+@anchor{Generic-Function clim:regionp}
+@deffn {Generic Function} {clim:regionp} object
+@findex clim:regionp
+Protocol predicate checking for class REGION
+@end deffn

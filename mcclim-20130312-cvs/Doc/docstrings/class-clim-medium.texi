@@ -1,0 +1,7 @@
+@anchor{Class clim:medium}
+@deftp {Class} {clim:medium}
+@tindex clim:medium
+Class precedence list: @code{@w{medium}, @w{standard-object}, @w{slot-object}, @w{t}}
+
+CLIM protocol class
+@end deftp

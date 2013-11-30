@@ -1,0 +1,52 @@
+(defmethod handle-event ((pane draw-pane) (event pointer-button-press-event))
+  ;; Start line tracking when left pointer button is pressed
+  (when (eql (pointer-event-button event) +pointer-left-button+)
+    (track-line-drawing pane
+			(pointer-event-x event)
+			(pointer-event-y event))))
+
+(defmethod handle-event ((pane draw-pane) (event key-press-event))
+  (when (keyboard-event-character event)
+    (multiple-value-bind (x y) (stream-pointer-position pane)
+      ;; Start with empty string, as a key release event will be received anyway
+      (track-text-drawing pane "" x y))) 
+  (update-draw-pane))
+
+(defun track-line-drawing (pane startx starty)
+  (let ((lastx startx)
+	(lasty starty))
+    (with-drawing-options (pane :ink +flipping-ink+)
+      (draw-line* pane startx starty lastx lasty)
+      (tracking-pointer (pane)
+	(:pointer-motion (&key window x y)
+	  (draw-line* pane startx starty lastx lasty)   ; delete old
+	  (draw-line* pane startx starty x y)           ; draw new
+	  (setq lastx x lasty y))
+	(:pointer-button-release (&key event x y)
+	  (when (eql (pointer-event-button event) +pointer-left-button+)
+	    (draw-line* pane startx starty lastx lasty)
+	    (execute-frame-command *application-frame*
+	      `(com-draw-add-line ,startx ,starty ,x ,y))
+	    (return-from track-line-drawing nil)))))))
+
+(defun track-text-drawing (pane current-string current-x current-y)
+  (tracking-pointer (pane)
+    (:pointer-motion (&key window x y)
+      ;; We can't use flipping ink for text, hence redraw.
+      (handle-repaint pane +everywhere+)    
+      (setq current-x x current-y y)
+      (draw-text* pane current-string x y))
+    (:keyboard (&key gesture)
+      (when (and (typep gesture 'key-release-event)
+		 (keyboard-event-character gesture))
+	(setf current-string
+	      (concatenate 'string
+			   current-string
+			   (string (keyboard-event-character gesture))))
+	(handle-repaint pane +everywhere+)
+	(draw-text* pane current-string current-x current-y)))
+    (:pointer-button-release (&key event x y)
+      (when (eql (pointer-event-button event) +pointer-left-button+)
+	(execute-frame-command *application-frame*
+	  `(com-draw-add-string ,current-string ,x ,y))
+	(return-from track-text-drawing nil)))))

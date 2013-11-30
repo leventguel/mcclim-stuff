@@ -1,0 +1,9 @@
+@anchor{Class drei-buffer:obinseq-buffer}
+@deftp {Class} {drei-buffer:obinseq-buffer}
+@tindex drei-buffer:obinseq-buffer
+Class precedence list: @code{@w{obinseq-buffer}, @w{persistent-buffer}, @w{buffer}, @w{standard-object}, @w{slot-object}, @w{t}}
+
+An instantiable subclass of @code{persistent-buffer} that
+uses an optimized binary sequence (only non-nil atoms are allowed as
+elements) for the @code{contents} slot.
+@end deftp

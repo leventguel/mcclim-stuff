@@ -1,0 +1,5 @@
+@anchor{Variable drei-core:*killed-rectangle*}
+@defvr {Variable} {drei-core:*killed-rectangle*}
+@vindex drei-core:*killed-rectangle*
+The killed rectangle as a list of lines.
+@end defvr

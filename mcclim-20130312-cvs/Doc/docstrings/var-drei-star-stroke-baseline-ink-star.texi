@@ -1,0 +1,6 @@
+@anchor{Variable drei:*stroke-baseline-ink*}
+@defvr {Variable} {drei:*stroke-baseline-ink*}
+@vindex drei:*stroke-baseline-ink*
+The ink with which stroke baselines will be highlighted when
+`*highlight-strokes* is true.
+@end defvr

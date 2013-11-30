@@ -1,0 +1,7 @@
+@anchor{Class clim:fundamental-binary-stream}
+@deftp {Class} {clim:fundamental-binary-stream}
+@tindex clim:fundamental-binary-stream
+Class precedence list: @code{@w{fundamental-binary-stream}, @w{fundamental-stream}, @w{standard-object}, @w{slot-object}, @w{stream}, @w{t}}
+
+a superclass of all Gray streams whose element-type is a subtype of unsigned-byte or signed-byte
+@end deftp

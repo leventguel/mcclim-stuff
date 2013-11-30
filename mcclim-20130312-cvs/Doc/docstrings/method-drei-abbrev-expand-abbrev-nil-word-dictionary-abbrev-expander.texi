@@ -1,0 +1,6 @@
+@anchor{Method drei-abbrev:expand-abbrev (word (expander dictionary-abbrev-expander))}
+@deffn {Method} {drei-abbrev:expand-abbrev} word (expander dictionary-abbrev-expander)
+Expands an abbrevated word by attempting to assocate it with a member of
+an abbreviation dictionary.  If such an association is found, an uppercase,
+expanded version of the abbrevation is returned.
+@end deffn

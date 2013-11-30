@@ -1,0 +1,5 @@
+@anchor{Method drei-buffer:buffer ((lexer lexer))}
+@deffn {Method} {drei-buffer:buffer} (lexer lexer)
+The buffer associated with the
+lexer.
+@end deffn

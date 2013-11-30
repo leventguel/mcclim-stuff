@@ -1,0 +1,17 @@
+@anchor{Macro clim:with-activation-gestures}
+@deffn {Macro} {clim:with-activation-gestures} (gestures &key override) &body body
+@findex clim:with-activation-gestures
+Specifies a list of gestures that terminate input during the
+execution of body. Body may have zero or more declarations as
+its first forms. Gestures must be either a single gesture name
+or a form that evaluates to a list of gesture names.
+
+If the boolean override is true, then gestures will override
+the current activation gestures. If it is false (the default),
+then gestures will be added to the existing set of activation
+gestures. @code{with-activation-gestures} must bind
+@code{*activation-gestures*} to the new set of activation gestures.
+
+See also the :activation-gestures and
+:additional-activation-gestures options to @code{accept}.
+@end deffn

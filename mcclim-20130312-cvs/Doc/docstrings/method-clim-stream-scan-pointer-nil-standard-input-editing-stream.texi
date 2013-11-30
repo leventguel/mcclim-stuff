@@ -1,0 +1,5 @@
+@anchor{Method clim:stream-scan-pointer ((standard-input-editing-stream
+                           standard-input-editing-stream))}
+@deffn {Method} {clim:stream-scan-pointer} (standard-input-editing-stream standard-input-editing-stream)
+automatically generated reader method
+@end deffn

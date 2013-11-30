@@ -1,0 +1,10 @@
+@anchor{Generic-Function clim-extensions:invoke-with-output-to-pointer-documentation}
+@deffn {Generic Function} {clim-extensions:invoke-with-output-to-pointer-documentation} frame continuation
+@findex clim-extensions:invoke-with-output-to-pointer-documentation
+Invoke continuation with a single argument -
+a stream that the continuation can write to, the output of which
+will be used as the background message of the pointer
+documentation pane of frame. If the pointer-documentation of
+frame is not a pointer-documentation-pane, continuation
+will not be called.
+@end deffn

@@ -1,0 +1,5 @@
+@anchor{Method clim:stream-insertion-pointer ((string-input-editing-stream
+                                string-input-editing-stream))}
+@deffn {Method} {clim:stream-insertion-pointer} (string-input-editing-stream string-input-editing-stream)
+This is not used for anything at any point.
+@end deffn

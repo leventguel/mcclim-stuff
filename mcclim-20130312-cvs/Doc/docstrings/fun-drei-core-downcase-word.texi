@@ -1,0 +1,5 @@
+@anchor{Function drei-core:downcase-word}
+@deffn {Function} {drei-core:downcase-word} mark syntax &optional n
+@findex drei-core:downcase-word
+Convert the next @code{n} words to lowercase, leaving mark after the last word.
+@end deffn

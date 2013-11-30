@@ -1,0 +1,8 @@
+@anchor{Generic-Function clim:map-over-row-cells}
+@deffn {Generic Function} {clim:map-over-row-cells} function row-record
+@findex clim:map-over-row-cells
+Applies FUNCTION to all the cells in the row
+ROW-RECORD, skipping intervening non-table output record structures.
+FUNCTION is a function of one argument, an output record corresponding
+to a table cell within the row.
+@end deffn

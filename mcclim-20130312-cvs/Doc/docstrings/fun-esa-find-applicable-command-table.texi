@@ -1,0 +1,6 @@
+@anchor{Generic-Function esa:find-applicable-command-table}
+@deffn {Generic Function} {esa:find-applicable-command-table} frame
+@findex esa:find-applicable-command-table
+Return the command table object that commands
+on @code{frame} should be found in.
+@end deffn

@@ -1,0 +1,9 @@
+@anchor{Function drei-core:fill-line}
+@deffn {Function} {drei-core:fill-line} mark line-indentation-function fill-column tab-width syntax &optional compress-whitespaces
+@findex drei-core:fill-line
+Breaks the contents of line pointed to by @code{mark} up to @code{mark} into
+multiple lines such that none of them is longer than @code{fill-column}. If
+COMPRESS-WHITESPACES is non-nil, whitespaces are compressed after the
+decision is made to break the line at a point. For now, the
+compression means just the deletion of trailing whitespaces.
+@end deffn

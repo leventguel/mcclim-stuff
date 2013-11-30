@@ -1,0 +1,10 @@
+@anchor{Structure drei:face}
+@deftp {Structure} {drei:face}
+@tindex drei:face
+Class precedence list: @code{@w{face}, @w{structure-object}, @w{slot-object}, @w{t}}
+
+A face is a description of how to draw (primarily) text, it
+consists of an ink (a colour) and a text style. The text style
+may be incomplete, in which case it is merged with the default
+text style whenever it needs to be used.
+@end deftp

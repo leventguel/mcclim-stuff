@@ -1,0 +1,11 @@
+@anchor{Macro drei-base:as-offsets}
+@deffn {Macro} {drei-base:as-offsets} (&rest marks) &body body
+@findex drei-base:as-offsets
+Bind the symbols in @code{marks} to the numeric offsets of the mark
+objects that the symbols are bound to. If a symbol in @code{mark} is
+already bound to an offset, just keep that binding. An element of
+@code{marks} may also be a list @code{-} in this case, the second element is
+used to get an offset, and the first element (which should be a
+symbol) will be bound to this offset. Evaluate @code{body} with these
+bindings.
+@end deffn

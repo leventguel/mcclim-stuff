@@ -1,0 +1,10 @@
+@anchor{Generic-Function clim:stream-advance-to-column}
+@deffn {Generic Function} {clim:stream-advance-to-column} stream column
+@findex clim:stream-advance-to-column
+Write enough blank space so that the next character will be
+  written at the specified column. Returns true if the operation is
+  successful, or NIL if it is not supported for this stream. This is
+  intended for use by by PPRINT and FORMAT ~@code{t}. The default method uses
+  @code{stream-line-column} and repeated calls to @code{stream-write-char} with a
+  #SPACE character; it returns NIL if @code{stream-line-column} returns NIL.
+@end deffn

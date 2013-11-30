@@ -1,0 +1,5 @@
+@anchor{Generic-Function clim:sheetp}
+@deffn {Generic Function} {clim:sheetp} object
+@findex clim:sheetp
+Protocol predicate checking for class SHEET
+@end deffn

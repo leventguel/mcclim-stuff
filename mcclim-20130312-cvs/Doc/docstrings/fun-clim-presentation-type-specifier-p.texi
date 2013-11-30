@@ -1,0 +1,6 @@
+@anchor{Function clim:presentation-type-specifier-p}
+@deffn {Function} {clim:presentation-type-specifier-p} object
+@findex clim:presentation-type-specifier-p
+Return true if object is a valid presentation type specifier,
+otherwise return false.
+@end deffn

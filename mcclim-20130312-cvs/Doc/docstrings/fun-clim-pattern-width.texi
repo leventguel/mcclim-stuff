@@ -1,0 +1,5 @@
+@anchor{Generic-Function clim:pattern-width}
+@deffn {Generic Function} {clim:pattern-width} pattern
+@findex clim:pattern-width
+Return the width of pattern.
+@end deffn

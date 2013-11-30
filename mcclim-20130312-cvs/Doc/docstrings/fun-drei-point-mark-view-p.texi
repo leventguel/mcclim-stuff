@@ -1,0 +1,5 @@
+@anchor{Function drei:point-mark-view-p}
+@deffn {Function} {drei:point-mark-view-p} view
+@findex drei:point-mark-view-p
+Return true if @code{view} is a @code{point-mark-view}
+@end deffn

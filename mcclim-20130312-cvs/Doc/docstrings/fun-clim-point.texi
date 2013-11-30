@@ -1,0 +1,6 @@
+@anchor{Function clim:point}
+@deffn {Function} {clim:point} &optional object
+@findex clim:point
+Return the point of the provided object. If no object is
+provided, the current view will be used.
+@end deffn

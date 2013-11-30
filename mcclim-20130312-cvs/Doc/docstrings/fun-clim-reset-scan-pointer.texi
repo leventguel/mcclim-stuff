@@ -1,0 +1,7 @@
+@anchor{Generic-Function clim:reset-scan-pointer}
+@deffn {Generic Function} {clim:reset-scan-pointer} stream &optional scan-pointer
+@findex clim:reset-scan-pointer
+Sets the input editing stream stream's scan
+pointer to scan-pointer, and sets the state of
+@code{stream-rescanning-p} to true.
+@end deffn

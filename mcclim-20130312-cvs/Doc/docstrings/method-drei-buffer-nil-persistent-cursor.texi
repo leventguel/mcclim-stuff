@@ -1,0 +1,4 @@
+@anchor{Method drei:buffer ((persistent-cursor persistent-cursor))}
+@deffn {Method} {drei:buffer} (persistent-cursor persistent-cursor)
+automatically generated reader method
+@end deffn

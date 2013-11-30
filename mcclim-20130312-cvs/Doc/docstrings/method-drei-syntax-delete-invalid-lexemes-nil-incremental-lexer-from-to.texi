@@ -1,0 +1,5 @@
+@anchor{Method drei-syntax:delete-invalid-lexemes ((lexer incremental-lexer) from to)}
+@deffn {Method} {drei-syntax:delete-invalid-lexemes} (lexer incremental-lexer) from to
+delete all lexemes between @code{from} and @code{to} and return the first invalid 
+position in the lexemes of LEXER
+@end deffn

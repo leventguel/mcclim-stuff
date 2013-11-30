@@ -1,0 +1,5 @@
+@anchor{Generic-Function clim:elliptical-arc-p}
+@deffn {Generic Function} {clim:elliptical-arc-p} object
+@findex clim:elliptical-arc-p
+Protocol predicate checking for class ELLIPTICAL-ARC
+@end deffn

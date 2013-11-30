@@ -1,0 +1,8 @@
+@anchor{Generic-Function drei:active}
+@deffn {Generic Function} {drei:active} cursor
+@findex drei:active
+Whether the cursor is active or
+not. An active cursor is drawn using the active ink, and an
+inactive is drawn using the inactive ink. Typically, a cursor
+will be active when the associated Drei view has focus.
+@end deffn

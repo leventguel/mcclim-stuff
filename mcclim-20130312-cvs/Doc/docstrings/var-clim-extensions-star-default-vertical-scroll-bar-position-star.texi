@@ -1,0 +1,8 @@
+@anchor{Variable clim-extensions:*default-vertical-scroll-bar-position*}
+@defvr {Variable} {clim-extensions:*default-vertical-scroll-bar-position*}
+@vindex clim-extensions:*default-vertical-scroll-bar-position*
+Default for the :VERTICAL-SCROLL-BAR-POSITION init arg of a
+   SCROLLER-PANE. Set it to :LEFT to have the vertical scroll bar of a
+   SCROLLER-PANE appear on the ergonomic left hand side, or leave set to
+   :RIGHT to have it on the distant right hand side of the scroller.
+@end defvr

@@ -1,0 +1,5 @@
+@anchor{Generic-Function clim:cell-output-record-p}
+@deffn {Generic Function} {clim:cell-output-record-p} object
+@findex clim:cell-output-record-p
+Protocol predicate checking for class CELL-OUTPUT-RECORD
+@end deffn

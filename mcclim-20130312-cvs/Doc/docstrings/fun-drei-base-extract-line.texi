@@ -1,0 +1,12 @@
+@anchor{Generic-Function drei-base:extract-line}
+@deffn {Generic Function} {drei-base:extract-line} mark &key from-end whole-line
+@findex drei-base:extract-line
+Destructively remove part of a line and return
+it. The line @code{mark} is in indicates which line to perform the
+extraction on. The line contents from the beginning of the line
+up to @code{mark} will be deleted and returned as a vector. If
+@code{from-end} is true, the line contents from the end of the line to
+@code{mark} will be affected instead. If @code{whole-line} is true, the
+entire line, including any single ending newline character, will
+be deleted and returned.
+@end deffn

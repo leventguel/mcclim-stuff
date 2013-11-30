@@ -1,0 +1,4 @@
+@anchor{Method drei:point-of ((drei-buffer drei-buffer))}
+@deffn {Method} {drei:point-of} (drei-buffer drei-buffer)
+automatically generated reader method
+@end deffn

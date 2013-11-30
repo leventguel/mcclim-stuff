@@ -1,0 +1,5 @@
+@anchor{Function drei-core:upcase-word}
+@deffn {Function} {drei-core:upcase-word} mark syntax &optional n
+@findex drei-core:upcase-word
+Convert the next @code{n} words to uppercase, leaving mark after the last word.
+@end deffn

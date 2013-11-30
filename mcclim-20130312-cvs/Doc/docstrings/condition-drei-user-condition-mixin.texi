@@ -1,0 +1,10 @@
+@anchor{Condition drei:user-condition-mixin}
+@deftp {Condition} {drei:user-condition-mixin}
+@tindex drei:user-condition-mixin
+Class precedence list: @code{@w{user-condition-mixin}, @w{condition}, @w{slot-object}, @w{t}}
+
+Conditions of this type are caught by the Drei
+command loop and their report displayed to the user in the
+minibuffer, instead of being propagated further (and possibly
+invoking the debugger).
+@end deftp

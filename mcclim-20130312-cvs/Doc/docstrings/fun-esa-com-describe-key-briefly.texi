@@ -1,0 +1,5 @@
+@anchor{Function esa:com-describe-key-briefly}
+@deffn {Function} {esa:com-describe-key-briefly}
+@findex esa:com-describe-key-briefly
+Prompt for a key and show the command it invokes.
+@end deffn

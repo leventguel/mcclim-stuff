@@ -1,0 +1,5 @@
+@anchor{Variable drei:*use-tabs-for-indentation*}
+@defvr {Variable} {drei:*use-tabs-for-indentation*}
+@vindex drei:*use-tabs-for-indentation*
+If non-NIL, use tabs when indenting lines. Otherwise, use spaces.
+@end defvr

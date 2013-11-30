@@ -1,0 +1,6 @@
+@anchor{Function clim:activation-gesture-p}
+@deffn {Function} {clim:activation-gesture-p} gesture
+@findex clim:activation-gesture-p
+Returns true if the gesture object gesture is an activation
+gesture, otherwise returns false.
+@end deffn

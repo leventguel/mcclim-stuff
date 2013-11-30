@@ -1,0 +1,5 @@
+@anchor{Generic-Function drei-buffer:backward-line-end}
+@deffn {Generic Function} {drei-buffer:backward-line-end} mark syntax &optional count limit-action
+@findex drei-buffer:backward-line-end
+Move @code{mark} backward by @code{count} line-ends.
+@end deffn

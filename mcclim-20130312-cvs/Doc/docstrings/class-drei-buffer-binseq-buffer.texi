@@ -1,0 +1,8 @@
+@anchor{Class drei-buffer:binseq-buffer}
+@deftp {Class} {drei-buffer:binseq-buffer}
+@tindex drei-buffer:binseq-buffer
+Class precedence list: @code{@w{binseq-buffer}, @w{persistent-buffer}, @w{buffer}, @w{standard-object}, @w{slot-object}, @w{t}}
+
+An instantiable subclass of @code{persistent-buffer} that
+uses a binary sequence for the @code{contents} slot.
+@end deftp

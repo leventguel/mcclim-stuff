@@ -1,0 +1,7 @@
+@anchor{Class clim:fundamental-input-stream}
+@deftp {Class} {clim:fundamental-input-stream}
+@tindex clim:fundamental-input-stream
+Class precedence list: @code{@w{fundamental-input-stream}, @w{fundamental-stream}, @w{standard-object}, @w{slot-object}, @w{stream}, @w{t}}
+
+a superclass of all Gray input streams
+@end deftp

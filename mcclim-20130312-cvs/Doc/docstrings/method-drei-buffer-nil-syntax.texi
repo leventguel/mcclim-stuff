@@ -1,0 +1,4 @@
+@anchor{Method drei:buffer ((syntax syntax))}
+@deffn {Method} {drei:buffer} (syntax syntax)
+automatically generated reader method
+@end deffn

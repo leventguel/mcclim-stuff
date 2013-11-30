@@ -1,0 +1,7 @@
+@anchor{Structure drei:drawing-options}
+@deftp {Structure} {drei:drawing-options}
+@tindex drei:drawing-options
+Class precedence list: @code{@w{drawing-options}, @w{structure-object}, @w{slot-object}, @w{t}}
+
+A set of options for how to display a stroke.
+@end deftp

@@ -1,0 +1,6 @@
+@anchor{Generic-Function drei-syntax:syntax-line-comment-string}
+@deffn {Generic Function} {drei-syntax:syntax-line-comment-string} syntax
+@findex drei-syntax:syntax-line-comment-string
+string to use at the beginning of a line to 
+indicate a line comment
+@end deffn

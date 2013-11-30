@@ -1,0 +1,6 @@
+@anchor{Function clim-extensions:unsupported-bitmap-format}
+@deffn {Function} {clim-extensions:unsupported-bitmap-format} format
+@findex clim-extensions:unsupported-bitmap-format
+Signal an error of type @code{unsupported-bitmap-format} for the
+bitmap format format.
+@end deffn

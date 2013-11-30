@@ -1,0 +1,5 @@
+@anchor{Generic-Function clim:polylinep}
+@deffn {Generic Function} {clim:polylinep} object
+@findex clim:polylinep
+Protocol predicate checking for class POLYLINE
+@end deffn

@@ -1,0 +1,8 @@
+@anchor{Class drei-buffer:persistent-left-sticky-mark}
+@deftp {Class} {drei-buffer:persistent-left-sticky-mark}
+@tindex drei-buffer:persistent-left-sticky-mark
+Class precedence list: @code{@w{persistent-left-sticky-mark}, @w{left-sticky-mark}, @w{mark}, @w{p-mark-mixin}, @w{standard-object}, @w{slot-object}, @w{t}}
+
+A @code{left-sticky-mark} subclass suitable for use in a
+PERSISTENT-BUFFER.
+@end deftp

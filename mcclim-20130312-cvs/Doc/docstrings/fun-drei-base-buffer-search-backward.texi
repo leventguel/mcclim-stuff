@@ -1,0 +1,6 @@
+@anchor{Function drei-base:buffer-search-backward}
+@deffn {Function} {drei-base:buffer-search-backward} buffer offset vector &key test
+@findex drei-base:buffer-search-backward
+return the largest offset of @code{buffer} <= (@code{-} OFFSET (length @code{vector}))
+containing @code{vector} or NIL if no such offset exists
+@end deffn

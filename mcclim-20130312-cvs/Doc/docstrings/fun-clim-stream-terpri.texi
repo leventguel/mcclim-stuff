@@ -1,0 +1,6 @@
+@anchor{Generic-Function clim:stream-terpri}
+@deffn {Generic Function} {clim:stream-terpri} stream
+@findex clim:stream-terpri
+Writes an end of line, as for TERPRI. Returns NIL. The default
+  method does (@code{stream-write-char} stream #NEWLINE).
+@end deffn

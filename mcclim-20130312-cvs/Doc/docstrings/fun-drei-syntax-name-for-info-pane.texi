@@ -1,0 +1,6 @@
+@anchor{Generic-Function drei-syntax:name-for-info-pane}
+@deffn {Generic Function} {drei-syntax:name-for-info-pane} syntax &key view &allow-other-keys
+@findex drei-syntax:name-for-info-pane
+Return the name that should be used for the
+  info-pane for panes displaying a buffer in this syntax.
+@end deffn

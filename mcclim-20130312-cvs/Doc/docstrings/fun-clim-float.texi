@@ -1,0 +1,7 @@
+@anchor{Function clim:float}
+@deffn {Function} {clim:float} number &optional other
+@findex clim:float
+Converts any @code{real} to a float. If OTHER is not provided, it returns a
+  SINGLE-FLOAT if @code{number} is not already a @code{float}. If OTHER is provided, the
+  result is the same float format as OTHER.
+@end deffn

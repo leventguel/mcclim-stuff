@@ -1,0 +1,10 @@
+@anchor{Class drei-undo:standard-undo-tree}
+@deftp {Class} {drei-undo:standard-undo-tree}
+@tindex drei-undo:standard-undo-tree
+Class precedence list: @code{@w{standard-undo-tree}, @w{undo-tree}, @w{standard-object}, @w{slot-object}, @w{t}}
+
+The base class for all undo records.
+
+Client code typically derives subclasses of this class that are
+specific to the application.
+@end deftp

@@ -1,0 +1,7 @@
+@anchor{Variable drei-core:*default-target-creator*}
+@defvr {Variable} {drei-core:*default-target-creator*}
+@vindex drei-core:*default-target-creator*
+A function of a single argument, the Drei instance, that
+creates a target specification object (or subtype thereof) that
+should be used for aquiring targets.
+@end defvr

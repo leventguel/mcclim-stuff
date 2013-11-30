@@ -1,0 +1,5 @@
+@anchor{Generic-Function drei-editing:backward-kill-page}
+@deffn {Generic Function} {drei-editing:backward-kill-page} mark syntax &optional count concatenate-p limit-action
+@findex drei-editing:backward-kill-page
+Kill @code{count} pages backwards beginning from @code{mark}.
+@end deffn

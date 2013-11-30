@@ -1,0 +1,7 @@
+@anchor{Class clim:opacity}
+@deftp {Class} {clim:opacity}
+@tindex clim:opacity
+Class precedence list: @code{@w{opacity}, @w{design}, @w{standard-object}, @w{slot-object}, @w{t}}
+
+CLIM protocol class
+@end deftp

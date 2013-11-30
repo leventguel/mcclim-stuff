@@ -1,0 +1,11 @@
+@anchor{Generic-Function clim:stream-line-column}
+@deffn {Generic Function} {clim:stream-line-column} stream
+@findex clim:stream-line-column
+Return the column number where the next character
+  will be written, or NIL if that is not meaningful for this stream.
+  The first column on a line is numbered 0. This function is used in
+  the implementation of PPRINT and the FORMAT ~@code{t} directive. For every
+  character output stream class that is defined, a method must be
+  defined for this function, although it is permissible for it to
+  always return NIL.
+@end deffn

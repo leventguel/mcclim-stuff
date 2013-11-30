@@ -1,0 +1,6 @@
+@anchor{Function drei-core:fill-region}
+@deffn {Function} {drei-core:fill-region} mark1 mark2 line-indentation-function fill-column tab-width syntax &optional compress-whitespaces
+@findex drei-core:fill-region
+Fill the region delimited by @code{mark1} and @code{mark2}. @code{mark1} must be
+mark<= mark2.
+@end deffn

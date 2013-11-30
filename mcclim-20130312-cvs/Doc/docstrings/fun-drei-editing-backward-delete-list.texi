@@ -1,0 +1,5 @@
+@anchor{Generic-Function drei-editing:backward-delete-list}
+@deffn {Generic Function} {drei-editing:backward-delete-list} mark syntax &optional count limit-action
+@findex drei-editing:backward-delete-list
+Delete @code{count} lists backwards beginning from @code{mark}.
+@end deffn

@@ -1,0 +1,9 @@
+@anchor{Generic-Function drei-buffer:make-buffer-mark}
+@deffn {Generic Function} {drei-buffer:make-buffer-mark} buffer &optional offset stick-to
+@findex drei-buffer:make-buffer-mark
+Create a mark with the provided @code{offset} and
+stickyness, with the buffer of the mark being
+@code{buffer}. Instantiable buffer classes must define a method on
+this generic function. The default value for @code{offset} should be
+0, and the default value of @code{stick-to} should be :left.
+@end deffn

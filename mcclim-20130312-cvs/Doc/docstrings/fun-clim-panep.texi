@@ -1,0 +1,5 @@
+@anchor{Generic-Function clim:panep}
+@deffn {Generic Function} {clim:panep} object
+@findex clim:panep
+Protocol predicate checking for class PANE
+@end deffn

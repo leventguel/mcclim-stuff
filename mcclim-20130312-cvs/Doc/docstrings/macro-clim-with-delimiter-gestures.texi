@@ -1,0 +1,19 @@
+@anchor{Macro clim:with-delimiter-gestures}
+@deffn {Macro} {clim:with-delimiter-gestures} (gestures &key override) &body body
+@findex clim:with-delimiter-gestures
+Specifies a list of gestures that terminate an individual
+token, but not the entire input, during the execution of
+body. Body may have zero or more declarations as its first
+forms. Gestures must be either a single gesture name or a form
+that evaluates to a list of gesture names.
+
+If the boolean override is true, then gestures will override
+the current delimiter gestures. If it is false (the default),
+then gestures will be added to the existing set of delimiter
+gestures. @code{with-delimiter-gestures} must bind
+@code{*delimiter-gestures*} to the new set of delimiter
+gestures.
+
+See also the :delimiter-gestures and
+:additional-delimiter-gestures options to @code{accept}.
+@end deffn

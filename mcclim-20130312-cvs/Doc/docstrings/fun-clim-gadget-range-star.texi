@@ -1,0 +1,5 @@
+@anchor{Generic-Function clim:gadget-range*}
+@deffn {Generic Function} {clim:gadget-range*} range-gadget
+@findex clim:gadget-range*
+Returns the minimum and maximum value of RANGE-GADGET as two values.
+@end deffn

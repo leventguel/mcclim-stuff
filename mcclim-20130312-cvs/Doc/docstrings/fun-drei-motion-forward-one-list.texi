@@ -1,0 +1,6 @@
+@anchor{Generic-Function drei-motion:forward-one-list}
+@deffn {Generic Function} {drei-motion:forward-one-list} mark syntax
+@findex drei-motion:forward-one-list
+Move @code{mark} forward by one list.
+Return @code{t} if successful, or NIL if the buffer limit was reached.
+@end deffn

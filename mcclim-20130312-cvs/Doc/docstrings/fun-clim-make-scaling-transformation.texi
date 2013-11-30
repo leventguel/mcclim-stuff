@@ -1,0 +1,10 @@
+@anchor{Function clim:make-scaling-transformation}
+@deffn {Function} {clim:make-scaling-transformation} scale-x scale-y &optional origin
+@findex clim:make-scaling-transformation
+MAKE-SCALING-TRANSFORMATION returns a transformation that multiplies 
+the x-coordinate distance of every point from origin by SCALE-X and the 
+y-coordinate distance of every point from origin by SCALE-Y.  SCALE-X and 
+SCALE-Y must be real numbers.  If ORIGIN is supplied it must be a point; 
+if not supplied it defaults to (0, 0).  ORIGIN-X and ORIGIN-Y must be 
+real numbers, and default to 0.
+@end deffn

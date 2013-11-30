@@ -1,0 +1,6 @@
+@anchor{Generic-Function clim:pattern-designs}
+@deffn {Generic Function} {clim:pattern-designs} pattern
+@findex clim:pattern-designs
+Returns the array of designs associated with
+pattern.
+@end deffn

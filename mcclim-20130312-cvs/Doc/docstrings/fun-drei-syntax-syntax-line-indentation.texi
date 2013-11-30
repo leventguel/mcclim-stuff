@@ -1,0 +1,6 @@
+@anchor{Generic-Function drei-syntax:syntax-line-indentation}
+@deffn {Generic Function} {drei-syntax:syntax-line-indentation} syntax mark tab-width
+@findex drei-syntax:syntax-line-indentation
+Return the correct indentation for the line
+containing the mark, according to the specified syntax.
+@end deffn

@@ -1,0 +1,12 @@
+@anchor{Generic-Function clim:input-editor-format}
+@deffn {Generic Function} {clim:input-editor-format} stream format-string &rest args
+@findex clim:input-editor-format
+This function is like format, except that it
+is intended to be called on input editing streams. It arranges to
+insert "noise strings" in the input editor's input
+buffer. Programmers can use this to display in-line prompts in
+@code{accept} methods.
+
+If stream is a stream that is not an input editing stream, then
+@code{input-editor-format} is equivalent to format.
+@end deffn

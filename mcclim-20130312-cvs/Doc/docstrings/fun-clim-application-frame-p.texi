@@ -1,0 +1,5 @@
+@anchor{Generic-Function clim:application-frame-p}
+@deffn {Generic Function} {clim:application-frame-p} object
+@findex clim:application-frame-p
+Protocol predicate checking for class APPLICATION-FRAME
+@end deffn

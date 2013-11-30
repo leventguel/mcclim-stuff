@@ -1,0 +1,6 @@
+@anchor{Variable drei:+italic-face+}
+@defvr {Variable} {drei:+italic-face+}
+@vindex drei:+italic-face+
+A face specifying an italic style, but with unspecified
+family and size.
+@end defvr

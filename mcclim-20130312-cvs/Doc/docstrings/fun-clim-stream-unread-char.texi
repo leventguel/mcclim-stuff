@@ -1,0 +1,7 @@
+@anchor{Generic-Function clim:stream-unread-char}
+@deffn {Generic Function} {clim:stream-unread-char} stream character
+@findex clim:stream-unread-char
+Un-do the last call to @code{stream-read-char}, as in UNREAD-CHAR.
+  Return NIL. Every subclass of FUNDAMENTAL-CHARACTER-INPUT-STREAM
+  must define a method for this function.
+@end deffn

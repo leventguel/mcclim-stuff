@@ -1,0 +1,6 @@
+@anchor{Function drei-base:buffer-search-word-forward}
+@deffn {Function} {drei-base:buffer-search-word-forward} buffer offset word &key test
+@findex drei-base:buffer-search-word-forward
+Return the smallest offset of @code{buffer} >= @code{offset} containing @code{word} as a
+word or NIL if no such offset exists
+@end deffn

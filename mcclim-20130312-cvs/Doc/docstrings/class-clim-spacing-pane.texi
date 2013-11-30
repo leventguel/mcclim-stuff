@@ -1,0 +1,7 @@
+@anchor{Class clim:spacing-pane}
+@deftp {Class} {clim:spacing-pane}
+@tindex clim:spacing-pane
+Class precedence list: @code{@w{spacing-pane}, @w{sheet-single-child-mixin}, @w{basic-pane}, @w{sheet-parent-mixin}, @w{mirrored-sheet-mixin}, @w{pane}, @w{standard-repainting-mixin}, @w{standard-sheet-input-mixin}, @w{sheet-transformation-mixin}, @w{basic-sheet}, @w{sheet}, @w{bounding-rectangle}, @w{permanent-medium-sheet-output-mixin}, @w{sheet-with-medium-mixin}, @w{standard-object}, @w{slot-object}, @w{t}}
+
+Never trust a random documentation string.
+@end deftp

@@ -1,0 +1,5 @@
+@anchor{Generic-Function clim:areap}
+@deffn {Generic Function} {clim:areap} object
+@findex clim:areap
+Protocol predicate checking for class AREA
+@end deffn

@@ -1,0 +1,21 @@
+(define-draw-frame-command (com-draw-add-string :menu t :name t)
+    ((string 'string) (x 'integer) (y 'integer))
+  (push (cons (make-point x y) string)
+	(strings *application-frame*))
+  (update-draw-pane))
+
+(define-draw-frame-command (com-draw-add-line :menu t :name t)
+    ((x1 'integer) (y1 'integer) (x2 'integer) (y2 'integer))
+  (with-slots (lines) *application-frame*
+      (push (cons (make-point x1 y1) (make-point x2 y2))
+	    lines))
+  (update-draw-pane))
+
+(define-draw-frame-command (com-draw-clear :menu t :name t) ()
+  (with-slots (lines strings) *application-frame*
+    (setf lines nil strings nil))
+  (update-draw-pane))
+
+;; Auxilary Method
+(defun update-draw-pane ()
+  (repaint-sheet (find-pane-named *application-frame* 'draw-pane) +everywhere+))

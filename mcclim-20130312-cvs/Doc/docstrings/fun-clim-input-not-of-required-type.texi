@@ -1,0 +1,8 @@
+@anchor{Function clim:input-not-of-required-type}
+@deffn {Function} {clim:input-not-of-required-type} object type
+@findex clim:input-not-of-required-type
+Reports that input does not satisfy the specified type by
+signalling an @code{input-not-of-required-type} error. Object is a
+parsed object or an unparsed token (a string). Type is a
+presentation type specifier. Does not return.
+@end deffn

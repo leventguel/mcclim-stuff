@@ -1,0 +1,6 @@
+@anchor{Generic-Function drei-syntax:whitespacep}
+@deffn {Generic Function} {drei-syntax:whitespacep} syntax obj
+@findex drei-syntax:whitespacep
+Return @code{t} if @code{obj} is a whitespace character in
+  @code{syntax}.
+@end deffn

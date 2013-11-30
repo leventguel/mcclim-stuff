@@ -1,0 +1,7 @@
+@anchor{Class drei-buffer:standard-right-sticky-mark}
+@deftp {Class} {drei-buffer:standard-right-sticky-mark}
+@tindex drei-buffer:standard-right-sticky-mark
+Class precedence list: @code{@w{standard-right-sticky-mark}, @w{right-sticky-mark}, @w{mark}, @w{mark-mixin}, @w{standard-object}, @w{slot-object}, @w{t}}
+
+A right-sticky-mark subclass suitable for use in a standard-buffer
+@end deftp

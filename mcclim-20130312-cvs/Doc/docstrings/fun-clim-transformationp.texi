@@ -1,0 +1,5 @@
+@anchor{Generic-Function clim:transformationp}
+@deffn {Generic Function} {clim:transformationp} object
+@findex clim:transformationp
+Protocol predicate checking for class TRANSFORMATION
+@end deffn

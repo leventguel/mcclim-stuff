@@ -1,0 +1,5 @@
+@anchor{Function esa:current-window}
+@deffn {Function} {esa:current-window}
+@findex esa:current-window
+Return the currently active window of the running @code{esa} instance.
+@end deffn

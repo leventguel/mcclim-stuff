@@ -1,0 +1,5 @@
+@anchor{Generic-Function drei-editing:forward-delete-paragraph}
+@deffn {Generic Function} {drei-editing:forward-delete-paragraph} mark syntax &optional count limit-action
+@findex drei-editing:forward-delete-paragraph
+Delete @code{count} paragraphs beginning from @code{mark}.
+@end deffn

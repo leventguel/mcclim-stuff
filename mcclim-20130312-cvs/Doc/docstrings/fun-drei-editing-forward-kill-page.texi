@@ -1,0 +1,5 @@
+@anchor{Generic-Function drei-editing:forward-kill-page}
+@deffn {Generic Function} {drei-editing:forward-kill-page} mark syntax &optional count concatenate-p limit-action
+@findex drei-editing:forward-kill-page
+Kill @code{count} pages beginning from @code{mark}.
+@end deffn

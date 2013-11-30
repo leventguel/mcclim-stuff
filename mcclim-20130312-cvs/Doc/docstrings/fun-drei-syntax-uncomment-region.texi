@@ -1,0 +1,5 @@
+@anchor{Generic-Function drei-syntax:uncomment-region}
+@deffn {Generic Function} {drei-syntax:uncomment-region} syntax mark1 mark2
+@findex drei-syntax:uncomment-region
+remove comment around region
+@end deffn

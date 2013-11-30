@@ -1,0 +1,5 @@
+@anchor{Method clim:stream-rescanning-p ((goatee-input-editing-stream
+                           goatee-input-editing-stream))}
+@deffn {Method} {clim:stream-rescanning-p} (goatee-input-editing-stream goatee-input-editing-stream)
+automatically generated reader method
+@end deffn

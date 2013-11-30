@@ -1,0 +1,18 @@
+@anchor{Function clim:map-over-command-table-menu-items}
+@deffn {Function} {clim:map-over-command-table-menu-items} function command-table
+@findex clim:map-over-command-table-menu-items
+Applies function to all of the items in @code{command-table}s
+menu. @code{command-table} must be a command table or the name of a
+command table. Function must be a function of three arguments,
+the menu name, the keystroke accelerator gesture (which will be
+NIL if there is none), and the command menu item; it has dynamic
+extent. The command menu items are mapped over in the order
+specified by @code{add-menu-item-to-command-table}. @code{command-table} is
+a command table designator. Any inherited menu items will be
+mapped over after @code{command-table}s own menu items.
+
+@code{map-over-command-table-menu-items} does not descend into
+sub-menus. If the programmer requires this behavior, he should
+examine the type of the command menu item to see if it is
+:menu.
+@end deffn

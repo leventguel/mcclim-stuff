@@ -1,0 +1,7 @@
+@anchor{Class clim:polygon}
+@deftp {Class} {clim:polygon}
+@tindex clim:polygon
+Class precedence list: @code{@w{polygon}, @w{area}, @w{region}, @w{design}, @w{bounding-rectangle}, @w{standard-object}, @w{slot-object}, @w{t}}
+
+CLIM protocol class
+@end deftp

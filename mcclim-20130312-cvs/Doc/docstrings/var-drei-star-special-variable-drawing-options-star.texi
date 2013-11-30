@@ -1,0 +1,8 @@
+@anchor{Variable drei:*special-variable-drawing-options*}
+@defvr {Variable} {drei:*special-variable-drawing-options*}
+@vindex drei:*special-variable-drawing-options*
+The drawing options used for drawing variables that are
+somehow special. In Lisp, this is used for globally bound
+non-constant variables with dynamic scope. In other language, it
+should probably be used for global variables or similar.
+@end defvr

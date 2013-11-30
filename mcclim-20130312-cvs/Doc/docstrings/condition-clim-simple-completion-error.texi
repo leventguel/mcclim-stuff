@@ -1,0 +1,9 @@
+@anchor{Condition clim:simple-completion-error}
+@deftp {Condition} {clim:simple-completion-error}
+@tindex clim:simple-completion-error
+Class precedence list: @code{@w{simple-completion-error}, @w{simple-parse-error}, @w{simple-condition}, @w{parse-error}, @w{error}, @w{serious-condition}, @w{condition}, @w{slot-object}, @w{t}}
+
+The error that is signalled by
+@code{complete-input} when no completion is found. This is a subclass
+of @code{simple-parse-error}.
+@end deftp

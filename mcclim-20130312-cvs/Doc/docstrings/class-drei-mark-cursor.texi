@@ -1,0 +1,8 @@
+@anchor{Class drei:mark-cursor}
+@deftp {Class} {drei:mark-cursor}
+@tindex drei:mark-cursor
+Class precedence list: @code{@w{mark-cursor}, @w{drei-cursor}, @w{standard-sequence-output-record}, @w{standard-bounding-rectangle}, @w{standard-rectangle}, @w{rectangle}, @w{polygon}, @w{area}, @w{region}, @w{design}, @w{output-record}, @w{bounding-rectangle}, @w{standard-object}, @w{slot-object}, @w{t}}
+
+A class that should be used for the visual
+representation of the mark of a Drei instance.
+@end deftp

@@ -1,0 +1,5 @@
+@anchor{Generic-Function esa:buffers}
+@deffn {Generic Function} {esa:buffers} esa
+@findex esa:buffers
+Return a list of all the buffers of the application.
+@end deffn

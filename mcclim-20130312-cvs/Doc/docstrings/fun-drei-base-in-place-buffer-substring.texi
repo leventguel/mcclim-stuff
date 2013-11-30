@@ -1,0 +1,8 @@
+@anchor{Function drei-base:in-place-buffer-substring}
+@deffn {Function} {drei-base:in-place-buffer-substring} buffer string offset1 offset2
+@findex drei-base:in-place-buffer-substring
+Copy from @code{offset1} to @code{offset2} in @code{buffer} to @code{string},
+which must be an adjustable vector of characters with a fill
+pointer. All objects in the buffer range must be
+characters. Returns @code{string}.
+@end deffn

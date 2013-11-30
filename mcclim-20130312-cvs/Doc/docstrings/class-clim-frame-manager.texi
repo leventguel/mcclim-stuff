@@ -1,0 +1,7 @@
+@anchor{Class clim:frame-manager}
+@deftp {Class} {clim:frame-manager}
+@tindex clim:frame-manager
+Class precedence list: @code{@w{frame-manager}, @w{standard-object}, @w{slot-object}, @w{t}}
+
+CLIM protocol class
+@end deftp

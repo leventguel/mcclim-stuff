@@ -1,0 +1,5 @@
+@anchor{Generic-Function drei-motion:forward-page}
+@deffn {Generic Function} {drei-motion:forward-page} mark syntax &optional count limit-action
+@findex drei-motion:forward-page
+Move @code{mark} forward by @code{count} pages.
+@end deffn

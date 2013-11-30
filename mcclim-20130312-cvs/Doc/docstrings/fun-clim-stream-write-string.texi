@@ -1,0 +1,9 @@
+@anchor{Generic-Function clim:stream-write-string}
+@deffn {Generic Function} {clim:stream-write-string} stream string &optional start end
+@findex clim:stream-write-string
+This is used by WRITE-STRING. It writes the string to the stream,
+  optionally delimited by start and end, which default to 0 and NIL.
+  The string argument is returned. The default method provided by
+  @code{fundamental-character-output-stream} uses repeated calls to
+  @code{stream-write-char}.
+@end deffn

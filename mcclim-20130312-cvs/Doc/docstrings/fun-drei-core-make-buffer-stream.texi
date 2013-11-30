@@ -1,0 +1,8 @@
+@anchor{Function drei-core:make-buffer-stream}
+@deffn {Function} {drei-core:make-buffer-stream} &key buffer start-mark end-mark
+@findex drei-core:make-buffer-stream
+Create a buffer stream object reading data from @code{buffer}. By
+default, the stream will read from the beginning of the buffer
+and until the end of the buffer, but this can be changed via the
+optional arguments @code{start-mark} and @code{end-mark}.
+@end deffn

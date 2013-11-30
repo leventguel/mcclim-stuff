@@ -1,0 +1,5 @@
+@anchor{Method drei:performing-undo ((undo-mixin undo-mixin))}
+@deffn {Method} {drei:performing-undo} (undo-mixin undo-mixin)
+True if we are currently
+performing undo, false otherwise.
+@end deffn

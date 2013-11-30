@@ -1,0 +1,7 @@
+@anchor{Generic-Function clim:erase-input-buffer}
+@deffn {Generic Function} {clim:erase-input-buffer} stream &optional start-position
+@findex clim:erase-input-buffer
+Erases the part of the display that
+corresponds to the input editor's buffer starting at the position
+start-position.
+@end deffn

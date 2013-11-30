@@ -1,0 +1,8 @@
+@anchor{Variable clim:*activation-gestures*}
+@defvr {Variable} {clim:*activation-gestures*}
+@vindex clim:*activation-gestures*
+The set of currently active activation gestures. The global
+value of this must be NIL. The exact format of
+@code{*activation-gestures*} is unspecified. @code{*activation-gestures*}
+and the elements in it may have dynamic extent.
+@end defvr

@@ -1,0 +1,5 @@
+@anchor{Generic-Function drei-editing:forward-delete-list}
+@deffn {Generic Function} {drei-editing:forward-delete-list} mark syntax &optional count limit-action
+@findex drei-editing:forward-delete-list
+Delete @code{count} lists beginning from @code{mark}.
+@end deffn

@@ -1,0 +1,9 @@
+@anchor{Generic-Function drei:handle-drei-condition}
+@deffn {Generic Function} {drei:handle-drei-condition} drei condition
+@findex drei:handle-drei-condition
+When an unhandled condition that is a subtype
+of @code{user-condition-mixin} (and some other hardcoded condition
+types) is signalled during execution of a Drei command, this
+generic function will be called with the Drei instance as the
+first argument, and the condition as the second argument.
+@end deffn

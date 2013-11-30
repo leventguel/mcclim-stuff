@@ -1,0 +1,12 @@
+@anchor{Generic-Function clim:display-command-menu}
+@deffn {Generic Function} {clim:display-command-menu} frame stream &key command-table initial-spacing row-wise max-width max-height n-rows n-columns cell-align-x cell-align-y command-table cell-align-x cell-align-y
+@findex clim:display-command-menu
+Display the command table associated with
+@code{command-table} on stream by calling
+@code{display-command-table-menu}. If no command table is
+provided, (frame-command-table frame) will be used.
+
+The arguments initial-spacing, row-wise,
+max-width, max-height, n-rows, n-columns, @code{cell-align-x},
+and @code{cell-align-y} are as for @code{formatting-item-list}.
+@end deffn

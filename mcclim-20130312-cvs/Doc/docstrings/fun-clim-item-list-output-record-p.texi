@@ -1,0 +1,5 @@
+@anchor{Generic-Function clim:item-list-output-record-p}
+@deffn {Generic Function} {clim:item-list-output-record-p} object
+@findex clim:item-list-output-record-p
+Protocol predicate checking for class ITEM-LIST-OUTPUT-RECORD
+@end deffn

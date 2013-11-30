@@ -1,0 +1,5 @@
+@anchor{Variable drei:+bold-face-drawing-options+}
+@defvr {Variable} {drei:+bold-face-drawing-options+}
+@vindex drei:+bold-face-drawing-options+
+Options used for drawing with boldface.
+@end defvr

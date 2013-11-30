@@ -1,0 +1,12 @@
+@anchor{Macro drei-core:with-narrowed-buffer}
+@deffn {Macro} {drei-core:with-narrowed-buffer} (drei low-limit high-limit &optional soft) &body body
+@findex drei-core:with-narrowed-buffer
+Evluate @code{body} with the point and mark of @code{drei} narrowed to
+the region delimited by @code{low-mark} and @code{high-mark}, which may
+either be a left-sticky-mark and right-sticky mark (respectively)
+or two integer offsets. @code{low-mark} and @code{high-mark} may also be T
+or NIL, meaning "beginning/end of buffer" (as appropriate) and
+"current position of point", respectively. If @code{soft} is true,
+point and mark will be moved to be within the narrowed buffer,
+otherwise, this situation is an error.
+@end deffn

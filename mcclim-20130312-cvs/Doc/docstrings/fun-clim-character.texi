@@ -1,0 +1,6 @@
+@anchor{Function clim:character}
+@deffn {Function} {clim:character} object
+@findex clim:character
+Coerce OBJECT into a @code{character} if possible. Legal inputs are characters,
+strings and symbols of length 1.
+@end deffn

@@ -1,0 +1,26 @@
+@anchor{Class drei:drei-cursor}
+@deftp {Class} {drei:drei-cursor}
+@tindex drei:drei-cursor
+Class precedence list: @code{@w{drei-cursor}, @w{standard-sequence-output-record}, @w{standard-bounding-rectangle}, @w{standard-rectangle}, @w{rectangle}, @w{polygon}, @w{area}, @w{region}, @w{design}, @w{output-record}, @w{bounding-rectangle}, @w{standard-object}, @w{slot-object}, @w{t}}
+
+Slots:
+@itemize
+@item @code{%enabled} --- initargs: @code{@w{:enabled}}
+
+When a cursor is enabled, it will be
+drawn when its associated Drei instance is drawn. When it is not
+enabled, it will simply be ignored during redisplay.
+@item @code{%active-ink} --- initargs: @code{@w{:active-ink}}
+
+The ink used to draw the cursor
+when it is active.
+@item @code{%inactive-ink} --- initargs: @code{@w{:inactive-ink}}
+
+The ink used to draw the cursor
+when it is inactive.
+@end itemize
+
+A visual representation of a given mark in a
+Drei buffer. The most important role for instances of subclasses
+of this class is to visually represent the position of point.
+@end deftp

@@ -1,0 +1,4 @@
+@anchor{Method clim:pattern-array ((indexed-pattern indexed-pattern))}
+@deffn {Method} {clim:pattern-array} (indexed-pattern indexed-pattern)
+automatically generated reader method
+@end deffn

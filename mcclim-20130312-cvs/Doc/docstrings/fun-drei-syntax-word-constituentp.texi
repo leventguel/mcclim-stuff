@@ -1,0 +1,6 @@
+@anchor{Generic-Function drei-syntax:word-constituentp}
+@deffn {Generic Function} {drei-syntax:word-constituentp} syntax obj
+@findex drei-syntax:word-constituentp
+Return @code{t} if @code{obj} is a word constituent
+  character in @code{syntax}.
+@end deffn

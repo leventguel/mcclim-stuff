@@ -1,0 +1,9 @@
+@anchor{Macro drei:define-syntax-mode}
+@deffn {Macro} {drei:define-syntax-mode} name (&rest superclasses) (&rest slot-specs) &rest options
+@findex drei:define-syntax-mode
+Define a mode (as @code{define-mode}) that is applicable to
+syntaxes. Apart from taking the same options as @code{define-mode}, it
+also takes an :applicable-syntaxes option (nil by default) that
+is a list of syntaxes the mode should be applicable to. Multiple
+uses of this option are cumulative.
+@end deffn

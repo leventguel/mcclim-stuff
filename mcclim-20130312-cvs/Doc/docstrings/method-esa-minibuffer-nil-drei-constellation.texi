@@ -1,0 +1,4 @@
+@anchor{Method esa:minibuffer ((drei-constellation drei-constellation))}
+@deffn {Method} {esa:minibuffer} (drei-constellation drei-constellation)
+automatically generated reader method
+@end deffn

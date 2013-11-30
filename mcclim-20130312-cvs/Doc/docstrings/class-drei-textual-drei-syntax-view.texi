@@ -1,0 +1,10 @@
+@anchor{Class drei:textual-drei-syntax-view}
+@deftp {Class} {drei:textual-drei-syntax-view}
+@tindex drei:textual-drei-syntax-view
+Class precedence list: @code{@w{textual-drei-syntax-view}, @w{drei-syntax-view}, @w{point-mark-view}, @w{drei-buffer-view}, @w{drei-view}, @w{tabify-mixin}, @w{subscriptable-name-mixin}, @w{name-mixin}, @w{textual-view}, @w{view}, @w{standard-object}, @w{slot-object}, @w{t}}
+
+The "default" Drei view class. It displays a
+textual representation of the buffer, possibly with syntax
+highlighting, and maintains point and mark marks into the buffer,
+in order to permit useful editing commands.
+@end deftp

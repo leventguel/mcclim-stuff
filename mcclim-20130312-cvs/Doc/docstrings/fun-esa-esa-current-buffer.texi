@@ -1,0 +1,5 @@
+@anchor{Generic-Function esa:esa-current-buffer}
+@deffn {Generic Function} {esa:esa-current-buffer} esa
+@findex esa:esa-current-buffer
+Return the current buffer of @code{application-frame}.
+@end deffn

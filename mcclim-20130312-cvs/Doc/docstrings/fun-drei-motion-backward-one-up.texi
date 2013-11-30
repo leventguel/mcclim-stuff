@@ -1,0 +1,6 @@
+@anchor{Generic-Function drei-motion:backward-one-up}
+@deffn {Generic Function} {drei-motion:backward-one-up} mark syntax
+@findex drei-motion:backward-one-up
+Move @code{mark} backward by one nesting level up.
+Return @code{t} if successful, or NIL if the buffer limit was reached.
+@end deffn

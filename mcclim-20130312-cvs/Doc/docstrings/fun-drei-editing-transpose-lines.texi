@@ -1,0 +1,5 @@
+@anchor{Generic-Function drei-editing:transpose-lines}
+@deffn {Generic Function} {drei-editing:transpose-lines} mark syntax
+@findex drei-editing:transpose-lines
+Transpose two lines at @code{mark}.
+@end deffn

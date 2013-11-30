@@ -1,0 +1,6 @@
+@anchor{Generic-Function drei-motion:forward-one-paragraph}
+@deffn {Generic Function} {drei-motion:forward-one-paragraph} mark syntax
+@findex drei-motion:forward-one-paragraph
+Move @code{mark} forward by one paragraph.
+Return @code{t} if successful, or NIL if the buffer limit was reached.
+@end deffn

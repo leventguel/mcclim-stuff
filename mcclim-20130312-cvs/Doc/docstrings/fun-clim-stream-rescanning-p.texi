@@ -1,0 +1,9 @@
+@anchor{Generic-Function clim:stream-rescanning-p}
+@deffn {Generic Function} {clim:stream-rescanning-p} stream
+@findex clim:stream-rescanning-p
+Returns the state of the input editing stream
+streams "rescan in progress" flag, which is true if stream is
+performing a rescan operation, otherwise it is false. All
+extended input streams must implement a method for this, but
+non-input editing streams will always returns false.
+@end deffn

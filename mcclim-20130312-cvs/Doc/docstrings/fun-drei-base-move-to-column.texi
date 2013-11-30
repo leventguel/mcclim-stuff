@@ -1,0 +1,8 @@
+@anchor{Function drei-base:move-to-column}
+@deffn {Function} {drei-base:move-to-column} mark column &optional force
+@findex drei-base:move-to-column
+Move the position of @code{mark} to column number @code{column}. If the
+  line is too short, put @code{mark} at end of line, unless @code{force} is
+  non-NIL, in which case spaces will be added to the end of the
+  line.
+@end deffn

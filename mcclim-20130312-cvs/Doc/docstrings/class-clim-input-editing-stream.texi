@@ -1,0 +1,7 @@
+@anchor{Class clim:input-editing-stream}
+@deftp {Class} {clim:input-editing-stream}
+@tindex clim:input-editing-stream
+Class precedence list: @code{@w{input-editing-stream}, @w{standard-object}, @w{slot-object}, @w{t}}
+
+CLIM protocol class
+@end deftp

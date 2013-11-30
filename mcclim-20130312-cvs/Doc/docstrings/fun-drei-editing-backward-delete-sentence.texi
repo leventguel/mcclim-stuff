@@ -1,0 +1,5 @@
+@anchor{Generic-Function drei-editing:backward-delete-sentence}
+@deffn {Generic Function} {drei-editing:backward-delete-sentence} mark syntax &optional count limit-action
+@findex drei-editing:backward-delete-sentence
+Delete @code{count} sentences backwards beginning from @code{mark}.
+@end deffn

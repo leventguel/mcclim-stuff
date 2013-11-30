@@ -1,0 +1,6 @@
+@anchor{Function drei-base:offset-end-of-line-p}
+@deffn {Function} {drei-base:offset-end-of-line-p} buffer offset
+@findex drei-base:offset-end-of-line-p
+Return true if @code{offset} is at the end of a line in
+@code{buffer} or at the end of @code{buffer}.
+@end deffn

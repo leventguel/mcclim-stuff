@@ -1,0 +1,5 @@
+@anchor{Generic-Function drei-base:open-line}
+@deffn {Generic Function} {drei-base:open-line} mark &optional count
+@findex drei-base:open-line
+Create a new line in a buffer after the mark.
+@end deffn

@@ -1,0 +1,7 @@
+@anchor{Class clim:output-recording-stream}
+@deftp {Class} {clim:output-recording-stream}
+@tindex clim:output-recording-stream
+Class precedence list: @code{@w{output-recording-stream}, @w{standard-object}, @w{slot-object}, @w{t}}
+
+CLIM protocol class
+@end deftp

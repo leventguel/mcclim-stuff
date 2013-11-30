@@ -1,0 +1,5 @@
+@anchor{Function drei-core:capitalize-word}
+@deffn {Function} {drei-core:capitalize-word} mark syntax &optional n
+@findex drei-core:capitalize-word
+Capitalize the next @code{n} words, leaving mark after the last word.
+@end deffn

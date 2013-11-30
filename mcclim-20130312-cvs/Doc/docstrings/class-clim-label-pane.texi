@@ -1,0 +1,6 @@
+@anchor{Class clim:label-pane}
+@deftp {Class} {clim:label-pane}
+@tindex clim:label-pane
+Class precedence list: @code{@w{label-pane}, @w{sheet-multiple-child-mixin}, @w{basic-pane}, @w{sheet-parent-mixin}, @w{mirrored-sheet-mixin}, @w{pane}, @w{standard-repainting-mixin}, @w{standard-sheet-input-mixin}, @w{sheet-transformation-mixin}, @w{basic-sheet}, @w{sheet}, @w{bounding-rectangle}, @w{permanent-medium-sheet-output-mixin}, @w{sheet-with-medium-mixin}, @w{standard-object}, @w{slot-object}, @w{t}}
+
+@end deftp

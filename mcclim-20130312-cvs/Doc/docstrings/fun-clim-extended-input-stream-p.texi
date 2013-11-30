@@ -1,0 +1,5 @@
+@anchor{Generic-Function clim:extended-input-stream-p}
+@deffn {Generic Function} {clim:extended-input-stream-p} object
+@findex clim:extended-input-stream-p
+Protocol predicate checking for class EXTENDED-INPUT-STREAM
+@end deffn

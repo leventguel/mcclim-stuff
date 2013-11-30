@@ -1,0 +1,6 @@
+@anchor{Function esa:com-describe-bindings}
+@deffn {Function} {esa:com-describe-bindings} sort-by-keystrokes
+@findex esa:com-describe-bindings
+Show which keys invoke which commands.
+Without a numeric prefix, sorts the list by command name. With a numeric prefix, sorts by key.
+@end deffn

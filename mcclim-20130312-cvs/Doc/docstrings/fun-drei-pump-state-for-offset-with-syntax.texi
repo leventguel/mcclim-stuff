@@ -1,0 +1,10 @@
+@anchor{Generic-Function drei:pump-state-for-offset-with-syntax}
+@deffn {Generic Function} {drei:pump-state-for-offset-with-syntax} view syntax offset
+@findex drei:pump-state-for-offset-with-syntax
+Return a pump state that will enable pumping
+strokes from @code{offset} in the buffer of @code{view} as specified by
+@code{syntax} (via stroke-pump-for-syntax). The pump state is not
+guaranteed to be valid past the next call to
+stroke-pump-for-syntax or @code{synchronize-view}. The results are
+undefined if @code{offset} is not at the beginning of a line.
+@end deffn

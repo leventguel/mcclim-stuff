@@ -1,0 +1,5 @@
+@anchor{Variable drei:+italic-face-drawing-options+}
+@defvr {Variable} {drei:+italic-face-drawing-options+}
+@vindex drei:+italic-face-drawing-options+
+Options used for drawing with an italic face.
+@end defvr

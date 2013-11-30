@@ -1,0 +1,7 @@
+@anchor{Generic-Function drei-core:next-target}
+@deffn {Generic Function} {drei-core:next-target} target-specification
+@findex drei-core:next-target
+Change to the next target specified by the
+target specification. Signals an error of type @code{no-more-targets}
+if @code{subsequent-targets-p} is false.
+@end deffn

@@ -1,0 +1,7 @@
+@anchor{Class clim:table-output-record}
+@deftp {Class} {clim:table-output-record}
+@tindex clim:table-output-record
+Class precedence list: @code{@w{table-output-record}, @w{output-record}, @w{bounding-rectangle}, @w{standard-object}, @w{slot-object}, @w{t}}
+
+CLIM protocol class
+@end deftp

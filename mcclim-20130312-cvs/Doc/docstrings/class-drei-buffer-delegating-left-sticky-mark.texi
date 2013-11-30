@@ -1,0 +1,8 @@
+@anchor{Class drei-buffer:delegating-left-sticky-mark}
+@deftp {Class} {drei-buffer:delegating-left-sticky-mark}
+@tindex drei-buffer:delegating-left-sticky-mark
+Class precedence list: @code{@w{delegating-left-sticky-mark}, @w{left-sticky-mark}, @w{mark}, @w{delegating-mark}, @w{mark-mixin}, @w{standard-object}, @w{slot-object}, @w{t}}
+
+A @code{left-sticky-mark} subclass suitable for use
+in a @code{delegating-buffer}.
+@end deftp

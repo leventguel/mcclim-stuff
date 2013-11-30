@@ -1,0 +1,6 @@
+@anchor{Function drei-core:insert-rectangle-at-mark}
+@deffn {Function} {drei-core:insert-rectangle-at-mark} view mark rectangle
+@findex drei-core:insert-rectangle-at-mark
+Yank the killed rectangle, positioning the upper left corner at
+current point.
+@end deffn

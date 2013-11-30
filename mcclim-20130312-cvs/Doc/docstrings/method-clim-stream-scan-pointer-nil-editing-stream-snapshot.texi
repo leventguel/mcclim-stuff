@@ -1,0 +1,4 @@
+@anchor{Method clim:stream-scan-pointer ((editing-stream-snapshot editing-stream-snapshot))}
+@deffn {Method} {clim:stream-scan-pointer} (editing-stream-snapshot editing-stream-snapshot)
+automatically generated reader method
+@end deffn

@@ -1,0 +1,8 @@
+@anchor{Function drei-base:buffer-re-search-backward}
+@deffn {Function} {drei-base:buffer-re-search-backward} a buffer offset
+@findex drei-base:buffer-re-search-backward
+Returns as the first value the largest offset of @code{buffer} <= OFFSET
+with contents accepted by (reversed) deterministic automaton @code{a};
+otherwise, returns nil. If the first value is non-nil, the second
+value is the offset after the matched contents.
+@end deffn

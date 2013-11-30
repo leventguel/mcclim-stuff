@@ -1,0 +1,11 @@
+@anchor{Generic-Function clim:compose-space}
+@deffn {Generic Function} {clim:compose-space} pane &key width height height width width height
+@findex clim:compose-space
+During the space composition pass, a composite pane will 
+typically ask each of its children how much space it requires by calling @code{compose-space}. 
+They answer by returning space-requirement objects. The composite will then form 
+its own space requirement by composing the space requirements of its children 
+according to its own rules for laying out its children.
+
+Returns a @code{space-requirement} object.
+@end deffn

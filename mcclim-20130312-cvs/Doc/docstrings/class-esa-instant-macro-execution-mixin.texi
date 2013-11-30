@@ -1,0 +1,10 @@
+@anchor{Class esa:instant-macro-execution-mixin}
+@deftp {Class} {esa:instant-macro-execution-mixin}
+@tindex esa:instant-macro-execution-mixin
+Class precedence list: @code{@w{instant-macro-execution-mixin}, @w{standard-object}, @w{slot-object}, @w{t}}
+
+Subclasses of this class will immediately
+  process the gestures of a macro when macro processing is
+  started by setting @code{executingp}. This is essential for
+  event-based command processing schemes.
+@end deftp

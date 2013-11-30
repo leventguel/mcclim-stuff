@@ -1,0 +1,5 @@
+@anchor{Function drei-editing:backward-delete-object}
+@deffn {Function} {drei-editing:backward-delete-object} mark &optional count limit-action
+@findex drei-editing:backward-delete-object
+Kill @code{count} objects backwards beginning from @code{mark}.
+@end deffn

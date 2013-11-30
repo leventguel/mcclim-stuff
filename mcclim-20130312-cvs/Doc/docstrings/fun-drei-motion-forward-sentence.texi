@@ -1,0 +1,5 @@
+@anchor{Generic-Function drei-motion:forward-sentence}
+@deffn {Generic Function} {drei-motion:forward-sentence} mark syntax &optional count limit-action
+@findex drei-motion:forward-sentence
+Move @code{mark} forward by @code{count} sentences.
+@end deffn

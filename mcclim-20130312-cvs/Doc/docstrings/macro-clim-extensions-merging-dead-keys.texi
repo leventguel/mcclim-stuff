@@ -1,0 +1,11 @@
+@anchor{Macro clim-extensions:merging-dead-keys}
+@deffn {Macro} {clim-extensions:merging-dead-keys} (gesture state) &body body
+@findex clim-extensions:merging-dead-keys
+Accumulate dead keys and subsequent characters. Gesture
+should be a symbol bound to either a gesture or an input
+event. Body will be evaluated either with the gesture binding
+unchanged, or with gesture bound to the result of merging
+preceding dead keys. State must be a place, initially NIL, that
+will contain the state of dead-key handling, enabling
+asynchronous use of the macro.
+@end deffn

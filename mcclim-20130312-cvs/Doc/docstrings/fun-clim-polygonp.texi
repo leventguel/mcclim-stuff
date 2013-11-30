@@ -1,0 +1,5 @@
+@anchor{Generic-Function clim:polygonp}
+@deffn {Generic Function} {clim:polygonp} object
+@findex clim:polygonp
+Protocol predicate checking for class POLYGON
+@end deffn

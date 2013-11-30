@@ -1,0 +1,5 @@
+@anchor{Generic-Function clim:portp}
+@deffn {Generic Function} {clim:portp} object
+@findex clim:portp
+Protocol predicate checking for class PORT
+@end deffn

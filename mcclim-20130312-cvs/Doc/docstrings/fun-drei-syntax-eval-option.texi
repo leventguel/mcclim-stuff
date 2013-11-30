@@ -1,0 +1,6 @@
+@anchor{Generic-Function drei-syntax:eval-option}
+@deffn {Generic Function} {drei-syntax:eval-option} syntax name value
+@findex drei-syntax:eval-option
+Evaluate the option @code{name} with the specified
+  @code{value} for @code{syntax}.
+@end deffn

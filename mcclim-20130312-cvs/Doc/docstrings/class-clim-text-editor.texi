@@ -1,0 +1,7 @@
+@anchor{Class clim:text-editor}
+@deftp {Class} {clim:text-editor}
+@tindex clim:text-editor
+Class precedence list: @code{@w{text-editor}, @w{text-field}, @w{value-gadget}, @w{action-gadget}, @w{basic-gadget}, @w{permanent-medium-sheet-output-mixin}, @w{sheet-with-medium-mixin}, @w{basic-pane}, @w{sheet-parent-mixin}, @w{mirrored-sheet-mixin}, @w{gadget}, @w{pane}, @w{standard-repainting-mixin}, @w{standard-sheet-input-mixin}, @w{sheet-transformation-mixin}, @w{basic-sheet}, @w{sheet}, @w{bounding-rectangle}, @w{standard-object}, @w{slot-object}, @w{t}}
+
+The value is a string
+@end deftp

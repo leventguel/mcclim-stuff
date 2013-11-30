@@ -1,0 +1,6 @@
+@anchor{Generic-Function clim:stream-clear-input}
+@deffn {Generic Function} {clim:stream-clear-input} stream
+@findex clim:stream-clear-input
+This is like CL:CLEAR-INPUT, but for Gray streams, returning NIL.
+  The default method does nothing.
+@end deffn

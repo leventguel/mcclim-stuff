@@ -1,0 +1,6 @@
+@anchor{Generic-Function drei-syntax:display-syntax-name}
+@deffn {Generic Function} {drei-syntax:display-syntax-name} syntax stream &key view &allow-other-keys
+@findex drei-syntax:display-syntax-name
+Draw the name of the syntax @code{syntax} to
+@code{stream}. This is meant to be called for the info-pane.
+@end deffn

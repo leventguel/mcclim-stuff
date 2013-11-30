@@ -1,0 +1,5 @@
+@anchor{Generic-Function drei-motion:forward-definition}
+@deffn {Generic Function} {drei-motion:forward-definition} mark syntax &optional count limit-action
+@findex drei-motion:forward-definition
+Move @code{mark} forward by @code{count} definitions.
+@end deffn

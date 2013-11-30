@@ -1,0 +1,5 @@
+@anchor{Method drei-buffer:buffer ((buffer-stream buffer-stream))}
+@deffn {Method} {drei-buffer:buffer} (buffer-stream buffer-stream)
+The buffer from which this stream
+will read data.
+@end deffn

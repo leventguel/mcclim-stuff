@@ -1,0 +1,5 @@
+@anchor{Generic-Function clim:ellipsep}
+@deffn {Generic Function} {clim:ellipsep} object
+@findex clim:ellipsep
+Protocol predicate checking for class ELLIPSE
+@end deffn

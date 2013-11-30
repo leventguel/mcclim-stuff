@@ -1,0 +1,6 @@
+@anchor{Function drei-base:extract-region}
+@deffn {Function} {drei-base:extract-region} mark-or-offset1 mark-or-offset2
+@findex drei-base:extract-region
+Delete the region delimited by @code{mark-or-offset1} and
+@code{mark-or-offset2}, returning the extracted sequence of objects.
+@end deffn

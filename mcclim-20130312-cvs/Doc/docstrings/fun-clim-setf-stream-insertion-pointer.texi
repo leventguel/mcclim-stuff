@@ -1,0 +1,7 @@
+@anchor{Generic-Function (setf clim:stream-insertion-pointer)}
+@deffn {Generic Function} {(setf clim:stream-insertion-pointer)} pointer stream
+@findex (setf clim:stream-insertion-pointer)
+Changes the input position of the input
+editing stream stream to @code{pointer}. @code{pointer} is an integer,
+and must be less than (fill-pointer (stream-input-buffer stream))
+@end deffn

@@ -1,0 +1,8 @@
+@anchor{Function drei-base:buffer-re-search-forward}
+@deffn {Function} {drei-base:buffer-re-search-forward} a buffer offset
+@findex drei-base:buffer-re-search-forward
+Returns as the first value the smallest offset of @code{buffer} >= OFFSET
+with contents accepted by deterministic automaton @code{a}; otherwise,
+returns nil. If the first value is non-nil, the second value is the
+offset after the matched contents.
+@end deffn

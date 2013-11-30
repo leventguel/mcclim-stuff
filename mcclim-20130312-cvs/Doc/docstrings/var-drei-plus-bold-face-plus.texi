@@ -1,0 +1,6 @@
+@anchor{Variable drei:+bold-face+}
+@defvr {Variable} {drei:+bold-face+}
+@vindex drei:+bold-face+
+A face specifying a boldface style, but with unspecified
+family and size.
+@end defvr

@@ -1,0 +1,10 @@
+@anchor{Function drei:drawing-options-equal}
+@deffn {Function} {drei:drawing-options-equal} o1 o2
+@findex drei:drawing-options-equal
+Return true if @code{o1} and @code{o2} are equal, that is, they specify
+the same options. Does not take the drawing-function into account
+due to the halting problem (and also, for more practical
+reasons), with the exception that no @code{drawing-options} object
+with a non-@code{stroke-drawing-fn} drawing function is equivalent to
+a @code{drawing-options} with a @code{stroke-drawing-fn} drawing function.
+@end deffn

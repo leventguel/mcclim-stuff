@@ -1,0 +1,9 @@
+@anchor{Function clim:add-input-editor-command}
+@deffn {Function} {clim:add-input-editor-command} gestures function
+@findex clim:add-input-editor-command
+Set up Drei so performing gestures will result in the
+invocation of function. Only works for Drei-based input-editing
+streams. Function will be called with four arguments: the
+input-editing stream, the input buffer, the gesture used to
+invoke the command, and the accumulated numeric argument.
+@end deffn

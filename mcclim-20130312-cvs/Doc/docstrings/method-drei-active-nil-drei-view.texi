@@ -1,0 +1,6 @@
+@anchor{Method drei:active ((drei-view drei-view))}
+@deffn {Method} {drei:active} (drei-view drei-view)
+A boolean value indicating whether
+the view is "active". This should control highlighting when
+redisplaying.
+@end deffn

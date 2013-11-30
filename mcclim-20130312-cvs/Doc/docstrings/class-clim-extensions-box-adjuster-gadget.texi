@@ -1,0 +1,13 @@
+@anchor{Class clim-extensions:box-adjuster-gadget}
+@deftp {Class} {clim-extensions:box-adjuster-gadget}
+@tindex clim-extensions:box-adjuster-gadget
+Class precedence list: @code{@w{box-adjuster-gadget}, @w{basic-gadget}, @w{permanent-medium-sheet-output-mixin}, @w{sheet-with-medium-mixin}, @w{basic-pane}, @w{sheet-parent-mixin}, @w{mirrored-sheet-mixin}, @w{gadget}, @w{pane}, @w{standard-repainting-mixin}, @w{standard-sheet-input-mixin}, @w{sheet-transformation-mixin}, @w{basic-sheet}, @w{sheet}, @w{bounding-rectangle}, @w{standard-object}, @w{slot-object}, @w{t}}
+
+The box-adjuster-gadget allows users to resize the panes
+in a layout by dragging the boundary between the panes.  To use it, insert
+it in a layout between two panes that are to be resizeable.  E.g.:
+ (vertically ()
+    top-pane
+    (make-pane 'clim-extensions:box-adjuster-gadget)
+    bottom-pane)
+@end deftp

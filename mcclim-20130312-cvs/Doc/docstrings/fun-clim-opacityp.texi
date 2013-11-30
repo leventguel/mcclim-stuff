@@ -1,0 +1,5 @@
+@anchor{Generic-Function clim:opacityp}
+@deffn {Generic Function} {clim:opacityp} object
+@findex clim:opacityp
+Protocol predicate checking for class OPACITY
+@end deffn

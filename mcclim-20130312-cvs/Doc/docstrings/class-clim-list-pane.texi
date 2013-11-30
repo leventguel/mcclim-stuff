@@ -1,0 +1,9 @@
+@anchor{Class clim:list-pane}
+@deftp {Class} {clim:list-pane}
+@tindex clim:list-pane
+Class precedence list: @code{@w{list-pane}, @w{value-gadget}, @w{basic-gadget}, @w{permanent-medium-sheet-output-mixin}, @w{sheet-with-medium-mixin}, @w{basic-pane}, @w{sheet-parent-mixin}, @w{mirrored-sheet-mixin}, @w{gadget}, @w{pane}, @w{standard-repainting-mixin}, @w{standard-sheet-input-mixin}, @w{sheet-transformation-mixin}, @w{basic-sheet}, @w{sheet}, @w{bounding-rectangle}, @w{standard-object}, @w{slot-object}, @w{t}}
+
+The instantiable class that implements an abstract list pane, that is, a gadget
+    whose semantics are similar to a radio box or check box, but whose visual
+    appearance is a list of buttons.
+@end deftp

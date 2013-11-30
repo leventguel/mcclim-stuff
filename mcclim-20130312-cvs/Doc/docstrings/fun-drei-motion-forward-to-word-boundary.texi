@@ -1,0 +1,5 @@
+@anchor{Function drei-motion:forward-to-word-boundary}
+@deffn {Function} {drei-motion:forward-to-word-boundary} mark syntax
+@findex drei-motion:forward-to-word-boundary
+Move the mark forward to the beginning of the next word.
+@end deffn

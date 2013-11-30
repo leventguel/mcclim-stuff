@@ -1,0 +1,7 @@
+@anchor{Generic-Function drei-core:indent-line}
+@deffn {Generic Function} {drei-core:indent-line} mark indentation tab-width
+@findex drei-core:indent-line
+Indent the line containing mark with indentation
+spaces. Use tabs and spaces if tab-width is not nil, otherwise use
+spaces only.
+@end deffn

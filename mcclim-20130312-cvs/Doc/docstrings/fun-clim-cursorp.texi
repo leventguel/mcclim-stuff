@@ -1,0 +1,5 @@
+@anchor{Generic-Function clim:cursorp}
+@deffn {Generic Function} {clim:cursorp} object
+@findex clim:cursorp
+Protocol predicate checking for class CURSOR
+@end deffn

@@ -1,0 +1,6 @@
+@anchor{Function drei-base:buffer-search-word-backward}
+@deffn {Function} {drei-base:buffer-search-word-backward} buffer offset word &key test
+@findex drei-base:buffer-search-word-backward
+return the largest offset of @code{buffer} <= (@code{-} OFFSET (length @code{word}))
+containing @code{word} as a word or NIL if no such offset exists
+@end deffn

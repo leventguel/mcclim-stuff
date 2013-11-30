@@ -1,0 +1,7 @@
+@anchor{Generic-Function clim:stream-finish-output}
+@deffn {Generic Function} {clim:stream-finish-output} stream
+@findex clim:stream-finish-output
+Attempts to ensure that all output sent to the Stream has reached
+  its destination, and only then returns false. Implements
+  FINISH-OUTPUT. The default method does nothing.
+@end deffn

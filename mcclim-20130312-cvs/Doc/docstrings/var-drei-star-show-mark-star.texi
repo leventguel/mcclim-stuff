@@ -1,0 +1,5 @@
+@anchor{Variable drei:*show-mark*}
+@defvr {Variable} {drei:*show-mark*}
+@vindex drei:*show-mark*
+If true, show a visual representation of the mark.
+@end defvr

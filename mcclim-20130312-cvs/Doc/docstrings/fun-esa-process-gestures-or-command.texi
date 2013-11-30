@@ -1,0 +1,8 @@
+@anchor{Generic-Function esa:process-gestures-or-command}
+@deffn {Generic Function} {esa:process-gestures-or-command} command-processor
+@findex esa:process-gestures-or-command
+Process gestures for
+@code{command-processor} (typically an application frame), look up the
+corresponding commands in @code{command-table} and invoke them using
+@code{command-executor}.
+@end deffn

@@ -1,0 +1,4 @@
+@anchor{Method drei-buffer:size ((parser-symbol parser-symbol))}
+@deffn {Method} {drei-buffer:size} (parser-symbol parser-symbol)
+automatically generated reader method
+@end deffn

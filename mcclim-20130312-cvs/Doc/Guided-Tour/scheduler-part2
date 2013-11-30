@@ -1,0 +1,44 @@
+;;; Complex display function, shows two completely different displays.
+(defmethod display-appointments ((frame scheduler) pane)
+  (clear-output-record (stream-output-history pane))
+  (with-slots (current-day appointments) frame
+    (if (null current-day)
+	(show-weekly-summary pane appointments)
+      (show-appointments pane
+			 current-day
+			 (rest (assoc current-day appointments))))))
+
+;;; Show a summary of the week, with an appointment count for each
+;;; day. You can see the appointments for a specific day by clicking on
+;;; the day name.
+(defun show-weekly-summary (pane appointments)
+  (formatting-table (pane) ;; Table headings
+		    (formatting-row (pane)
+		       (formatting-cell (pane)
+			  (write-string "Day of week  " pane))
+		       (formatting-cell (pane)
+			  (write-string "number of appointments" pane)))
+		    (dolist (day appointments)
+		      (formatting-row (pane)
+			 (formatting-cell (pane)
+			    (present (first day) 'weekday :stream pane))
+			 (formatting-cell (pane)
+			    (format pane "~D appointment ~&"
+				    (length (rest day))))))))
+
+;;; Show detailed appointment list for day
+(defun show-appointments (pane current-day current-day-appointments)
+  ;; Show all days at top so you can switch to another
+  ;; day with one click.
+  (dotimes (day 7)
+    (with-text-face (pane (if (eql day current-day) ':bold ':roman))
+       (present day 'weekday :stream pane))
+    (write-string " " pane))
+  (terpri pane) (terpri pane)
+  ;; Show all the appointments, one per line
+  (write-string "Appointments for " pane)
+  (present current-day 'weekday :stream pane)
+  (terpri pane) (terpri pane)
+  (dolist (appointment current-day-appointments)
+    (write-string appointment pane)
+    (terpri pane)))

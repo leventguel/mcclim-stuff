@@ -1,0 +1,6 @@
+@anchor{Method (setf clim:stream-scan-pointer) (new-value
+                                 (string-input-editing-stream
+                                  string-input-editing-stream))}
+@deffn {Method} {(setf clim:stream-scan-pointer)} new-value (string-input-editing-stream string-input-editing-stream)
+This is not used for anything at any point.
+@end deffn

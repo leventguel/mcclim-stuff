@@ -1,0 +1,7 @@
+@anchor{Generic-Function drei:clear-redisplay-information}
+@deffn {Generic Function} {drei:clear-redisplay-information} view
+@findex drei:clear-redisplay-information
+Clear any redisplay information @code{view} may
+retain, so that a full redisplay will be performed the next time
+it is redisplayed.
+@end deffn

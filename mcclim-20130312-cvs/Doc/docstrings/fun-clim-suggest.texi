@@ -1,0 +1,11 @@
+@anchor{Function clim:suggest}
+@deffn {Function} {clim:suggest} completion object
+@findex clim:suggest
+Specifies one possibility for
+@code{completing-from-suggestions}. @code{completion} is a string, the
+printed representation of object. Object is the internal
+representation.
+
+Calling this function outside of the body of
+@code{completing-from-suggestions} is an error.
+@end deffn

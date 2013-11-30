@@ -1,0 +1,6 @@
+@anchor{Variable drei:*comment-drawing-options*}
+@defvr {Variable} {drei:*comment-drawing-options*}
+@vindex drei:*comment-drawing-options*
+The drawing options used for drawing comments in source
+code.
+@end defvr

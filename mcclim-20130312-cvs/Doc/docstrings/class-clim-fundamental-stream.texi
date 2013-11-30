@@ -1,0 +1,7 @@
+@anchor{Class clim:fundamental-stream}
+@deftp {Class} {clim:fundamental-stream}
+@tindex clim:fundamental-stream
+Class precedence list: @code{@w{fundamental-stream}, @w{standard-object}, @w{slot-object}, @w{stream}, @w{t}}
+
+the base class for all Gray streams
+@end deftp

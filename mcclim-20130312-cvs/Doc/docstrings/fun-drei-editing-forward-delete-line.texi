@@ -1,0 +1,5 @@
+@anchor{Generic-Function drei-editing:forward-delete-line}
+@deffn {Generic Function} {drei-editing:forward-delete-line} mark syntax &optional count limit-action
+@findex drei-editing:forward-delete-line
+Delete @code{count} lines beginning from @code{mark}.
+@end deffn

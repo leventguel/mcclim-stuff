@@ -1,0 +1,5 @@
+@anchor{Method clim:input-editor-format ((stream drei-input-editing-mixin) format-string &rest
+                          format-args)}
+@deffn {Method} {clim:input-editor-format} (stream drei-input-editing-mixin) format-string &rest format-args
+Insert a noise string at the insertion-pointer of stream.
+@end deffn

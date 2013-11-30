@@ -1,0 +1,19 @@
+@anchor{Function clim:pointer-input-rectangle*}
+@deffn {Function} {clim:pointer-input-rectangle*} &key stream pointer multiple-window left top right bottom finish-on-release
+@findex clim:pointer-input-rectangle*
+Let the user drag a rectangle on stream and return four
+values, the coordinates of the rectangle. @code{pointer} is the
+pointer that will be tracked (the default should be used unless
+the port has multiple pointing devices), multiple-window is
+currently unimplemented and both left/top and
+right/bottom specify an initial position for a rectangle
+corner. You must provide either both parts of any of these two
+coordinate pairs or none at all. If you provide both left/top
+and right/bottom, the left/top values will be used,
+otherwise, the non-nil set will be used. If neither is specified,
+the user will be able to specify the origin corner of the
+rectangle by clicking the mouse. If finish-on-release is true,
+the function will end when the user releases the mouse button. If
+false, the user will have to click to finish inputting the
+rectangle.
+@end deffn

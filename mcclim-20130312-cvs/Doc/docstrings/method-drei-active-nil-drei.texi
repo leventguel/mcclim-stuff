@@ -1,0 +1,5 @@
+@anchor{Method drei:active ((drei drei))}
+@deffn {Method} {drei:active} (drei drei)
+Return true if @code{drei} is active. A drei instance is active if
+its view is active.
+@end deffn

@@ -1,0 +1,7 @@
+@anchor{Function esa:proper-gesture-p}
+@deffn {Function} {esa:proper-gesture-p} gesture
+@findex esa:proper-gesture-p
+Return non-NIL if @code{gesture} is a proper gesture, NIL
+otherwise. @code{a} proper gesture is loosely defined as any gesture
+that is not just the sole pressing of a modifier key.
+@end deffn

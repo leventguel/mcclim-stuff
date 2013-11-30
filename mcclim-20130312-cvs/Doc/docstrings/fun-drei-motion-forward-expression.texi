@@ -1,0 +1,5 @@
+@anchor{Generic-Function drei-motion:forward-expression}
+@deffn {Generic Function} {drei-motion:forward-expression} mark syntax &optional count limit-action
+@findex drei-motion:forward-expression
+Move @code{mark} forward by @code{count} expressions.
+@end deffn

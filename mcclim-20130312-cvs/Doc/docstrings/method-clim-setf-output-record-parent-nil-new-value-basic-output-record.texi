@@ -1,0 +1,5 @@
+@anchor{Method (setf clim:output-record-parent) (new-value
+                                  (basic-output-record basic-output-record))}
+@deffn {Method} {(setf clim:output-record-parent)} new-value (basic-output-record basic-output-record)
+automatically generated writer method
+@end deffn

@@ -1,0 +1,6 @@
+@anchor{Package drei-buffer}
+@defvr {Package} {drei-buffer}
+An implementation of the buffer protocol. This
+package is quite low-level, not syntax-aware, not CLIM-aware and
+not user-oriented at all.
+@end defvr

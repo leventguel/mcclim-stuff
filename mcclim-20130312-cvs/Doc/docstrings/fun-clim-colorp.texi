@@ -1,0 +1,5 @@
+@anchor{Generic-Function clim:colorp}
+@deffn {Generic Function} {clim:colorp} object
+@findex clim:colorp
+Protocol predicate checking for class COLOR
+@end deffn

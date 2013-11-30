@@ -1,0 +1,5 @@
+@anchor{Generic-Function drei-motion:forward-down}
+@deffn {Generic Function} {drei-motion:forward-down} mark syntax &optional count limit-action
+@findex drei-motion:forward-down
+Move @code{mark} forward by @code{count} nesting levels down.
+@end deffn

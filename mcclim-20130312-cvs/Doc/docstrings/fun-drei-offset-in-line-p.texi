@@ -1,0 +1,6 @@
+@anchor{Function drei:offset-in-line-p}
+@deffn {Function} {drei:offset-in-line-p} line offset
+@findex drei:offset-in-line-p
+Return true if @code{offset} is in the buffer region delimited by
+@code{line}.
+@end deffn

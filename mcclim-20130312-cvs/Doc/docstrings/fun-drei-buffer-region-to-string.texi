@@ -1,0 +1,7 @@
+@anchor{Function drei-buffer:region-to-string}
+@deffn {Function} {drei-buffer:region-to-string} start end
+@findex drei-buffer:region-to-string
+Return a string of the contents of the buffer associated with
+the marks, from @code{start} to @code{end}, of which at least one must be a
+mark object.
+@end deffn

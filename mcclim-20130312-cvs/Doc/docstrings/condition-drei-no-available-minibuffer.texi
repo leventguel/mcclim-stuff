@@ -1,0 +1,8 @@
+@anchor{Condition drei:no-available-minibuffer}
+@deftp {Condition} {drei:no-available-minibuffer}
+@tindex drei:no-available-minibuffer
+Class precedence list: @code{@w{no-available-minibuffer}, @w{user-condition-mixin}, @w{error}, @w{serious-condition}, @w{condition}, @w{slot-object}, @w{t}}
+
+This error is signalled when a command wants
+to use the minibuffer, but none is available.
+@end deftp

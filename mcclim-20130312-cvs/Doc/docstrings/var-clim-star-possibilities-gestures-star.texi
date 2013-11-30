@@ -1,0 +1,9 @@
+@anchor{Variable clim:*possibilities-gestures*}
+@defvr {Variable} {clim:*possibilities-gestures*}
+@vindex clim:*possibilities-gestures*
+A list of the gesture names that cause @code{complete-input} to
+display a (possibly input context-sensitive) help message and a
+list of possibilities. The exact global contents of this list is
+unspecified, but must include the :possibilities gesture
+name.
+@end defvr

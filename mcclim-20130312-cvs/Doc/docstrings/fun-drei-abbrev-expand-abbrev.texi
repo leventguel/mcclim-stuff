@@ -1,0 +1,6 @@
+@anchor{Generic-Function drei-abbrev:expand-abbrev}
+@deffn {Generic Function} {drei-abbrev:expand-abbrev} word abbrev-expander
+@findex drei-abbrev:expand-abbrev
+Given a word and an abbrev expander, return the 
+expanded abbrev, or NIL if no expansion exists
+@end deffn

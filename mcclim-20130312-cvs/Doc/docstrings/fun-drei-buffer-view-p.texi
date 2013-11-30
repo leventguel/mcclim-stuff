@@ -1,0 +1,5 @@
+@anchor{Function drei:buffer-view-p}
+@deffn {Function} {drei:buffer-view-p} view
+@findex drei:buffer-view-p
+Return true if @code{view} is a @code{drei-buffer-view}.
+@end deffn

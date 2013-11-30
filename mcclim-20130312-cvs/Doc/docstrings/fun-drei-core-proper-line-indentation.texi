@@ -1,0 +1,6 @@
+@anchor{Generic-Function drei-core:proper-line-indentation}
+@deffn {Generic Function} {drei-core:proper-line-indentation} view mark
+@findex drei-core:proper-line-indentation
+Return the offset to which @code{mark} should
+ideally be indented to according to @code{view}.
+@end deffn

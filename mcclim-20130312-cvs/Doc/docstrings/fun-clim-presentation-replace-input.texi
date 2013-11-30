@@ -1,0 +1,20 @@
+@anchor{Generic-Function clim:presentation-replace-input}
+@deffn {Generic Function} {clim:presentation-replace-input} stream object type view &key buffer-start rescan query-identifier for-context-type for-context-type query-identifier rescan buffer-start accept-result buffer-start rescan query-identifier for-context-type buffer-start rescan for-context-type &allow-other-keys
+@findex clim:presentation-replace-input
+Like @code{replace-input}, except that the new
+input to insert into the input buffer is gotten by presenting
+object with the presentation type type and view
+@code{view}. buffer-start and rescan are as for @code{replace-input},
+and query-identifier and for-context-type as as for
+@code{present}.
+
+Typically, this function will be implemented by calling
+@code{present-to-string} on object, type, @code{view}, and
+for-context-type, and then calling @code{replace-input} on the
+resulting string.
+
+If the object cannot be transformed into an acceptable textual
+form, it may be inserted as a special "accept result" that is
+considered a single gesture. These accept result objects have no
+standardised form.
+@end deffn

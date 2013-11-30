@@ -1,0 +1,7 @@
+@anchor{Class clim:extended-input-stream}
+@deftp {Class} {clim:extended-input-stream}
+@tindex clim:extended-input-stream
+Class precedence list: @code{@w{extended-input-stream}, @w{fundamental-character-input-stream}, @w{fundamental-input-stream}, @w{fundamental-character-stream}, @w{fundamental-stream}, @w{standard-object}, @w{slot-object}, @w{stream}, @w{t}}
+
+CLIM protocol class
+@end deftp

@@ -1,0 +1,14 @@
+@anchor{Function clim:read-bitmap-file}
+@deffn {Function} {clim:read-bitmap-file} pathname &key format port
+@findex clim:read-bitmap-file
+Read a bitmap file named by @code{pathname}. @code{port} specifies the
+port that the bitmap is to be used on. Format is a keyword
+symbol naming any defined bitmap file format defined by
+clim-extensions:define-bitmap-file-reader. Two values are
+returned: a two-dimensional array of pixel values and an array of
+either colors or color names. If the second value is non-NIL, the
+pixel values are assumed to be indexes into this
+array. Otherwise, the pixel values are taken to be RGB values
+encoded in 32 bit unsigned integers, with the three most
+significant octets being the values R, G and B, in order.
+@end deffn

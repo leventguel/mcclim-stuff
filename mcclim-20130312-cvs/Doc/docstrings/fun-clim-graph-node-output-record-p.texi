@@ -1,0 +1,5 @@
+@anchor{Generic-Function clim:graph-node-output-record-p}
+@deffn {Generic Function} {clim:graph-node-output-record-p} object
+@findex clim:graph-node-output-record-p
+Protocol predicate checking for class GRAPH-NODE-OUTPUT-RECORD
+@end deffn

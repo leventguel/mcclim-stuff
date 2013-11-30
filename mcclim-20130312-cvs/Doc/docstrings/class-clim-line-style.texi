@@ -1,0 +1,7 @@
+@anchor{Class clim:line-style}
+@deftp {Class} {clim:line-style}
+@tindex clim:line-style
+Class precedence list: @code{@w{line-style}, @w{standard-object}, @w{slot-object}, @w{t}}
+
+CLIM protocol class
+@end deftp

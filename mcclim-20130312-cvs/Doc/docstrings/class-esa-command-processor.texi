@@ -1,0 +1,23 @@
+@anchor{Class esa:command-processor}
+@deftp {Class} {esa:command-processor}
+@tindex esa:command-processor
+Class precedence list: @code{@w{command-processor}, @w{standard-object}, @w{slot-object}, @w{t}}
+
+Slots:
+@itemize
+@item @code{%overriding-handler} 
+
+When non-NIL, any action on
+the command processor will be forwarded to this object.
+@item @code{%command-executor} --- initargs: @code{@w{:command-executor}}
+
+The object used to execute
+commands. Will be coerced to a function and called with two
+arguments, the command processor and the command.
+@end itemize
+
+The command processor is fed gestures and will
+execute commands or signal conditions when the provided getures
+unambigiously suggest one of these actions. @code{esa} command
+processing works through instances of this class.
+@end deftp

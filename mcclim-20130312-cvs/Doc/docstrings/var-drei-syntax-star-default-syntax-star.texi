@@ -1,0 +1,8 @@
+@anchor{Variable drei-syntax:*default-syntax*}
+@defvr {Variable} {drei-syntax:*default-syntax*}
+@vindex drei-syntax:*default-syntax*
+The name of the default syntax. Must be a symbol.
+
+This syntax will be used by default, when no other syntax is
+mandated by file types or attribute lists.
+@end defvr

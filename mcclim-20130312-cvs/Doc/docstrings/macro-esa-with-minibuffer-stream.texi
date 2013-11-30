@@ -1,0 +1,8 @@
+@anchor{Macro esa:with-minibuffer-stream}
+@deffn {Macro} {esa:with-minibuffer-stream} (stream-symbol) &body body
+@findex esa:with-minibuffer-stream
+Bind @code{stream-symbol} to the minibuffer stream and evaluate
+  @code{body}. This macro makes sure to setup the initial blanking of
+  the minibuffer as well as taking care of for how long the
+  message should be displayed.
+@end deffn

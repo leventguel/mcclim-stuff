@@ -1,0 +1,8 @@
+@anchor{Generic-Function esa:process-gesture}
+@deffn {Generic Function} {esa:process-gesture} command-processor gesture
+@findex esa:process-gesture
+Tell the command processor to process
+@code{gesture}. This might result in either the execution of a command
+or the signalling of @code{unbound-gesture-sequence}. This is the
+fundamental interface to the command processor.
+@end deffn

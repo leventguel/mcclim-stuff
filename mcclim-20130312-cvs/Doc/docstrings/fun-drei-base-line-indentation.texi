@@ -1,0 +1,6 @@
+@anchor{Function drei-base:line-indentation}
+@deffn {Function} {drei-base:line-indentation} mark tab-width
+@findex drei-base:line-indentation
+Return the distance from the beginning of the line and the first
+constituent character of the line.
+@end deffn

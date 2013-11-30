@@ -1,0 +1,5 @@
+@anchor{Function drei:syntax-view-p}
+@deffn {Function} {drei:syntax-view-p} view
+@findex drei:syntax-view-p
+Return true if @code{view} is a @code{drei-syntax-view}.
+@end deffn

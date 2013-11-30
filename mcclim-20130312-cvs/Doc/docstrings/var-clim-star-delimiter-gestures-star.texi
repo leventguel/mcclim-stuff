@@ -1,0 +1,8 @@
+@anchor{Variable clim:*delimiter-gestures*}
+@defvr {Variable} {clim:*delimiter-gestures*}
+@vindex clim:*delimiter-gestures*
+The set of currently active delimiter gestures. The global
+value of this must be NIL. The exact format of
+@code{*delimiter-gestures*} is unspecified. @code{*delimiter-gestures*} and
+the elements in it may have dynamic extent.
+@end defvr

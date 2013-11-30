@@ -1,0 +1,6 @@
+@anchor{Function drei-syntax:parse-stack-top}
+@deffn {Function} {drei-syntax:parse-stack-top} state
+@findex drei-syntax:parse-stack-top
+for a given state, return the top of the parse stack, or NIL if the parse stack
+is empty in that state.
+@end deffn

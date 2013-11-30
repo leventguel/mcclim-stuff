@@ -1,0 +1,11 @@
+@anchor{Generic-Function drei-core:activate-target-specification}
+@deffn {Generic Function} {drei-core:activate-target-specification} target-specification
+@findex drei-core:activate-target-specification
+Cause the Drei instance associated with
+@code{target-specification} to switch to the "current" target of
+@code{target-specification}, whatever that is. It is illegal to call
+any other target function on a @code{target-specification} object
+until it has been activated by this function, and it is illegal
+to call this function on an already activated
+@code{target-specification} instance.
+@end deffn

@@ -1,0 +1,7 @@
+@anchor{Class clim:encapsulating-stream}
+@deftp {Class} {clim:encapsulating-stream}
+@tindex clim:encapsulating-stream
+Class precedence list: @code{@w{encapsulating-stream}, @w{standard-object}, @w{slot-object}, @w{t}}
+
+CLIM protocol class
+@end deftp

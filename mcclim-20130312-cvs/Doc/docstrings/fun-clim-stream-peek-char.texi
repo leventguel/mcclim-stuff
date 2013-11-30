@@ -1,0 +1,7 @@
+@anchor{Generic-Function clim:stream-peek-char}
+@deffn {Generic Function} {clim:stream-peek-char} stream
+@findex clim:stream-peek-char
+This is used to implement PEEK-CHAR; this corresponds to PEEK-TYPE of NIL.
+  It returns either a character or :EOF. The default method calls
+  @code{stream-read-char} and @code{stream-unread-char}.
+@end deffn

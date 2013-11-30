@@ -1,0 +1,5 @@
+@anchor{Generic-Function clim:gadgetp}
+@deffn {Generic Function} {clim:gadgetp} object
+@findex clim:gadgetp
+Protocol predicate checking for class GADGET
+@end deffn

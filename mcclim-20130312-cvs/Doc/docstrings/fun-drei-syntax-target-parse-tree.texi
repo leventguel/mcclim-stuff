@@ -1,0 +1,6 @@
+@anchor{Function drei-syntax:target-parse-tree}
+@deffn {Function} {drei-syntax:target-parse-tree} state
+@findex drei-syntax:target-parse-tree
+for a given state, return a target parse tree, or NIL if this state does not
+represent a complete parse of the target.
+@end deffn

@@ -1,0 +1,5 @@
+@anchor{Method drei:point-of ((buffer-stream buffer-stream))}
+@deffn {Method} {drei:point-of} (buffer-stream buffer-stream)
+A mark indicating the current position
+in the buffer of the stream.
+@end deffn

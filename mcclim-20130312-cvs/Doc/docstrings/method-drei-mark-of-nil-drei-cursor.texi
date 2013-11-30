@@ -1,0 +1,4 @@
+@anchor{Method drei:mark-of ((drei-cursor drei-cursor))}
+@deffn {Method} {drei:mark-of} (drei-cursor drei-cursor)
+automatically generated reader method
+@end deffn

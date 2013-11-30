@@ -1,0 +1,5 @@
+@anchor{Function drei-editing:forward-kill-object}
+@deffn {Function} {drei-editing:forward-kill-object} mark &optional count concatenate-p limit-action
+@findex drei-editing:forward-kill-object
+Kill @code{count} objects beginning from @code{mark}.
+@end deffn

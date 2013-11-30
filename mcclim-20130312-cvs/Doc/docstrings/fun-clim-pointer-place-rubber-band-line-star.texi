@@ -1,0 +1,15 @@
+@anchor{Function clim:pointer-place-rubber-band-line*}
+@deffn {Function} {clim:pointer-place-rubber-band-line*} &key stream pointer multiple-window start-x start-y finish-on-release
+@findex clim:pointer-place-rubber-band-line*
+Let the user drag a line on stream, returning the
+coordinates of the line ends as four values. @code{pointer} is the
+pointer that will be tracked (the default should be used unless
+the port has multiple pointing devices), multiple-window is
+currently unimplemented and start-x/start-y, if provided (and
+both or none must be provided) are the coordinates for one end of
+the line. If these arguments are not provided, the user will have
+to press a mouse button to specify the beginning of the line. If
+finish-on-release is true, the function will end when the user
+releases the mouse button. If false, the user will have to click
+to finish inputting the line.
+@end deffn

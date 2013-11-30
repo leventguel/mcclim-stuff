@@ -1,0 +1,6 @@
+@anchor{Generic-Function drei:tab-width}
+@deffn {Generic Function} {drei:tab-width} stream tabify
+@findex drei:tab-width
+Return the width of a tab character on
+@code{stream} in device units (most likely pixels).
+@end deffn

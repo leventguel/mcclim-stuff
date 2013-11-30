@@ -1,0 +1,4 @@
+(define-application-frame hello-world ()
+  ((greeting :initform "Hello World" 
+             :accessor greeting))
+  (:pane (make-pane 'hello-world-pane)))

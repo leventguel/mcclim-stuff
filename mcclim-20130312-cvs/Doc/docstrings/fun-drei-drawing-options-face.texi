@@ -1,0 +1,5 @@
+@anchor{Function drei:drawing-options-face}
+@deffn {Function} {drei:drawing-options-face} instance
+@findex drei:drawing-options-face
+Return whether debug-block represents elsewhere code.
+@end deffn

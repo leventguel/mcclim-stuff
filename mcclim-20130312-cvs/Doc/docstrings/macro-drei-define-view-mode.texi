@@ -1,0 +1,9 @@
+@anchor{Macro drei:define-view-mode}
+@deffn {Macro} {drei:define-view-mode} name (&rest superclasses) (&rest slot-specs) &rest options
+@findex drei:define-view-mode
+Define a mode (as @code{define-mode}) that is applicable to
+views. Apart from taking the same options as @code{define-mode}, it
+also takes an :applicable-views option (nil by default) that is
+a list of views the mode should be applicable to. Multiple uses
+of this option are cumulative.
+@end deffn

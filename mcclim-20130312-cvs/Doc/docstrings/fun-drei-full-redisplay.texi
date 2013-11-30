@@ -1,0 +1,5 @@
+@anchor{Generic-Function drei:full-redisplay}
+@deffn {Generic Function} {drei:full-redisplay} pane
+@findex drei:full-redisplay
+Queue a full redisplay for @code{pane}.
+@end deffn

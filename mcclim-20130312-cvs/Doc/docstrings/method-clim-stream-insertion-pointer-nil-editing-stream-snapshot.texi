@@ -1,0 +1,5 @@
+@anchor{Method clim:stream-insertion-pointer ((editing-stream-snapshot
+                                editing-stream-snapshot))}
+@deffn {Method} {clim:stream-insertion-pointer} (editing-stream-snapshot editing-stream-snapshot)
+automatically generated reader method
+@end deffn

@@ -1,0 +1,6 @@
+@anchor{Function drei-buffer:mark}
+@deffn {Function} {drei-buffer:mark} &optional object
+@findex drei-buffer:mark
+Return the mark of the provided object. If no object is
+provided, the current view will be used.
+@end deffn

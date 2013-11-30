@@ -1,0 +1,6 @@
+@anchor{Generic-Function clim:stream-clear-output}
+@deffn {Generic Function} {clim:stream-clear-output} stream
+@findex clim:stream-clear-output
+This is like CL:CLEAR-OUTPUT, but for Gray streams: clear the given
+  output STREAM. The default method does nothing.
+@end deffn

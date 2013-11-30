@@ -1,0 +1,7 @@
+@anchor{Class drei-abbrev:abbrev-expander}
+@deftp {Class} {drei-abbrev:abbrev-expander}
+@tindex drei-abbrev:abbrev-expander
+Class precedence list: @code{@w{abbrev-expander}, @w{standard-object}, @w{slot-object}, @w{t}}
+
+The protocol class for all abbreviation expanders
+@end deftp

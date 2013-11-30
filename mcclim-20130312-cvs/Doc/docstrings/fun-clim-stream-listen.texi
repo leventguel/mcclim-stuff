@@ -1,0 +1,8 @@
+@anchor{Generic-Function clim:stream-listen}
+@deffn {Generic Function} {clim:stream-listen} stream
+@findex clim:stream-listen
+This is used by LISTEN. It returns true or false. The default method uses
+  @code{stream-read-char-no-hang} and @code{stream-unread-char}. Most streams should
+  define their own method since it will usually be trivial and will
+  always be more efficient than the default method.
+@end deffn

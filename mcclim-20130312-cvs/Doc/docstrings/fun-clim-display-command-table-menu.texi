@@ -1,0 +1,11 @@
+@anchor{Generic-Function clim:display-command-table-menu}
+@deffn {Generic Function} {clim:display-command-table-menu} command-table stream &key max-width max-height n-rows n-columns x-spacing y-spacing initial-spacing row-wise cell-align-x cell-align-y move-cursor cell-align-x cell-align-y move-cursor
+@findex clim:display-command-table-menu
+Display a menu of the commands accessible in
+@code{command-table} to stream.
+
+max-width, max-height, n-rows, n-columns, x-spacing,
+y-spacing, row-wise, initial-spacing, @code{cell-align-x},
+@code{cell-align-y}, and move-cursor are as for
+@code{formatting-item-list}.
+@end deffn

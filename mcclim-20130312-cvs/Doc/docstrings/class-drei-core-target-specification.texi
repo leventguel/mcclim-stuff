@@ -1,0 +1,10 @@
+@anchor{Class drei-core:target-specification}
+@deftp {Class} {drei-core:target-specification}
+@tindex drei-core:target-specification
+Class precedence list: @code{@w{target-specification}, @w{standard-object}, @w{slot-object}, @w{t}}
+
+The base class for target specifications,
+objects that permit browsing through targets for various
+operations. @code{target-specification} instances start off
+deactivated.
+@end deftp

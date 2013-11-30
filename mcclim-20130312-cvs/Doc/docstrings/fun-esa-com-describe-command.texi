@@ -1,0 +1,5 @@
+@anchor{Function esa:com-describe-command}
+@deffn {Function} {esa:com-describe-command} command
+@findex esa:com-describe-command
+Display documentation for the given command.
+@end deffn

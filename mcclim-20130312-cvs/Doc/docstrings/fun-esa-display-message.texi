@@ -1,0 +1,6 @@
+@anchor{Function esa:display-message}
+@deffn {Function} {esa:display-message} format-string &rest format-args
+@findex esa:display-message
+Display a message in the minibuffer. Composes the string based
+on the @code{format-string} and the @code{format-args}.
+@end deffn

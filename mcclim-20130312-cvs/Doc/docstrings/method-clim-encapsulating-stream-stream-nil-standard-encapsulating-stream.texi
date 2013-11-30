@@ -1,0 +1,5 @@
+@anchor{Method clim:encapsulating-stream-stream ((standard-encapsulating-stream
+                                   standard-encapsulating-stream))}
+@deffn {Method} {clim:encapsulating-stream-stream} (standard-encapsulating-stream standard-encapsulating-stream)
+automatically generated reader method
+@end deffn

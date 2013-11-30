@@ -1,0 +1,5 @@
+@anchor{Generic-Function clim:encapsulating-stream-p}
+@deffn {Generic Function} {clim:encapsulating-stream-p} object
+@findex clim:encapsulating-stream-p
+Protocol predicate checking for class ENCAPSULATING-STREAM
+@end deffn

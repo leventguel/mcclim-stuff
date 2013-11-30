@@ -1,0 +1,6 @@
+@anchor{Function drei:display-drei-pane}
+@deffn {Function} {drei:display-drei-pane} frame drei-pane
+@findex drei:display-drei-pane
+Display @code{pane}. If @code{pane} has focus, current-p should be
+non-NIL.
+@end deffn

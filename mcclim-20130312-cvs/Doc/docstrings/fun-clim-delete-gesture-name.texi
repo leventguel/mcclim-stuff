@@ -1,0 +1,6 @@
+@anchor{Function clim:delete-gesture-name}
+@deffn {Function} {clim:delete-gesture-name} name
+@findex clim:delete-gesture-name
+Delete the gesture named by the symbol name from the list of
+known gestures.
+@end deffn

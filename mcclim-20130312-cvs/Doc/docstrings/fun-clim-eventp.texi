@@ -1,0 +1,5 @@
+@anchor{Generic-Function clim:eventp}
+@deffn {Generic Function} {clim:eventp} object
+@findex clim:eventp
+Protocol predicate checking for class EVENT
+@end deffn

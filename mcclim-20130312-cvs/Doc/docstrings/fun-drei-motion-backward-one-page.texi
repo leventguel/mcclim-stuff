@@ -1,0 +1,7 @@
+@anchor{Generic-Function drei-motion:backward-one-page}
+@deffn {Generic Function} {drei-motion:backward-one-page} mark syntax
+@findex drei-motion:backward-one-page
+Move @code{mark} backward to the previous page.
+Return @code{t} if successful, or NIL if the buffer limit was
+reached.
+@end deffn

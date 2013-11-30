@@ -1,0 +1,5 @@
+@anchor{Package drei-core}
+@defvr {Package} {drei-core}
+Implementation of much syntax-aware, yet no
+syntax-specific, core functionality of Drei.
+@end defvr

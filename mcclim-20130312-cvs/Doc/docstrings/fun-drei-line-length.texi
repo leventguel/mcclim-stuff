@@ -1,0 +1,5 @@
+@anchor{Function drei:line-length}
+@deffn {Function} {drei:line-length} line
+@findex drei:line-length
+Return the length of the @code{buffer-line} object @code{line}.
+@end deffn

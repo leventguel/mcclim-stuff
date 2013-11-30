@@ -1,0 +1,5 @@
+@anchor{Generic-Function drei-editing:backward-kill-list}
+@deffn {Generic Function} {drei-editing:backward-kill-list} mark syntax &optional count concatenate-p limit-action
+@findex drei-editing:backward-kill-list
+Kill @code{count} lists backwards beginning from @code{mark}.
+@end deffn

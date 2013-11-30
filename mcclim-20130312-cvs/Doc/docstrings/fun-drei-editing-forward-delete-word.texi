@@ -1,0 +1,5 @@
+@anchor{Generic-Function drei-editing:forward-delete-word}
+@deffn {Generic Function} {drei-editing:forward-delete-word} mark syntax &optional count limit-action
+@findex drei-editing:forward-delete-word
+Delete @code{count} words beginning from @code{mark}.
+@end deffn

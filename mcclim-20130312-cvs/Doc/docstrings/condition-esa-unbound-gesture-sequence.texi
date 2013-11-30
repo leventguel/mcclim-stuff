@@ -1,0 +1,10 @@
+@anchor{Condition esa:unbound-gesture-sequence}
+@deftp {Condition} {esa:unbound-gesture-sequence}
+@tindex esa:unbound-gesture-sequence
+Class precedence list: @code{@w{unbound-gesture-sequence}, @w{condition}, @w{slot-object}, @w{t}}
+
+This condition is signalled during gesture
+processing, when a sequence of gestures has been entered that
+does not, and cannot by the addition of more gestures, result in
+preferring to a command.
+@end deftp

@@ -1,0 +1,7 @@
+@anchor{Generic-Function clim:stream-write-char}
+@deffn {Generic Function} {clim:stream-write-char} stream character
+@findex clim:stream-write-char
+Write @code{character} to STREAM and return @code{character}. Every
+  subclass of @code{fundamental-character-output-stream} must have a method
+  defined for this function.
+@end deffn

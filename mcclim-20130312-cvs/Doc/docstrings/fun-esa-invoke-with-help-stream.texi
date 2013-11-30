@@ -1,0 +1,8 @@
+@anchor{Generic-Function esa:invoke-with-help-stream}
+@deffn {Generic Function} {esa:invoke-with-help-stream} esa title continuation
+@findex esa:invoke-with-help-stream
+Invoke @code{continuation} with a single argument -
+a stream for writing on-line help for @code{esa} onto. The stream
+should have the title, or name, @code{title} (a string), but the
+specific meaning of this is left to the respective @code{esa}.
+@end deffn

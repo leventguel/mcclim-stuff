@@ -1,0 +1,6 @@
+@anchor{Generic-Function drei:space-width}
+@deffn {Generic Function} {drei:space-width} stream tabify
+@findex drei:space-width
+Return the width of a space character on
+@code{stream} in device units (most likely pixels).
+@end deffn

@@ -1,0 +1,7 @@
+@anchor{Function drei-core:insert-in-rectangle-line}
+@deffn {Function} {drei-core:insert-in-rectangle-line} mark startcol endcol string
+@findex drei-core:insert-in-rectangle-line
+For the line that @code{mark} is in, move the string between column
+@code{startcol} and @code{endcol} to the right, replacing the area previously
+inhabited by it with the contents of @code{string}.
+@end deffn

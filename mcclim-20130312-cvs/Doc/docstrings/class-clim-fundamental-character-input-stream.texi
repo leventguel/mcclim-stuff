@@ -1,0 +1,7 @@
+@anchor{Class clim:fundamental-character-input-stream}
+@deftp {Class} {clim:fundamental-character-input-stream}
+@tindex clim:fundamental-character-input-stream
+Class precedence list: @code{@w{fundamental-character-input-stream}, @w{fundamental-input-stream}, @w{fundamental-character-stream}, @w{fundamental-stream}, @w{standard-object}, @w{slot-object}, @w{stream}, @w{t}}
+
+a superclass of all Gray input streams whose element-type is a subtype of character
+@end deftp

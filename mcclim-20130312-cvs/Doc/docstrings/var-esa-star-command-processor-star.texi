@@ -1,0 +1,6 @@
+@anchor{Variable esa:*command-processor*}
+@defvr {Variable} {esa:*command-processor*}
+@vindex esa:*command-processor*
+While a command is being run, this symbol will be dynamically
+bound to the current command processor.
+@end defvr

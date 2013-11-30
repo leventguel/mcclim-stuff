@@ -1,0 +1,6 @@
+@anchor{Function drei-base:buffer-search-forward}
+@deffn {Function} {drei-base:buffer-search-forward} buffer offset vector &key test
+@findex drei-base:buffer-search-forward
+return the smallest offset of @code{buffer} >= @code{offset} containing VECTOR
+or NIL if no such offset exists
+@end deffn

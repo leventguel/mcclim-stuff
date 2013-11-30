@@ -1,0 +1,5 @@
+@anchor{Generic-Function clim:region-set-p}
+@deffn {Generic Function} {clim:region-set-p} object
+@findex clim:region-set-p
+Protocol predicate checking for class REGION-SET
+@end deffn

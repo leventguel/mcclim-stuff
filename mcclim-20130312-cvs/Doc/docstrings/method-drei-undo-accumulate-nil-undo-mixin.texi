@@ -1,0 +1,5 @@
+@anchor{Method drei:undo-accumulate ((undo-mixin undo-mixin))}
+@deffn {Method} {drei:undo-accumulate} (undo-mixin undo-mixin)
+The undo records created
+since the start of the undo context.
+@end deffn

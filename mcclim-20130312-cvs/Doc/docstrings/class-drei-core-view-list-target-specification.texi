@@ -1,0 +1,8 @@
+@anchor{Class drei-core:view-list-target-specification}
+@deftp {Class} {drei-core:view-list-target-specification}
+@tindex drei-core:view-list-target-specification
+Class precedence list: @code{@w{view-list-target-specification}, @w{target-specification}, @w{standard-object}, @w{slot-object}, @w{t}}
+
+A target specification that has a provided
+list of existing views as its target.
+@end deftp

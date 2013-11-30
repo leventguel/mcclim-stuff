@@ -1,0 +1,4 @@
+@anchor{Method drei:drei-instance-of ((target-specification target-specification))}
+@deffn {Method} {drei:drei-instance-of} (target-specification target-specification)
+automatically generated reader method
+@end deffn

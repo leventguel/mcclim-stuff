@@ -1,0 +1,8 @@
+@anchor{Class drei-buffer:p-line-mark-mixin}
+@deftp {Class} {drei-buffer:p-line-mark-mixin}
+@tindex drei-buffer:p-line-mark-mixin
+Class precedence list: @code{@w{p-line-mark-mixin}, @w{p-mark-mixin}, @w{standard-object}, @w{slot-object}, @w{t}}
+
+A persistent mark mixin class that works with
+cursors that can efficiently work with lines.
+@end deftp

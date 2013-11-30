@@ -1,0 +1,8 @@
+@anchor{Generic-Function clim:stream-read-line}
+@deffn {Generic Function} {clim:stream-read-line} stream
+@findex clim:stream-read-line
+This is used by READ-LINE. A string is returned as the first value. The
+  second value is true if the string was terminated by end-of-file
+  instead of the end of a line. The default method uses repeated
+  calls to @code{stream-read-char}.
+@end deffn

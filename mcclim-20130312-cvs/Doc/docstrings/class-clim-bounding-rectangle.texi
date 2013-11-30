@@ -1,0 +1,7 @@
+@anchor{Class clim:bounding-rectangle}
+@deftp {Class} {clim:bounding-rectangle}
+@tindex clim:bounding-rectangle
+Class precedence list: @code{@w{bounding-rectangle}, @w{standard-object}, @w{slot-object}, @w{t}}
+
+CLIM protocol class
+@end deftp

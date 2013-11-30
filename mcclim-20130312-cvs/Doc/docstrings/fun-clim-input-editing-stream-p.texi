@@ -1,0 +1,5 @@
+@anchor{Generic-Function clim:input-editing-stream-p}
+@deffn {Generic Function} {clim:input-editing-stream-p} object
+@findex clim:input-editing-stream-p
+Protocol predicate checking for class INPUT-EDITING-STREAM
+@end deffn

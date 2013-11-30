@@ -1,0 +1,8 @@
+@anchor{Function drei-core:extract-and-delete-rectangle-line}
+@deffn {Function} {drei-core:extract-and-delete-rectangle-line} mark startcol endcol
+@findex drei-core:extract-and-delete-rectangle-line
+For the line that @code{mark} is in, delete and return the string
+between column @code{startcol} and @code{endcol}. If the string to be returned
+is not as wide as the rectangle, it will be right-padded with space
+characters.
+@end deffn

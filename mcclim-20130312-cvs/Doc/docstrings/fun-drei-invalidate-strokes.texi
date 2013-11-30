@@ -1,0 +1,11 @@
+@anchor{Generic-Function drei:invalidate-strokes}
+@deffn {Generic Function} {drei:invalidate-strokes} view syntax
+@findex drei:invalidate-strokes
+Called just before redisplay of the
+@code{textual-drei-syntax-view} @code{view} in order to give @code{syntax},
+which is the syntax of @code{view}, a chance to mark part of the
+display as invalid due to do something not caused by buffer
+modification (for example, parenthesis matching). This function
+should return a list of pairs of buffer offsets, each pair
+delimiting a buffer region that should be redrawn.
+@end deffn

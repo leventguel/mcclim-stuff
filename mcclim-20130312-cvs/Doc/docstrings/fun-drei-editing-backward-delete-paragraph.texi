@@ -1,0 +1,5 @@
+@anchor{Generic-Function drei-editing:backward-delete-paragraph}
+@deffn {Generic Function} {drei-editing:backward-delete-paragraph} mark syntax &optional count limit-action
+@findex drei-editing:backward-delete-paragraph
+Delete @code{count} paragraphs backwards beginning from @code{mark}.
+@end deffn

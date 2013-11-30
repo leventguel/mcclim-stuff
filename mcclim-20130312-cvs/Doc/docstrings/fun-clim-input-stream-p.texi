@@ -1,0 +1,5 @@
+@anchor{Generic-Function clim:input-stream-p}
+@deffn {Generic Function} {clim:input-stream-p} stream
+@findex clim:input-stream-p
+Can STREAM perform input operations?
+@end deffn

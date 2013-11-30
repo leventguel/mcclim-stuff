@@ -1,0 +1,7 @@
+@anchor{Class drei:mark}
+@deftp {Class} {drei:mark}
+@tindex drei:mark
+Class precedence list: @code{@w{mark}, @w{standard-object}, @w{slot-object}, @w{t}}
+
+The base class for all marks.
+@end deftp

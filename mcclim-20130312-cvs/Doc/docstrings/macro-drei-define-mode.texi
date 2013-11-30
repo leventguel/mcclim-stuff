@@ -1,0 +1,12 @@
+@anchor{Macro drei:define-mode}
+@deffn {Macro} {drei:define-mode} name (&rest superclasses) (&rest slot-specs) &rest options
+@findex drei:define-mode
+Define a toggable Drei mode. It is essentially a class, with
+the provided @code{name}, @code{superclasses}, @code{slot-specs} and
+@code{options}. It will automatically be a subclass of @code{mode}. Apart
+from the normal class options, @code{options} can also have a
+:global option, which when true signifies that the mode is
+globally available to all Drei instances. This option is true by
+default. Note that modes created via this macro are not
+applicable to anything.
+@end deffn

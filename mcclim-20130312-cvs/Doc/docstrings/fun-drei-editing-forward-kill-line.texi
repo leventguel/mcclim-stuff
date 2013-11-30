@@ -1,0 +1,5 @@
+@anchor{Generic-Function drei-editing:forward-kill-line}
+@deffn {Generic Function} {drei-editing:forward-kill-line} mark syntax &optional count concatenate-p limit-action
+@findex drei-editing:forward-kill-line
+Kill @code{count} lines beginning from @code{mark}.
+@end deffn

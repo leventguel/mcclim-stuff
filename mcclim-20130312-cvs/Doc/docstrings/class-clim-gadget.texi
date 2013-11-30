@@ -1,0 +1,7 @@
+@anchor{Class clim:gadget}
+@deftp {Class} {clim:gadget}
+@tindex clim:gadget
+Class precedence list: @code{@w{gadget}, @w{pane}, @w{standard-repainting-mixin}, @w{standard-sheet-input-mixin}, @w{sheet-transformation-mixin}, @w{basic-sheet}, @w{sheet}, @w{bounding-rectangle}, @w{standard-object}, @w{slot-object}, @w{t}}
+
+CLIM protocol class
+@end deftp

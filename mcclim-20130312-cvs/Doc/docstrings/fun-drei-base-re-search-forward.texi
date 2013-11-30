@@ -1,0 +1,6 @@
+@anchor{Function drei-base:re-search-forward}
+@deffn {Function} {drei-base:re-search-forward} mark re
+@findex drei-base:re-search-forward
+move @code{mark} forward after the first occurence of string matching RE
+after MARK
+@end deffn

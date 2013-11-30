@@ -1,0 +1,6 @@
+@anchor{Function drei-base:end-of-line-offset}
+@deffn {Function} {drei-base:end-of-line-offset} buffer start-offset
+@findex drei-base:end-of-line-offset
+Return the offset of the end of the line of @code{buffer}
+containing @code{start-offset}.
+@end deffn

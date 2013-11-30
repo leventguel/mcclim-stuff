@@ -1,0 +1,7 @@
+@anchor{Class drei:syntax-mode}
+@deftp {Class} {drei:syntax-mode}
+@tindex drei:syntax-mode
+Class precedence list: @code{@w{syntax-mode}, @w{mode}, @w{standard-object}, @w{slot-object}, @w{t}}
+
+The superclass for all syntax modes.
+@end deftp

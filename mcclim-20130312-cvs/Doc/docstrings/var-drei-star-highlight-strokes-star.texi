@@ -1,0 +1,6 @@
+@anchor{Variable drei:*highlight-strokes*}
+@defvr {Variable} {drei:*highlight-strokes*}
+@vindex drei:*highlight-strokes*
+If true, draw a box around all strokes and a line through
+their baseline..
+@end defvr

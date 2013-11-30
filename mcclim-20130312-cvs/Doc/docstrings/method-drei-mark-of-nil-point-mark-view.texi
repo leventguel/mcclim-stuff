@@ -1,0 +1,4 @@
+@anchor{Method drei:mark-of ((point-mark-view point-mark-view))}
+@deffn {Method} {drei:mark-of} (point-mark-view point-mark-view)
+automatically generated reader method
+@end deffn

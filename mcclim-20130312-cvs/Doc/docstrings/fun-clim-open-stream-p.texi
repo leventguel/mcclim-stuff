@@ -1,0 +1,7 @@
+@anchor{Generic-Function clim:open-stream-p}
+@deffn {Generic Function} {clim:open-stream-p} stream
+@findex clim:open-stream-p
+Return true if STREAM is not closed. A default method is provided
+  by class @code{fundamental-stream} which returns true if @code{close} has not been
+  called on the stream.
+@end deffn

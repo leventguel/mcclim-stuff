@@ -1,0 +1,11 @@
+@anchor{Generic-Function clim:rescan-if-necessary}
+@deffn {Generic Function} {clim:rescan-if-necessary} stream &optional inhibit-activation
+@findex clim:rescan-if-necessary
+Invokes a rescan operation on the input
+editing stream stream if @code{queue-rescan} was called on the same
+stream and no intervening rescan operation has taken
+place. Resets the state of the "rescan queued" flag to false.
+
+If inhibit-activation is false, the input line will not be
+activated even if there is an activation character in it.
+@end deffn

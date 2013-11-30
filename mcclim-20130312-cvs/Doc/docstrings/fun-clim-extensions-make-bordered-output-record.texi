@@ -1,0 +1,7 @@
+@anchor{Generic-Function clim-extensions:make-bordered-output-record}
+@deffn {Generic Function} {clim-extensions:make-bordered-output-record} stream shape record &allow-other-keys
+@findex clim-extensions:make-bordered-output-record
+Instantiates an output record of a class appropriate for the
+  specified shape containing the given output record, and renders any decorations
+  associated with the shape.
+@end deffn

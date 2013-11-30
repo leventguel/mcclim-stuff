@@ -1,0 +1,5 @@
+@anchor{Function drei-base:constituentp}
+@deffn {Function} {drei-base:constituentp} obj
+@findex drei-base:constituentp
+A predicate to ensure that an object is a constituent character.
+@end deffn

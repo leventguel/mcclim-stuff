@@ -1,0 +1,5 @@
+@anchor{Function drei-abbrev:possibly-expand-abbrev}
+@deffn {Function} {drei-abbrev:possibly-expand-abbrev} mark
+@findex drei-abbrev:possibly-expand-abbrev
+Replaces a bit of abbreviated text with its fully expanded counterpart.
+@end deffn

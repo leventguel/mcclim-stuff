@@ -1,0 +1,52 @@
+(defvar *days* #("Sun" "Mon" "Tue" "Wed" "Thu" "Fri" "Sat"))
+
+;; Alist of day number and appointment strings
+(defvar *test-data* 
+  '((0) (1 "Dentist") (2 "Staff meeting") (3 "Performance Evaluation" "Bowling")
+    (4 "Interview at ACME" "The Simpsons") (5 "TGIF") (6 "Sailing")))
+
+(define-presentation-type weekday ())
+
+(define-presentation-method accept
+    ((type weekday) stream (view textual-view) &key)
+  (values (completing-from-suggestions (stream)
+            (dotimes (i 7)
+              (suggest (aref *days* i) i)))))
+
+(define-presentation-method present
+    (daynumber (type weekday) stream (view textual-view) &key)
+  (write-string (aref *days* daynumber) stream))
+
+
+(define-application-frame scheduler ()
+  ((appointments :initarg :appointments :initform *test-data*)
+   (current-day :initform nil))
+  (:panes (scheduler-display :application
+			     :display-function '(display-appointments))
+	  (interactor :interactor))
+  (:layouts (default-layout
+	      (vertically ()
+			  scheduler-display
+			  interactor))
+	    (alternative-layout
+	     (horizontally ()
+			   interactor
+			   scheduler-display)))
+  (:menu-bar t))
+
+;;; Chooses which day to see in detail,
+(define-scheduler-command (com-select-day :name t :menu t)
+    ((day 'weekday :gesture :select))
+  (with-slots (current-day) *application-frame*
+    (setq current-day day)))
+
+;;; Show weekly summary.
+(define-scheduler-command (com-show-summary :name t :menu t) ()
+  (with-slots (current-day) *application-frame*
+    (setq current-day nil)))
+
+(define-scheduler-command (com-toggle-layout :name t :menu t) ()
+  (with-accessors ((layout frame-current-layout)) *application-frame*
+    (setf layout (if (eq layout 'default-layout)
+		     'alternative-layout
+		   'default-layout))))

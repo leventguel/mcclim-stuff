@@ -1,0 +1,4 @@
+@anchor{Method esa:windows ((esa-frame-mixin esa-frame-mixin))}
+@deffn {Method} {esa:windows} (esa-frame-mixin esa-frame-mixin)
+automatically generated reader method
+@end deffn

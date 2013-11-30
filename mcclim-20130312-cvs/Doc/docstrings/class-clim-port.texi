@@ -1,0 +1,7 @@
+@anchor{Class clim:port}
+@deftp {Class} {clim:port}
+@tindex clim:port
+Class precedence list: @code{@w{port}, @w{standard-object}, @w{slot-object}, @w{t}}
+
+CLIM protocol class
+@end deftp

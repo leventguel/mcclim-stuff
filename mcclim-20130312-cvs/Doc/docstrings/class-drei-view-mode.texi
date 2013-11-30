@@ -1,0 +1,7 @@
+@anchor{Class drei:view-mode}
+@deftp {Class} {drei:view-mode}
+@tindex drei:view-mode
+Class precedence list: @code{@w{view-mode}, @w{mode}, @w{standard-object}, @w{slot-object}, @w{t}}
+
+The superclass for all view modes.
+@end deftp

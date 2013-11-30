@@ -1,0 +1,6 @@
+@anchor{Variable drei:*stroke-boundary-ink*}
+@defvr {Variable} {drei:*stroke-boundary-ink*}
+@vindex drei:*stroke-boundary-ink*
+The ink with which stroke boundaries will be highlighted when
+`*highlight-strokes* is true.
+@end defvr

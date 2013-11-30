@@ -1,0 +1,4 @@
+@anchor{Package drei-kill-ring}
+@defvr {Package} {drei-kill-ring}
+An implementation of a kill ring.
+@end defvr

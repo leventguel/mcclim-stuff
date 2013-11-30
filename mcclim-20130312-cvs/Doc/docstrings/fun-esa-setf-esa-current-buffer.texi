@@ -1,0 +1,6 @@
+@anchor{Generic-Function (setf esa:esa-current-buffer)}
+@deffn {Generic Function} {(setf esa:esa-current-buffer)} new-buffer esa
+@findex (setf esa:esa-current-buffer)
+Replace the current buffer of
+APPLICATION-FRAME with @code{new-buffer}.
+@end deffn

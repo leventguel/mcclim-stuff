@@ -1,0 +1,9 @@
+@anchor{Function drei-base:fill-string-from-buffer}
+@deffn {Function} {drei-base:fill-string-from-buffer} buffer string offset1 offset2
+@findex drei-base:fill-string-from-buffer
+Copy from @code{offset1} to @code{offset2} in @code{buffer} to @code{string},
+which must be an adjustable vector of characters with a fill
+pointer. Once the buffer region has been copied to @code{string}, or a
+non-character object has been encountered in the buffer, the
+number of characters copied to @code{string} will be returned.
+@end deffn

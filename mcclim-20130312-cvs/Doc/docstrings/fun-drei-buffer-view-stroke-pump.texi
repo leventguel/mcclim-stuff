@@ -1,0 +1,7 @@
+@anchor{Function drei:buffer-view-stroke-pump}
+@deffn {Function} {drei:buffer-view-stroke-pump} view stroke pump-state
+@findex drei:buffer-view-stroke-pump
+Pump redisplay data into @code{stroke} based on @code{pump-state} and
+the information managed by @code{view}, which must be a
+@code{drei-buffer-view}.
+@end deffn

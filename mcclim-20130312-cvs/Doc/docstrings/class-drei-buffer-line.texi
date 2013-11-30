@@ -1,0 +1,24 @@
+@anchor{Class drei:buffer-line}
+@deftp {Class} {drei:buffer-line}
+@tindex drei:buffer-line
+Class precedence list: @code{@w{buffer-line}, @w{standard-object}, @w{slot-object}, @w{t}}
+
+Slots:
+@itemize
+@item @code{%start-mark} --- initargs: @code{@w{:start-mark}}
+
+The mark at which this line starts.
+@item @code{%end-mark} --- initargs: @code{@w{:end-mark}}
+
+The mark at which this line ends.
+@item @code{%chunks} 
+
+A list of cons-cells, with the car
+being a buffer offset relative to the @code{start-mark} of the line,
+and the cdr being @code{t} if the chunk covers a non-character, and NIL
+if it covers a character sequence.
+@end itemize
+
+An object describing a single line in the
+buffer associated with a @code{drei-buffer-view}
+@end deftp

@@ -1,0 +1,6 @@
+@anchor{Function drei-core:delete-rectangle-line-whitespace}
+@deffn {Function} {drei-core:delete-rectangle-line-whitespace} mark startcol endcol
+@findex drei-core:delete-rectangle-line-whitespace
+For the line that @code{mark} is in, delete all whitespace characters
+from @code{startcol} up to the first non-whitespace character.
+@end deffn

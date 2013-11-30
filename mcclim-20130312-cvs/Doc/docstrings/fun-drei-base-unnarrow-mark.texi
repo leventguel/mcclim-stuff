@@ -1,0 +1,7 @@
+@anchor{Generic-Function drei-base:unnarrow-mark}
+@deffn {Generic Function} {drei-base:unnarrow-mark} mark
+@findex drei-base:unnarrow-mark
+Change @code{mark} to be a standard, unnarrowed
+mark. HIGHLY IMPORTANT @code{warning}: This is done **destructively** by
+modifying which class @code{mark} is an instance of.
+@end deffn

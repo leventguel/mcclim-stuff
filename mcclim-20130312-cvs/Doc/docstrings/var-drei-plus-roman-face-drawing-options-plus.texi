@@ -1,0 +1,5 @@
+@anchor{Variable drei:+roman-face-drawing-options+}
+@defvr {Variable} {drei:+roman-face-drawing-options+}
+@vindex drei:+roman-face-drawing-options+
+Options used for drawing with a roman face.
+@end defvr

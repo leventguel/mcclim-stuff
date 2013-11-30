@@ -1,0 +1,6 @@
+@anchor{Generic-Function esa:convert-to-gesture}
+@deffn {Generic Function} {esa:convert-to-gesture} event
+@findex esa:convert-to-gesture
+Convert @code{event} (which must be an input event)
+  to a CLIM gesture, or NIL, if this is not possible.
+@end deffn

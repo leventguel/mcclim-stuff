@@ -1,0 +1,14 @@
+@anchor{Class clim:basic-medium}
+@deftp {Class} {clim:basic-medium}
+@tindex clim:basic-medium
+Class precedence list: @code{@w{basic-medium}, @w{medium}, @w{standard-object}, @w{slot-object}, @w{t}}
+
+Slots:
+@itemize
+@item @code{clipping-region} --- initargs: @code{@w{:clipping-region}}
+
+Clipping region in the @code{sheet} coordinates.
+@end itemize
+
+The basic class, on which all CLIM mediums are built.
+@end deftp

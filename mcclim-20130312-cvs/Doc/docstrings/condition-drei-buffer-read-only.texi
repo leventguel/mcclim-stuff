@@ -1,0 +1,8 @@
+@anchor{Condition drei:buffer-read-only}
+@deftp {Condition} {drei:buffer-read-only}
+@tindex drei:buffer-read-only
+Class precedence list: @code{@w{buffer-read-only}, @w{user-condition-mixin}, @w{error}, @w{serious-condition}, @w{condition}, @w{slot-object}, @w{t}}
+
+This condition is signalled whenever an attempt
+is made to alter a buffer which has been set read only.
+@end deftp

@@ -1,0 +1,7 @@
+@anchor{Class clim:application-frame}
+@deftp {Class} {clim:application-frame}
+@tindex clim:application-frame
+Class precedence list: @code{@w{application-frame}, @w{standard-object}, @w{slot-object}, @w{t}}
+
+CLIM protocol class
+@end deftp

@@ -1,0 +1,5 @@
+@anchor{Function clim:null}
+@deffn {Function} {clim:null} object
+@findex clim:null
+Return true if OBJECT is a @code{null}, and NIL otherwise.
+@end deffn

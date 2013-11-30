@@ -1,0 +1,4 @@
+@anchor{Method clim-extensions:font-face-family ((font-face font-face))}
+@deffn {Method} {clim-extensions:font-face-family} (font-face font-face)
+automatically generated reader method
+@end deffn

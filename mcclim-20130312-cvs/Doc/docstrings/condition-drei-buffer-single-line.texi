@@ -1,0 +1,9 @@
+@anchor{Condition drei:buffer-single-line}
+@deftp {Condition} {drei:buffer-single-line}
+@tindex drei:buffer-single-line
+Class precedence list: @code{@w{buffer-single-line}, @w{user-condition-mixin}, @w{error}, @w{serious-condition}, @w{condition}, @w{slot-object}, @w{t}}
+
+This condition is signalled whenever an
+attempt is made to insert a #Newline character into a
+single-line buffer.
+@end deftp

@@ -1,0 +1,5 @@
+@anchor{Generic-Function clim:encapsulating-stream-stream}
+@deffn {Generic Function} {clim:encapsulating-stream-stream} encapsulating-stream
+@findex clim:encapsulating-stream-stream
+The stream encapsulated by an encapsulating stream
+@end deffn

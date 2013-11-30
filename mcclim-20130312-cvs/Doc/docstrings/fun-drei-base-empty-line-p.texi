@@ -1,0 +1,5 @@
+@anchor{Function drei-base:empty-line-p}
+@deffn {Function} {drei-base:empty-line-p} mark
+@findex drei-base:empty-line-p
+Check whether the mark is in an empty line.
+@end deffn

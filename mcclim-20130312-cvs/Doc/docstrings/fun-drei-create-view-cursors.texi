@@ -1,0 +1,8 @@
+@anchor{Generic-Function drei:create-view-cursors}
+@deffn {Generic Function} {drei:create-view-cursors} output-stream view
+@findex drei:create-view-cursors
+Method combination: @code{NCONC} (@w{most-specific-first})
+
+Create cursors for @code{view} that are to be
+displayed on @code{output-stream}.
+@end deffn

@@ -1,0 +1,5 @@
+@anchor{Generic-Function clim:linep}
+@deffn {Generic Function} {clim:linep} object
+@findex clim:linep
+Protocol predicate checking for class LINE
+@end deffn

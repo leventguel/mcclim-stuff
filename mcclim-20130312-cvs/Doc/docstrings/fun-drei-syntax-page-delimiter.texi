@@ -1,0 +1,6 @@
+@anchor{Generic-Function drei-syntax:page-delimiter}
+@deffn {Generic Function} {drei-syntax:page-delimiter} syntax
+@findex drei-syntax:page-delimiter
+Return the object sequence used as a page
+  deliminter in @code{syntax}.
+@end deffn

@@ -1,0 +1,8 @@
+@anchor{Macro drei:define-mode-toggle-commands}
+@deffn {Macro} {drei:define-mode-toggle-commands} command-name (mode-name &optional string-form) &key name command-table
+@findex drei:define-mode-toggle-commands
+Define a simple command (named @code{command-name}) for toggling
+the mode named by @code{mode-name} on and off. @code{string-form} is the
+name of the mode that will be put in the docstring, @code{name} and
+@code{command-table} work as in @code{define-command}.
+@end deffn

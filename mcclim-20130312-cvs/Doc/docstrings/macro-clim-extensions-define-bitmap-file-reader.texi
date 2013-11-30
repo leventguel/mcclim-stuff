@@ -1,0 +1,8 @@
+@anchor{Macro clim-extensions:define-bitmap-file-reader}
+@deffn {Macro} {clim-extensions:define-bitmap-file-reader} bitmap-format (&rest args) &body body
+@findex clim-extensions:define-bitmap-file-reader
+Define a method for reading bitmap images of format
+BITMAP-FORMAT that will be used by read-bitmap-file and
+MAKE-PATTERN-FROM-BITMAP-FILE. BODY should return two values as
+per read-bitmap-file.
+@end deffn

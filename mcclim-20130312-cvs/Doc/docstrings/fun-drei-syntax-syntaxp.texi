@@ -1,0 +1,6 @@
+@anchor{Function drei-syntax:syntaxp}
+@deffn {Function} {drei-syntax:syntaxp} object
+@findex drei-syntax:syntaxp
+Return @code{t} if @code{object} is an instance of a syntax, NIL
+  otherwise.
+@end deffn

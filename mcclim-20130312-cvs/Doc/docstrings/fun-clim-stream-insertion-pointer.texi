@@ -1,0 +1,10 @@
+@anchor{Generic-Function clim:stream-insertion-pointer}
+@deffn {Generic Function} {clim:stream-insertion-pointer} stream
+@findex clim:stream-insertion-pointer
+Returns an integer corresponding to the
+current input position in the input editing stream streams
+buffer, that is, the point in the buffer at which the next user
+input gesture will be inserted. The insertion pointer will always
+be less than (fill-pointer (stream-input-buffer stream)). The
+insertion pointer can also be thought of as an editing cursor.
+@end deffn

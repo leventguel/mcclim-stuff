@@ -1,0 +1,8 @@
+@anchor{Class drei-buffer:persistent-right-sticky-line-mark}
+@deftp {Class} {drei-buffer:persistent-right-sticky-line-mark}
+@tindex drei-buffer:persistent-right-sticky-line-mark
+Class precedence list: @code{@w{persistent-right-sticky-line-mark}, @w{right-sticky-mark}, @w{mark}, @w{p-line-mark-mixin}, @w{p-mark-mixin}, @w{standard-object}, @w{slot-object}, @w{t}}
+
+A @code{right-sticky-mark} subclass with line support,
+suitable for use in a @code{persistent-buffer}.
+@end deftp

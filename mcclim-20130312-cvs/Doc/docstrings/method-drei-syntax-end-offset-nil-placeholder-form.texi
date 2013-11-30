@@ -1,0 +1,4 @@
+@anchor{Method drei-syntax:end-offset ((placeholder-form placeholder-form))}
+@deffn {Method} {drei-syntax:end-offset} (placeholder-form placeholder-form)
+automatically generated reader method
+@end deffn

@@ -1,0 +1,7 @@
+@anchor{Class clim:region}
+@deftp {Class} {clim:region}
+@tindex clim:region
+Class precedence list: @code{@w{region}, @w{design}, @w{standard-object}, @w{slot-object}, @w{t}}
+
+CLIM protocol class
+@end deftp

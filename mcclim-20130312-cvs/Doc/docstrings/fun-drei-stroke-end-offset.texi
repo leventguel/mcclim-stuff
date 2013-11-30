@@ -1,0 +1,5 @@
+@anchor{Function drei:stroke-end-offset}
+@deffn {Function} {drei:stroke-end-offset} instance
+@findex drei:stroke-end-offset
+Return whether debug-block represents elsewhere code.
+@end deffn

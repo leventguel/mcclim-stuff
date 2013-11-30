@@ -1,0 +1,13 @@
+@anchor{Generic-Function esa:command-for-unbound-gestures}
+@deffn {Generic Function} {esa:command-for-unbound-gestures} thing gestures
+@findex esa:command-for-unbound-gestures
+Called when @code{gestures} is input by the user
+and there is no associated command in the current command
+table. The function should return either a (possibly incomplete)
+command or NIL. In the latter case (which is handled by a default
+method), the gestures will be treated as actual unbound
+gestures. @code{thing} is something that might be interested in
+commands, at the beginning usually a command processor, but it
+can call the function for other objects it knows in order to get
+their opinion. @code{gestures} is a list of gestures.
+@end deffn

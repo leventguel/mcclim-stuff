@@ -1,0 +1,7 @@
+@anchor{Class clim:cursor}
+@deftp {Class} {clim:cursor}
+@tindex clim:cursor
+Class precedence list: @code{@w{cursor}, @w{standard-object}, @w{slot-object}, @w{t}}
+
+CLIM protocol class
+@end deftp

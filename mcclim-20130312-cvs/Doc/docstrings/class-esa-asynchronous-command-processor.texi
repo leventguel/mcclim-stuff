@@ -1,0 +1,10 @@
+@anchor{Class esa:asynchronous-command-processor}
+@deftp {Class} {esa:asynchronous-command-processor}
+@tindex esa:asynchronous-command-processor
+Class precedence list: @code{@w{asynchronous-command-processor}, @w{command-processor}, @w{instant-macro-execution-mixin}, @w{standard-object}, @w{slot-object}, @w{t}}
+
+Helper class that provides behavior necessary
+for a command processor that expects to receive gestures through
+asynchronous event handling, and not through
+@code{esa-read-gesture}.
+@end deftp

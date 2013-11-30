@@ -1,0 +1,11 @@
+@anchor{Function drei-core:map-rectangle-lines}
+@deffn {Function} {drei-core:map-rectangle-lines} view function start end
+@findex drei-core:map-rectangle-lines
+Map over lines in rectangle, calling @code{function} for each line.
+
+The rectangle is defined by the marks @code{start} and @code{end}. For each
+line, @code{function} will be called with arguments of a mark situated at
+the beginning of the line, the starting column of the rectangle and
+the ending column of the rectangle. This function returns a list of
+the return values of @code{function}.
+@end deffn

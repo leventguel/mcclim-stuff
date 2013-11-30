@@ -1,0 +1,7 @@
+@anchor{Generic-Function drei-core:subsequent-targets-p}
+@deffn {Generic Function} {drei-core:subsequent-targets-p} target-specification
+@findex drei-core:subsequent-targets-p
+Return true if there are more targets to act
+on, that is, if the @code{next-target} function would not signal an
+error.
+@end deffn

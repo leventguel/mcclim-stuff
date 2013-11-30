@@ -1,0 +1,9 @@
+@anchor{Generic-Function drei:handle-redisplay}
+@deffn {Generic Function} {drei:handle-redisplay} pane view region
+@findex drei:handle-redisplay
+Handle redisplay of @code{view} upon @code{pane} (which
+is a Drei pane) in the given region. Methods defined on this
+function should mark their redisplay information as dirty based
+on @code{region} and call the default method, which will in turn call
+@code{display-drei} on @code{pane}.
+@end deffn

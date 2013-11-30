@@ -1,0 +1,7 @@
+@anchor{Class clim:event}
+@deftp {Class} {clim:event}
+@tindex clim:event
+Class precedence list: @code{@w{event}, @w{standard-object}, @w{slot-object}, @w{t}}
+
+CLIM protocol class
+@end deftp

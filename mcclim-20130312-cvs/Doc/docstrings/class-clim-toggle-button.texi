@@ -1,0 +1,7 @@
+@anchor{Class clim:toggle-button}
+@deftp {Class} {clim:toggle-button}
+@tindex clim:toggle-button
+Class precedence list: @code{@w{toggle-button}, @w{labelled-gadget-mixin}, @w{value-gadget}, @w{basic-gadget}, @w{permanent-medium-sheet-output-mixin}, @w{sheet-with-medium-mixin}, @w{basic-pane}, @w{sheet-parent-mixin}, @w{mirrored-sheet-mixin}, @w{gadget}, @w{pane}, @w{standard-repainting-mixin}, @w{standard-sheet-input-mixin}, @w{sheet-transformation-mixin}, @w{basic-sheet}, @w{sheet}, @w{bounding-rectangle}, @w{standard-object}, @w{slot-object}, @w{t}}
+
+The value is either t either nil
+@end deftp

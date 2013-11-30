@@ -1,0 +1,7 @@
+@anchor{Class clim:pointer}
+@deftp {Class} {clim:pointer}
+@tindex clim:pointer
+Class precedence list: @code{@w{pointer}, @w{standard-object}, @w{slot-object}, @w{t}}
+
+CLIM protocol class
+@end deftp

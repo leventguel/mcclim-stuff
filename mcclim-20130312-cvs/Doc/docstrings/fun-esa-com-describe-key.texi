@@ -1,0 +1,8 @@
+@anchor{Function esa:com-describe-key}
+@deffn {Function} {esa:com-describe-key}
+@findex esa:com-describe-key
+Display documentation for the command invoked by a given gesture sequence. 
+When invoked, this command will wait for user input. If the user inputs a gesture 
+sequence bound to a command available in the syntax of the current buffer,
+documentation and other details will be displayed in a typeout pane.
+@end deffn

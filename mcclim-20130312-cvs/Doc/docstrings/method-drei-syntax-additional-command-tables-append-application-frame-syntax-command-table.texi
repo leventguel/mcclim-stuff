@@ -1,0 +1,8 @@
+@anchor{Method drei-syntax:additional-command-tables append ((frame application-frame)
+                                              (command-table
+                                               syntax-command-table))}
+@deffn {Method} {append drei-syntax:additional-command-tables} (frame application-frame) (command-table syntax-command-table)
+This method allows users of Drei to extend syntaxes with new,
+app-specific commands, as long as they inherit from a Drei class
+and specialise a method for it.
+@end deffn

@@ -1,0 +1,7 @@
+@anchor{Generic-Function (setf clim:stream-scan-pointer)}
+@deffn {Generic Function} {(setf clim:stream-scan-pointer)} pointer stream
+@findex (setf clim:stream-scan-pointer)
+Changes the scan pointer of the input editing
+stream stream to @code{pointer}. @code{pointer} is an integer, and must
+be less than or equal to (stream-insertion-pointer stream)
+@end deffn

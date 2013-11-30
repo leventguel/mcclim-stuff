@@ -1,0 +1,5 @@
+@anchor{Generic-Function drei-buffer:forward-line-start}
+@deffn {Generic Function} {drei-buffer:forward-line-start} mark syntax &optional count limit-action
+@findex drei-buffer:forward-line-start
+Move @code{mark} forward by @code{count} line-starts.
+@end deffn

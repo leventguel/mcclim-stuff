@@ -1,0 +1,9 @@
+@anchor{Macro drei-base:do-buffer-region-lines}
+@deffn {Macro} {drei-base:do-buffer-region-lines} (line-var mark1 mark2) &body body
+@findex drei-base:do-buffer-region-lines
+Iterate over the lines in the region delimited by @code{mark1} and @code{mark2}.
+   For each line, @code{line-var} will be bound to a mark positioned
+   at the beginning of the line and @code{body} will be executed. Note
+   that the iteration will always start from the mark specifying
+   the earliest position in the buffer.
+@end deffn

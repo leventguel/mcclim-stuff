@@ -1,0 +1,4 @@
+@anchor{Method drei-buffer:buffer ((p-mark-mixin p-mark-mixin))}
+@deffn {Method} {drei-buffer:buffer} (p-mark-mixin p-mark-mixin)
+automatically generated reader method
+@end deffn

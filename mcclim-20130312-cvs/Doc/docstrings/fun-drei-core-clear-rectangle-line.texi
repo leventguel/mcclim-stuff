@@ -1,0 +1,6 @@
+@anchor{Function drei-core:clear-rectangle-line}
+@deffn {Function} {drei-core:clear-rectangle-line} mark startcol endcol
+@findex drei-core:clear-rectangle-line
+For the line that @code{mark} is in, replace the string between column
+@code{startcol} and @code{endcol} with space characters.
+@end deffn

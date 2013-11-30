@@ -1,0 +1,6 @@
+@anchor{Variable drei:+roman-face+}
+@defvr {Variable} {drei:+roman-face+}
+@vindex drei:+roman-face+
+A face specifying a roman style, but with unspecified family
+and size.
+@end defvr

@@ -1,0 +1,5 @@
+@anchor{Generic-Function clim:pattern-array}
+@deffn {Generic Function} {clim:pattern-array} pattern
+@findex clim:pattern-array
+Returns the array associated with pattern.
+@end deffn

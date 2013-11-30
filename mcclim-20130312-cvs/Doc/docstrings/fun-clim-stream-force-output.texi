@@ -1,0 +1,6 @@
+@anchor{Generic-Function clim:stream-force-output}
+@deffn {Generic Function} {clim:stream-force-output} stream
+@findex clim:stream-force-output
+Attempts to force any buffered output to be sent. Implements
+  FORCE-OUTPUT. The default method does nothing.
+@end deffn

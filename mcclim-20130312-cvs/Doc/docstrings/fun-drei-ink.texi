@@ -1,0 +1,6 @@
+@anchor{Generic-Function drei:ink}
+@deffn {Generic Function} {drei:ink} cursor
+@findex drei:ink
+Return the ink object that should be used for
+  displaying the given cursor.
+@end deffn

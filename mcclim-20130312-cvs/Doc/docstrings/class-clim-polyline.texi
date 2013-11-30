@@ -1,0 +1,7 @@
+@anchor{Class clim:polyline}
+@deftp {Class} {clim:polyline}
+@tindex clim:polyline
+Class precedence list: @code{@w{polyline}, @w{path}, @w{region}, @w{design}, @w{bounding-rectangle}, @w{standard-object}, @w{slot-object}, @w{t}}
+
+CLIM protocol class
+@end deftp

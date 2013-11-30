@@ -1,0 +1,5 @@
+@anchor{Function drei-base:buffer-looking-at}
+@deffn {Function} {drei-base:buffer-looking-at} buffer offset vector &key test
+@findex drei-base:buffer-looking-at
+return true if and only if @code{buffer} contains @code{vector} at OFFSET
+@end deffn

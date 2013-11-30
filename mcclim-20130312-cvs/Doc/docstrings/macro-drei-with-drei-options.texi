@@ -1,0 +1,7 @@
+@anchor{Macro drei:with-drei-options}
+@deffn {Macro} {drei:with-drei-options} (drei &key syntax keep-syntax) &body body
+@findex drei:with-drei-options
+Evaluate @code{body} with the Drei instance @code{drei} changed to
+reflect the given options. The Drei instance will revert to the
+original options after @code{body} has been evaluated.
+@end deffn

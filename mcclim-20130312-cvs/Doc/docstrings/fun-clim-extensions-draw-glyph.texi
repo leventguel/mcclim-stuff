@@ -1,0 +1,8 @@
+@anchor{Function clim-extensions:draw-glyph}
+@deffn {Function} {clim-extensions:draw-glyph} sheet string x y &rest args &key align-x align-y toward-x toward-y transform-glyphs ink clipping-region transformation text-style text-family text-face text-size
+@findex clim-extensions:draw-glyph
+Draws a single character of filled text represented by the given
+element.  element is a character or other object to be translated
+into a font index.  The given x and y specify the left baseline
+position for the character.
+@end deffn

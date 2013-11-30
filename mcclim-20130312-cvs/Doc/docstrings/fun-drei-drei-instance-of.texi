@@ -1,0 +1,8 @@
+@anchor{Generic-Function drei:drei-instance-of}
+@deffn {Generic Function} {drei:drei-instance-of} object
+@findex drei:drei-instance-of
+Return the Drei instance of @code{object}. For an
+editor frame, this would be the active editor instance. If
+@code{object} itself is a Drei instance, this function should just
+return @code{object}.
+@end deffn

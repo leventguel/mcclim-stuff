@@ -1,0 +1,5 @@
+@anchor{Function drei:face-style}
+@deffn {Function} {drei:face-style} instance
+@findex drei:face-style
+Return whether debug-block represents elsewhere code.
+@end deffn

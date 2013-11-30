@@ -1,0 +1,7 @@
+@anchor{Class clim:check-box}
+@deftp {Class} {clim:check-box}
+@tindex clim:check-box
+Class precedence list: @code{@w{check-box}, @w{value-gadget}, @w{basic-gadget}, @w{permanent-medium-sheet-output-mixin}, @w{sheet-with-medium-mixin}, @w{basic-pane}, @w{sheet-parent-mixin}, @w{mirrored-sheet-mixin}, @w{gadget}, @w{pane}, @w{standard-repainting-mixin}, @w{standard-sheet-input-mixin}, @w{sheet-transformation-mixin}, @w{basic-sheet}, @w{sheet}, @w{bounding-rectangle}, @w{oriented-gadget-mixin}, @w{standard-object}, @w{slot-object}, @w{t}}
+
+The value is a list of buttons
+@end deftp

@@ -1,0 +1,9 @@
+@anchor{Macro drei-base:as-full-region}
+@deffn {Macro} {drei-base:as-full-region} (mark1 mark2) &body body
+@findex drei-base:as-full-region
+Bind @code{mark1} and @code{mark2} to marks that delimit a full
+  region (a region where the beginning and end are at the
+  beginning and end of their lines, respectively). The new marks
+  will be copies of the marks @code{mark1} and @code{mark2} are already
+  bound to. @code{mark1} and @code{mark2} must be symbols bound to marks.
+@end deffn

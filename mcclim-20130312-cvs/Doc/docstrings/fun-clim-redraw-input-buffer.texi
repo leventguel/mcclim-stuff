@@ -1,0 +1,7 @@
+@anchor{Generic-Function clim:redraw-input-buffer}
+@deffn {Generic Function} {clim:redraw-input-buffer} stream &optional start-from
+@findex clim:redraw-input-buffer
+Displays the input editor's buffer starting at
+the position start-position on the interactive stream that is
+encapsulated by the input editing stream stream.
+@end deffn

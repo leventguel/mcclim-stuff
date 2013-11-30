@@ -1,0 +1,11 @@
+@anchor{Class clim:grid-pane}
+@deftp {Class} {clim:grid-pane}
+@tindex clim:grid-pane
+Class precedence list: @code{@w{grid-pane}, @w{table-pane}, @w{sheet-multiple-child-mixin}, @w{basic-pane}, @w{sheet-parent-mixin}, @w{mirrored-sheet-mixin}, @w{pane}, @w{standard-repainting-mixin}, @w{standard-sheet-input-mixin}, @w{sheet-transformation-mixin}, @w{basic-sheet}, @w{sheet}, @w{bounding-rectangle}, @w{standard-object}, @w{slot-object}, @w{t}}
+
+Be careful : each cells has the same size in the two dimentions.
+ In other words : if the cell sizes are width, height then
+  width  = grid-width / number of children per line
+  height = grid-height / number of children per column.
+=====> this is for all cells.
+@end deftp

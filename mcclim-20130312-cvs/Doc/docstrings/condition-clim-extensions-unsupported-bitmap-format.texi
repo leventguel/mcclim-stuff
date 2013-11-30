@@ -1,0 +1,9 @@
+@anchor{Condition clim-extensions:unsupported-bitmap-format}
+@deftp {Condition} {clim-extensions:unsupported-bitmap-format}
+@tindex clim-extensions:unsupported-bitmap-format
+Class precedence list: @code{@w{unsupported-bitmap-format}, @w{error}, @w{serious-condition}, @w{condition}, @w{slot-object}, @w{t}}
+
+This exception is signalled when
+read-bitmap-file is called on an bitmap of a type that no reader
+has been defined for.
+@end deftp

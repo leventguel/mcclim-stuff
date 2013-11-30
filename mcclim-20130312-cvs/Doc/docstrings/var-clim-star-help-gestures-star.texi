@@ -1,0 +1,9 @@
+@anchor{Variable clim:*help-gestures*}
+@defvr {Variable} {clim:*help-gestures*}
+@vindex clim:*help-gestures*
+A list of the gesture names that cause @code{accept} and
+@code{complete-input} to display a (possibly input context-sensitive)
+help message, and for some presentation types a list of
+possibilities as well. The exact global contents of this list is
+unspecified, but must include the :help gesture name.
+@end defvr

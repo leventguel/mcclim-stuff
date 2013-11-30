@@ -1,0 +1,7 @@
+@anchor{Generic-Function drei:clear-undo-history}
+@deffn {Generic Function} {drei:clear-undo-history} undo-maintainer
+@findex drei:clear-undo-history
+Clear the undo history for @code{undo-maintainer},
+preventing the undoing to before the state of whatever
+@code{undo-maintainer} is maintaining undo for.
+@end deffn

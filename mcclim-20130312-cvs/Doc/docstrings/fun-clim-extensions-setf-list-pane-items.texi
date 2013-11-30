@@ -1,0 +1,8 @@
+@anchor{Generic-Function (setf clim-extensions:list-pane-items)}
+@deffn {Generic Function} {(setf clim-extensions:list-pane-items)} newval pane &key invoke-callback
+@findex (setf clim-extensions:list-pane-items)
+Set the current list of items for this list pane.
+The current GADGET-VALUE will be adjusted by removing values not
+specified by the new items.  VALUE-CHANGED-CALLBACK will be called
+if INVOKE-CALLBACK is given.
+@end deffn

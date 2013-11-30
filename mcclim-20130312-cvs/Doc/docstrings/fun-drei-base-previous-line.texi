@@ -1,0 +1,8 @@
+@anchor{Generic-Function drei-base:previous-line}
+@deffn {Generic Function} {drei-base:previous-line} mark &optional column count
+@findex drei-base:previous-line
+Move a mark up @code{count} lines conserving
+  horizontal position. This is a relatively low-level function,
+  you should probably use drei-motion:backward-line
+  instead.
+@end deffn

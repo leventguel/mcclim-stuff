@@ -1,0 +1,4 @@
+@anchor{Method drei-buffer:buffer ((mark-mixin mark-mixin))}
+@deffn {Method} {drei-buffer:buffer} (mark-mixin mark-mixin)
+The buffer that the mark is in.
+@end deffn

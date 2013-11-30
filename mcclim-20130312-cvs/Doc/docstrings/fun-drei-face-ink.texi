@@ -1,0 +1,5 @@
+@anchor{Function drei:face-ink}
+@deffn {Function} {drei:face-ink} instance
+@findex drei:face-ink
+Return whether debug-block represents elsewhere code.
+@end deffn

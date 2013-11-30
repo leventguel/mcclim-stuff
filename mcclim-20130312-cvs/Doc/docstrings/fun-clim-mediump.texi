@@ -1,0 +1,5 @@
+@anchor{Generic-Function clim:mediump}
+@deffn {Generic Function} {clim:mediump} object
+@findex clim:mediump
+Protocol predicate checking for class MEDIUM
+@end deffn

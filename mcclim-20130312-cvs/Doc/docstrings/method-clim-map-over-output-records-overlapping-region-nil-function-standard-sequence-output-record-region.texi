@@ -1,0 +1,10 @@
+@anchor{Method clim:map-over-output-records-overlapping-region (function
+                                                 (record
+                                                  standard-sequence-output-record)
+                                                 region &optional (x-offset 0)
+                                                 (y-offset 0) &rest
+                                                 function-args)}
+@deffn {Method} {clim:map-over-output-records-overlapping-region} function (record standard-sequence-output-record) region &optional (x-offset 0) (y-offset 0) &rest function-args
+Applies FUNCTION to children, overlapping @code{region}, in the order they
+were added.
+@end deffn

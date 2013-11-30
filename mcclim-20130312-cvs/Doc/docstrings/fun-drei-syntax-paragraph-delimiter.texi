@@ -1,0 +1,6 @@
+@anchor{Generic-Function drei-syntax:paragraph-delimiter}
+@deffn {Generic Function} {drei-syntax:paragraph-delimiter} syntax
+@findex drei-syntax:paragraph-delimiter
+Return the object sequence used as a paragraph
+  deliminter in @code{syntax}.
+@end deffn

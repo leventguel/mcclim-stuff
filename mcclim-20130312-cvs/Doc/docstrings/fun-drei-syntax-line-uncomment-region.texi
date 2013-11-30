@@ -1,0 +1,6 @@
+@anchor{Generic-Function drei-syntax:line-uncomment-region}
+@deffn {Generic Function} {drei-syntax:line-uncomment-region} syntax mark1 mark2
+@findex drei-syntax:line-uncomment-region
+inset a line comment string at the beginning of 
+every line in the region
+@end deffn

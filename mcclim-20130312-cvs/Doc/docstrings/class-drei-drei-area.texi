@@ -1,0 +1,28 @@
+@anchor{Class drei:drei-area}
+@deftp {Class} {drei:drei-area}
+@tindex drei:drei-area
+Class precedence list: @code{@w{drei-area}, @w{drei}, @w{displayed-output-record}, @w{output-record}, @w{bounding-rectangle}, @w{region}, @w{design}, @w{command-processor}, @w{instant-macro-execution-mixin}, @w{standard-object}, @w{slot-object}, @w{t}}
+
+Slots:
+@itemize
+@item @code{%min-width} --- initargs: @code{@w{:min-width}}
+
+The minimum width of the Drei
+editable area. Should be an integer >= 0 or @code{t}, meaning that it
+will extend to the end of the viewport, if the Drei area is in a
+scrolling arrangement.
+@item @code{%position} --- initargs: @code{@w{:area-position}}
+
+The position of the Drei
+editing area in the coordinate system of the encapsulated
+stream. An (@code{x},Y) list, not necessarily the same as the position
+of the associated output record.
+@item @code{%parent-output-record} --- initargs: @code{@w{:parent}}
+
+The parent output
+record of the Drei area instance.
+@end itemize
+
+A Drei editable area implemented as an output
+record.
+@end deftp

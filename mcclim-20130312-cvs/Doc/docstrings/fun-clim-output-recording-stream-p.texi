@@ -1,0 +1,5 @@
+@anchor{Generic-Function clim:output-recording-stream-p}
+@deffn {Generic Function} {clim:output-recording-stream-p} object
+@findex clim:output-recording-stream-p
+Protocol predicate checking for class OUTPUT-RECORDING-STREAM
+@end deffn

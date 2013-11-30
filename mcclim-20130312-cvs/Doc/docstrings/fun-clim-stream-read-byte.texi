@@ -1,0 +1,6 @@
+@anchor{Generic-Function clim:stream-read-byte}
+@deffn {Generic Function} {clim:stream-read-byte} stream
+@findex clim:stream-read-byte
+Used by READ-BYTE; returns either an integer, or the symbol :EOF
+  if the stream is at end-of-file.
+@end deffn

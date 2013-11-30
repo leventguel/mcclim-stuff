@@ -1,0 +1,8 @@
+@anchor{Generic-Function clim:stream-read-char}
+@deffn {Generic Function} {clim:stream-read-char} stream
+@findex clim:stream-read-char
+Read one character from the stream. Return either a
+  character object, or the symbol :EOF if the stream is at end-of-file.
+  Every subclass of @code{fundamental-character-input-stream} must define a
+  method for this function.
+@end deffn

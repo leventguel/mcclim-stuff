@@ -1,0 +1,13 @@
+@anchor{Condition clim:input-not-of-required-type}
+@deftp {Condition} {clim:input-not-of-required-type}
+@tindex clim:input-not-of-required-type
+Class precedence list: @code{@w{input-not-of-required-type}, @w{parse-error}, @w{error}, @w{serious-condition}, @w{condition}, @w{slot-object}, @w{t}}
+
+The error that is signalled by
+@code{input-not-of-required-type}. This is a subclass of
+parse-error.
+
+This condition handles two initargs, :string and :type, which
+specify a string to be used in an error message and the expected
+presentation type.
+@end deftp

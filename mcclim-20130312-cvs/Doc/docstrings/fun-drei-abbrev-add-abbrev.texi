@@ -1,0 +1,5 @@
+@anchor{Generic-Function drei-abbrev:add-abbrev}
+@deffn {Generic Function} {drei-abbrev:add-abbrev} word expansion dictionary-abbrev-expander
+@findex drei-abbrev:add-abbrev
+Add an abbrev expansion to a dictionary abbrev expander
+@end deffn

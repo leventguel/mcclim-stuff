@@ -1,0 +1,6 @@
+@anchor{Method (setf clim:stream-scan-pointer) (new-value
+                                 (standard-input-editing-stream
+                                  standard-input-editing-stream))}
+@deffn {Method} {(setf clim:stream-scan-pointer)} new-value (standard-input-editing-stream standard-input-editing-stream)
+automatically generated writer method
+@end deffn

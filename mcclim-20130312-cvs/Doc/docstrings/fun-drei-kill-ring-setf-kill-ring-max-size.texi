@@ -1,0 +1,6 @@
+@anchor{Generic-Function (setf drei-kill-ring:kill-ring-max-size)}
+@deffn {Generic Function} {(setf drei-kill-ring:kill-ring-max-size)} kr size
+@findex (setf drei-kill-ring:kill-ring-max-size)
+Alters the maximum size of the kill ring, even
+if it means dropping elements to do so.
+@end deffn

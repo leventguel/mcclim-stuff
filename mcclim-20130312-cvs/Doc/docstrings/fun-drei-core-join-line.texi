@@ -1,0 +1,8 @@
+@anchor{Generic-Function drei-core:join-line}
+@deffn {Generic Function} {drei-core:join-line} syntax mark
+@findex drei-core:join-line
+Join the line that @code{mark} is in to the
+previous line, and remove whitespace objects at the join
+point. @code{syntax} is used for judging what a whitespace character
+is.
+@end deffn

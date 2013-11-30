@@ -1,0 +1,5 @@
+@anchor{Generic-Function drei-editing:forward-kill-paragraph}
+@deffn {Generic Function} {drei-editing:forward-kill-paragraph} mark syntax &optional count concatenate-p limit-action
+@findex drei-editing:forward-kill-paragraph
+Kill @code{count} paragraphs beginning from @code{mark}.
+@end deffn

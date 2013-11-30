@@ -1,0 +1,5 @@
+@anchor{Generic-Function clim:designp}
+@deffn {Generic Function} {clim:designp} object
+@findex clim:designp
+Protocol predicate checking for class DESIGN
+@end deffn

@@ -1,0 +1,5 @@
+@anchor{Generic-Function esa:windows}
+@deffn {Generic Function} {esa:windows} esa
+@findex esa:windows
+Return a list of all the windows of the @code{esa}.
+@end deffn

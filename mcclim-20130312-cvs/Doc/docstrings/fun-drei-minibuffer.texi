@@ -1,0 +1,6 @@
+@anchor{Generic-Function drei:minibuffer}
+@deffn {Generic Function} {drei:minibuffer} application-frame
+@findex drei:minibuffer
+Return the minibuffer of
+  @code{application-frame}.
+@end deffn

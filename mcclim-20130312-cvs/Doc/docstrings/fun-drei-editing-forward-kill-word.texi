@@ -1,0 +1,5 @@
+@anchor{Generic-Function drei-editing:forward-kill-word}
+@deffn {Generic Function} {drei-editing:forward-kill-word} mark syntax &optional count concatenate-p limit-action
+@findex drei-editing:forward-kill-word
+Kill @code{count} words beginning from @code{mark}.
+@end deffn

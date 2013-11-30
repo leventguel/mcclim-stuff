@@ -1,0 +1,13 @@
+@anchor{Function clim:write-token}
+@deffn {Function} {clim:write-token} token stream &key acceptably
+@findex clim:write-token
+This function is the opposite of @code{read-token} given the string
+token, it writes it to the interactive stream stream. If
+acceptably is true and there are any characters in the token
+that are delimiter gestures (see the macro
+@code{with-delimiter-gestures}), then @code{write-token} will surround the
+token with quotation marks (#").
+
+Typically, @code{present} methods will use @code{write-token} instead of
+write-string.
+@end deffn

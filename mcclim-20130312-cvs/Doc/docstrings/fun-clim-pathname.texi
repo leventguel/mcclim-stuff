@@ -1,0 +1,5 @@
+@anchor{Function clim:pathname}
+@deffn {Function} {clim:pathname} pathspec
+@findex clim:pathname
+Convert PATHSPEC (a pathname designator) into a pathname.
+@end deffn

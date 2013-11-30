@@ -1,0 +1,6 @@
+@anchor{Generic-Function drei-motion:forward-one-word}
+@deffn {Generic Function} {drei-motion:forward-one-word} mark syntax
+@findex drei-motion:forward-one-word
+Move @code{mark} forward over the next word.
+Return @code{t} if successful, or NIL if the buffer limit was reached.
+@end deffn

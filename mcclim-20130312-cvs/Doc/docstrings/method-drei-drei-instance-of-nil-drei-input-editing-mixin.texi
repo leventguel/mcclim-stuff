@@ -1,0 +1,4 @@
+@anchor{Method drei:drei-instance-of ((drei-input-editing-mixin drei-input-editing-mixin))}
+@deffn {Method} {drei:drei-instance-of} (drei-input-editing-mixin drei-input-editing-mixin)
+automatically generated reader method
+@end deffn

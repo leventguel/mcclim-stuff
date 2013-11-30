@@ -1,0 +1,5 @@
+@anchor{Generic-Function drei-motion:backward-word}
+@deffn {Generic Function} {drei-motion:backward-word} mark syntax &optional count limit-action
+@findex drei-motion:backward-word
+Move @code{mark} backward by @code{count} words.
+@end deffn

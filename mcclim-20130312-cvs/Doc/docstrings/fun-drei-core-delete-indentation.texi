@@ -1,0 +1,7 @@
+@anchor{Generic-Function drei-core:delete-indentation}
+@deffn {Generic Function} {drei-core:delete-indentation} syntax mark
+@findex drei-core:delete-indentation
+Delete all indentation in the line of @code{mark}
+with the whitespace rules of @code{syntax}. The default method just
+removes leading whitespace characters.
+@end deffn

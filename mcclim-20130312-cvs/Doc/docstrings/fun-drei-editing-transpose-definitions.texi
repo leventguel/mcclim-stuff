@@ -1,0 +1,5 @@
+@anchor{Generic-Function drei-editing:transpose-definitions}
+@deffn {Generic Function} {drei-editing:transpose-definitions} mark syntax
+@findex drei-editing:transpose-definitions
+Transpose two definitions at @code{mark}.
+@end deffn

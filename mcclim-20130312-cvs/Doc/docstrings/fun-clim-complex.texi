@@ -1,0 +1,5 @@
+@anchor{Function clim:complex}
+@deffn {Function} {clim:complex} realpart &optional imagpart
+@findex clim:complex
+Return a complex number with the specified real and imaginary components.
+@end deffn

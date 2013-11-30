@@ -1,0 +1,6 @@
+@anchor{Function drei-base:re-search-backward}
+@deffn {Function} {drei-base:re-search-backward} mark re
+@findex drei-base:re-search-backward
+move @code{mark} backward before the first occurence of string matching RE
+before MARK
+@end deffn

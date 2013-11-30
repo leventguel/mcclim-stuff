@@ -1,0 +1,4 @@
+@anchor{Method drei-undo:undo-tree ((p-undo-mixin p-undo-mixin))}
+@deffn {Method} {drei-undo:undo-tree} (p-undo-mixin p-undo-mixin)
+automatically generated reader method
+@end deffn

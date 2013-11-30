@@ -1,0 +1,6 @@
+@anchor{Function drei:no-available-minibuffer}
+@deffn {Function} {drei:no-available-minibuffer} drei-instance
+@findex drei:no-available-minibuffer
+Signal an @code{no-available-minibuffer} error for
+@code{drei-instance}.
+@end deffn

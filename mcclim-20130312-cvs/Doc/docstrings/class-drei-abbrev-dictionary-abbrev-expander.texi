@@ -1,0 +1,14 @@
+@anchor{Class drei-abbrev:dictionary-abbrev-expander}
+@deftp {Class} {drei-abbrev:dictionary-abbrev-expander}
+@tindex drei-abbrev:dictionary-abbrev-expander
+Class precedence list: @code{@w{dictionary-abbrev-expander}, @w{abbrev-expander}, @w{standard-object}, @w{slot-object}, @w{t}}
+
+Slots:
+@itemize
+@item @code{dictionary} 
+
+A dictionary of abbreviations.
+@end itemize
+
+A protocol class specified for dictionary abbreviation expanders.
+@end deftp

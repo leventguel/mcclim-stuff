@@ -1,0 +1,16 @@
+@anchor{Generic-Function clim:stream-start-line-p}
+@deffn {Generic Function} {clim:stream-start-line-p} stream
+@findex clim:stream-start-line-p
+Is STREAM known to be positioned at the beginning of a line?
+  It is permissible for an implementation to always return
+  NIL. This is used in the implementation of FRESH-LINE. Note that
+  while a value of 0 from @code{stream-line-column} also indicates the
+  beginning of a line, there are cases where @code{stream-start-line-p} can be
+  meaningfully implemented although @code{stream-line-column} can't be. For
+  example, for a window using variable-width characters, the column
+  number isn't very meaningful, but the beginning of the line does have
+  a clear meaning. The default method for @code{stream-start-line-p} on class
+  @code{fundamental-character-output-stream} uses @code{stream-line-column}, so if
+  that is defined to return NIL, then a method should be provided for
+  either @code{stream-start-line-p} or @code{stream-fresh-line}.
+@end deffn

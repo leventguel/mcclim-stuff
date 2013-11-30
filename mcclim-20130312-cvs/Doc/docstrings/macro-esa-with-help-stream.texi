@@ -1,0 +1,8 @@
+@anchor{Macro esa:with-help-stream}
+@deffn {Macro} {esa:with-help-stream} (stream title) &body body
+@findex esa:with-help-stream
+Evaluate @code{body} with @code{stream} bound to a stream suitable for
+writing help information on. @code{title} must evaluate to a string,
+and will be used for naming the resulting stream, if that makes
+sense for the @code{esa}.
+@end deffn

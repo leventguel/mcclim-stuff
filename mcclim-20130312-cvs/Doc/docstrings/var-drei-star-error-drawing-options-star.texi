@@ -1,0 +1,5 @@
+@anchor{Variable drei:*error-drawing-options*}
+@defvr {Variable} {drei:*error-drawing-options*}
+@vindex drei:*error-drawing-options*
+The drawing options used for drawing syntax errors.
+@end defvr

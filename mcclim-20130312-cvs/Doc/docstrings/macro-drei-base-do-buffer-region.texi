@@ -1,0 +1,7 @@
+@anchor{Macro drei-base:do-buffer-region}
+@deffn {Macro} {drei-base:do-buffer-region} (object offset buffer offset1 offset2) &body body
+@findex drei-base:do-buffer-region
+Iterate over the elements of the region delimited by offset1 and offset2.
+The body is executed for each element, with object being the current object
+(setf-able), and offset being its offset.
+@end deffn

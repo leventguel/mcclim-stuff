@@ -1,0 +1,4 @@
+@anchor{Method clim-tab-layout:tab-page-drawing-options ((tab-page tab-page))}
+@deffn {Method} {clim-tab-layout:tab-page-drawing-options} (tab-page tab-page)
+automatically generated reader method
+@end deffn

@@ -1,0 +1,5 @@
+@anchor{Function clim-extensions:draw-rounded-rectangle*}
+@deffn {Function} {clim-extensions:draw-rounded-rectangle*} sheet x1 y1 x2 y2 &rest args &key radius radius-x radius-y radius-left radius-right radius-top radius-bottom filled &allow-other-keys
+@findex clim-extensions:draw-rounded-rectangle*
+Draw a rectangle with rounded corners
+@end deffn

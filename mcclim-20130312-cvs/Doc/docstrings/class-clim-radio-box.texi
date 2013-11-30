@@ -1,0 +1,7 @@
+@anchor{Class clim:radio-box}
+@deftp {Class} {clim:radio-box}
+@tindex clim:radio-box
+Class precedence list: @code{@w{radio-box}, @w{value-gadget}, @w{basic-gadget}, @w{permanent-medium-sheet-output-mixin}, @w{sheet-with-medium-mixin}, @w{basic-pane}, @w{sheet-parent-mixin}, @w{mirrored-sheet-mixin}, @w{gadget}, @w{pane}, @w{standard-repainting-mixin}, @w{standard-sheet-input-mixin}, @w{sheet-transformation-mixin}, @w{basic-sheet}, @w{sheet}, @w{bounding-rectangle}, @w{oriented-gadget-mixin}, @w{standard-object}, @w{slot-object}, @w{t}}
+
+The value is a button
+@end deftp

@@ -1,0 +1,8 @@
+@anchor{Variable drei:+default-drawing-options+}
+@defvr {Variable} {drei:+default-drawing-options+}
+@vindex drei:+default-drawing-options+
+The default set of drawing options used for strokes when
+nothing else has been specified, or when the default is good
+enough. Under these options, the region will be printed as a
+string with the default foreground color.
+@end defvr

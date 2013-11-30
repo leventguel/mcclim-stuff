@@ -1,0 +1,8 @@
+@anchor{Generic-Function drei:view-command-tables}
+@deffn {Generic Function} {drei:view-command-tables} view
+@findex drei:view-command-tables
+Method combination: @code{APPEND} (@w{most-specific-first})
+
+Return a list of command tables containing
+commands relevant for @code{view}.
+@end deffn

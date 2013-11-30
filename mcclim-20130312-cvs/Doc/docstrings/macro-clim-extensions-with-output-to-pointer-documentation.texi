@@ -1,0 +1,9 @@
+@anchor{Macro clim-extensions:with-output-to-pointer-documentation}
+@deffn {Macro} {clim-extensions:with-output-to-pointer-documentation} (stream frame) &body body
+@findex clim-extensions:with-output-to-pointer-documentation
+Bind stream to the pointer-documentation pane of frame and
+capture the output of body on stream as the background
+message of the pointer documentation pane. If frame does not
+have a pointer-documentation-pane as pointer documentation,
+body will not be evaluated.
+@end deffn

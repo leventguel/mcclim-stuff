@@ -1,0 +1,6 @@
+@anchor{Function drei-base:buffer-whitespacep}
+@deffn {Function} {drei-base:buffer-whitespacep} obj
+@findex drei-base:buffer-whitespacep
+Return @code{t} if @code{obj} is a basic whitespace character. This
+  function does not respect the current syntax.
+@end deffn

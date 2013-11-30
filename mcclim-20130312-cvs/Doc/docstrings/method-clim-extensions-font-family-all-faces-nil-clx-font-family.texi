@@ -1,0 +1,4 @@
+@anchor{Method clim-extensions:font-family-all-faces ((clx-font-family clx-font-family))}
+@deffn {Method} {clim-extensions:font-family-all-faces} (clx-font-family clx-font-family)
+automatically generated reader method
+@end deffn

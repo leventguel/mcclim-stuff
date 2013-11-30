@@ -1,0 +1,6 @@
+@anchor{Function drei-buffer:buffer-substring}
+@deffn {Function} {drei-buffer:buffer-substring} buffer start end
+@findex drei-buffer:buffer-substring
+Return a string of the contents of buffer from @code{start} to
+@code{end}, which must be offsets.
+@end deffn

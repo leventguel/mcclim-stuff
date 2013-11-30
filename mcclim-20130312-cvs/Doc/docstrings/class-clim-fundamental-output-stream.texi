@@ -1,0 +1,7 @@
+@anchor{Class clim:fundamental-output-stream}
+@deftp {Class} {clim:fundamental-output-stream}
+@tindex clim:fundamental-output-stream
+Class precedence list: @code{@w{fundamental-output-stream}, @w{fundamental-stream}, @w{standard-object}, @w{slot-object}, @w{stream}, @w{t}}
+
+a superclass of all Gray output streams
+@end deftp

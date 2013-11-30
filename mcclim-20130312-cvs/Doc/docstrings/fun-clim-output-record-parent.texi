@@ -1,0 +1,6 @@
+@anchor{Generic-Function clim:output-record-parent}
+@deffn {Generic Function} {clim:output-record-parent} record
+@findex clim:output-record-parent
+Returns the output record that is the parent of RECORD, or NIL if
+RECORD has no parent.
+@end deffn

@@ -1,0 +1,5 @@
+@anchor{Generic-Function clim:viewp}
+@deffn {Generic Function} {clim:viewp} object
+@findex clim:viewp
+Protocol predicate checking for class VIEW
+@end deffn

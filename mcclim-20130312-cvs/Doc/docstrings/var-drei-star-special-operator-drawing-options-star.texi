@@ -1,0 +1,8 @@
+@anchor{Variable drei:*special-operator-drawing-options*}
+@defvr {Variable} {drei:*special-operator-drawing-options*}
+@vindex drei:*special-operator-drawing-options*
+The drawing options used for drawing the syntactical
+equivalent of special operators. In Lisp, this is used for macros
+and special operators, in most other languages, it should
+probably be used for language keywords.
+@end defvr

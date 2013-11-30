@@ -1,0 +1,15 @@
+@anchor{Class clim:table-pane}
+@deftp {Class} {clim:table-pane}
+@tindex clim:table-pane
+Class precedence list: @code{@w{table-pane}, @w{sheet-multiple-child-mixin}, @w{basic-pane}, @w{sheet-parent-mixin}, @w{mirrored-sheet-mixin}, @w{pane}, @w{standard-repainting-mixin}, @w{standard-sheet-input-mixin}, @w{sheet-transformation-mixin}, @w{basic-sheet}, @w{sheet}, @w{bounding-rectangle}, @w{standard-object}, @w{slot-object}, @w{t}}
+
+Slots:
+@itemize
+@item @code{array} 
+
+Two-dimensional array holding the child panes as they are to be arranged.
+@end itemize
+
+The table layout implies that each colums has the same width
+    and each lines has the same height - same rules for max and min -
+@end deftp

@@ -1,0 +1,8 @@
+@anchor{Generic-Function drei:clone-view}
+@deffn {Generic Function} {drei:clone-view} view &rest initargs
+@findex drei:clone-view
+Clone the view object @code{view}. @code{initargs} can
+be used to supply different values to the initargs of the
+class. A default method doing slot-by-slot copying of @code{view} has
+been defined that should be appropriate for most view classes.
+@end deffn

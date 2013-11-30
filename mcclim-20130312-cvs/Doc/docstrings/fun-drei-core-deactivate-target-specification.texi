@@ -1,0 +1,9 @@
+@anchor{Generic-Function drei-core:deactivate-target-specification}
+@deffn {Generic Function} {drei-core:deactivate-target-specification} target-specification
+@findex drei-core:deactivate-target-specification
+Deactivate the @code{target-specification}
+instance, restoring whatever state the call to
+@code{activate-target-specification} modified. It is illegal to call
+@code{deactivate-target-specification} on a deactivated
+@code{target-specification} instance.
+@end deffn

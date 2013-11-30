@@ -1,0 +1,6 @@
+@anchor{Generic-Function drei-motion:forward-one-line}
+@deffn {Generic Function} {drei-motion:forward-one-line} mark syntax
+@findex drei-motion:forward-one-line
+Move @code{mark} forward to the next line, preserving column.
+Return @code{t} if successful, or NIL if the buffer limit was reached.
+@end deffn

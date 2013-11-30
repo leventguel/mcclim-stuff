@@ -1,0 +1,8 @@
+@anchor{Class drei-abbrev:abbrev-mixin}
+@deftp {Class} {drei-abbrev:abbrev-mixin}
+@tindex drei-abbrev:abbrev-mixin
+Class precedence list: @code{@w{abbrev-mixin}, @w{standard-object}, @w{slot-object}, @w{t}}
+
+A mixin class which adds abbreviation expansion facilities to
+a buffer via the accessor "abbrev-expander"
+@end deftp

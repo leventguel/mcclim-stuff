@@ -1,0 +1,8 @@
+@anchor{Generic-Function clim:map-over-table-elements}
+@deffn {Generic Function} {clim:map-over-table-elements} function table-record type
+@findex clim:map-over-table-elements
+Applies FUNCTION to all the rows or columns of
+TABLE-RECORD that are of type TYPE. TYPE is one of :ROW, :COLUMN or
+:ROW-OR-COLUMN. FUNCTION is a function of one argument. The function
+skips intervening non-table output record structures.
+@end deffn

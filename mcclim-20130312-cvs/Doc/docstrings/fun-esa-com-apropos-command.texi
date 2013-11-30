@@ -1,0 +1,6 @@
+@anchor{Function esa:com-apropos-command}
+@deffn {Function} {esa:com-apropos-command} words
+@findex esa:com-apropos-command
+Shows commands with documentation matching the search words.
+Words are comma delimited. When more than two words are given, the documentation must match any two.
+@end deffn

@@ -1,0 +1,5 @@
+@anchor{Generic-Function clim:table-output-record-p}
+@deffn {Generic Function} {clim:table-output-record-p} object
+@findex clim:table-output-record-p
+Protocol predicate checking for class TABLE-OUTPUT-RECORD
+@end deffn

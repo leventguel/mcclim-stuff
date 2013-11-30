@@ -1,0 +1,9 @@
+@anchor{Generic-Function drei:handle-gesture}
+@deffn {Generic Function} {drei:handle-gesture} drei gesture
+@findex drei:handle-gesture
+This generic function is called whenever a
+Drei gadget variant has determined that a keyboard event
+corresponds to a useful gesture that should be handled. A useful
+gesture is, for example, one that is not simply a click on a
+modifier key.
+@end deffn

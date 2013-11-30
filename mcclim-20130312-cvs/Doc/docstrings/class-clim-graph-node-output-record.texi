@@ -1,0 +1,7 @@
+@anchor{Class clim:graph-node-output-record}
+@deftp {Class} {clim:graph-node-output-record}
+@tindex clim:graph-node-output-record
+Class precedence list: @code{@w{graph-node-output-record}, @w{output-record}, @w{bounding-rectangle}, @w{standard-object}, @w{slot-object}, @w{t}}
+
+CLIM protocol class
+@end deftp

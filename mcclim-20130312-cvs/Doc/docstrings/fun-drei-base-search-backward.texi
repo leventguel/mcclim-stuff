@@ -1,0 +1,5 @@
+@anchor{Function drei-base:search-backward}
+@deffn {Function} {drei-base:search-backward} mark vector &key test
+@findex drei-base:search-backward
+move @code{mark} backward before the first occurence of @code{vector} before MARK
+@end deffn

@@ -1,0 +1,6 @@
+@anchor{Generic-Function drei-motion:backward-one-sentence}
+@deffn {Generic Function} {drei-motion:backward-one-sentence} mark syntax
+@findex drei-motion:backward-one-sentence
+Move @code{mark} backward by one sentence.
+Return @code{t} if successful, or NIL if the buffer limit was reached.
+@end deffn

@@ -1,0 +1,5 @@
+@anchor{Generic-Function clim:presentationp}
+@deffn {Generic Function} {clim:presentationp} object
+@findex clim:presentationp
+Protocol predicate checking for class PRESENTATION
+@end deffn

@@ -1,0 +1,6 @@
+@anchor{Function drei:buffer-view-pump-state-for-offset}
+@deffn {Function} {drei:buffer-view-pump-state-for-offset} view offset
+@findex drei:buffer-view-pump-state-for-offset
+Return a pump state usable for pumpting strokes for @code{view} (a
+@code{drei-buffer-view}) from @code{offset}.
+@end deffn

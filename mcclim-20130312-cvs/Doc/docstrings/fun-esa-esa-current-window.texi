@@ -1,0 +1,5 @@
+@anchor{Generic-Function esa:esa-current-window}
+@deffn {Generic Function} {esa:esa-current-window} esa
+@findex esa:esa-current-window
+Return the current window of @code{esa}.
+@end deffn

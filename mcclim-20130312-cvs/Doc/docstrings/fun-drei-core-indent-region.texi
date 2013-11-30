@@ -1,0 +1,8 @@
+@anchor{Function drei-core:indent-region}
+@deffn {Function} {drei-core:indent-region} view mark1 mark2
+@findex drei-core:indent-region
+Indent all lines in the region delimited by @code{mark1} and
+@code{mark2} according to the rules of the active syntax in
+@code{drei}. @code{mark1} and @code{mark2} will not be modified by this
+function.
+@end deffn

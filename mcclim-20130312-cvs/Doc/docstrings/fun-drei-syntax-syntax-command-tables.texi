@@ -1,0 +1,8 @@
+@anchor{Generic-Function drei-syntax:syntax-command-tables}
+@deffn {Generic Function} {drei-syntax:syntax-command-tables} syntax
+@findex drei-syntax:syntax-command-tables
+Method combination: @code{APPEND} (@w{most-specific-last})
+
+Returns additional command tables provided by
+@code{syntax}.
+@end deffn

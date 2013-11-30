@@ -1,0 +1,9 @@
+@anchor{Package drei-motion}
+@defvr {Package} {drei-motion}
+Functions and facilities for moving a mark
+around by syntactical elements. The functions in this package are
+syntax-aware, and their behavior is based on the semantics
+defined by the syntax of the buffer, that the mark they are
+manipulating belong to. These functions are also directly used to
+implement the motion commands.
+@end defvr

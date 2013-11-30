@@ -1,0 +1,33 @@
+@anchor{Class esa:command-loop-command-processor}
+@deftp {Class} {esa:command-loop-command-processor}
+@tindex esa:command-loop-command-processor
+Class precedence list: @code{@w{command-loop-command-processor}, @w{command-processor}, @w{standard-object}, @w{slot-object}, @w{t}}
+
+Slots:
+@itemize
+@item @code{%end-condition} --- initargs: @code{@w{:end-condition}}
+
+When this function of zero
+arguments returns true, the @code{command-loop-command-processor} will
+disable itself in its associated super command processor and call
+its @code{end-function}, effectively dropping out of the
+sub-command-loop.
+@item @code{%end-function} --- initargs: @code{@w{:end-function}}
+
+This function of zero arguments
+will be called when the command processor disables itself.
+@item @code{%abort-function} --- initargs: @code{@w{:abort-function}}
+
+This function is called if
+the command processor encounters an abort gesture.
+@item @code{%super-command-processor} --- initargs: @code{@w{:super-command-processor}}
+
+The command
+processor that the @code{command-loop-command-processor} object
+handles gestures for.
+@end itemize
+
+This class is used to run sub-command-loops
+within the primary command loop of an application (for example,
+to do stuff such as incremental search).
+@end deftp

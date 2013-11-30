@@ -1,0 +1,5 @@
+@anchor{Generic-Function clim:pathp}
+@deffn {Generic Function} {clim:pathp} object
+@findex clim:pathp
+Protocol predicate checking for class PATH
+@end deffn

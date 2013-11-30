@@ -1,0 +1,7 @@
+@anchor{Variable drei:*maximum-chunk-size*}
+@defvr {Variable} {drei:*maximum-chunk-size*}
+@vindex drei:*maximum-chunk-size*
+The maximum amount of objects put into a single chunk by a
+@code{drei-buffer-view}. Actual chunks may be smaller if a #Newline
+character is encountered.
+@end defvr

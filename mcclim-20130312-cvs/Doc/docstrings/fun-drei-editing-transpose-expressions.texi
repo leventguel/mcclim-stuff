@@ -1,0 +1,5 @@
+@anchor{Generic-Function drei-editing:transpose-expressions}
+@deffn {Generic Function} {drei-editing:transpose-expressions} mark syntax
+@findex drei-editing:transpose-expressions
+Transpose two expressions at @code{mark}.
+@end deffn

@@ -1,0 +1,5 @@
+@anchor{Generic-Function drei-editing:backward-delete-page}
+@deffn {Generic Function} {drei-editing:backward-delete-page} mark syntax &optional count limit-action
+@findex drei-editing:backward-delete-page
+Delete @code{count} pages backwards beginning from @code{mark}.
+@end deffn

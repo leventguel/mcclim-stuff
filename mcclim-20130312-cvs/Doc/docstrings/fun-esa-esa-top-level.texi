@@ -1,0 +1,6 @@
+@anchor{Generic-Function esa:esa-top-level}
+@deffn {Generic Function} {esa:esa-top-level} frame &key command-parser command-unparser partial-command-parser prompt command-parser command-unparser partial-command-parser prompt
+@findex esa:esa-top-level
+Run a top-level loop for @code{frame}, reading
+  gestures and invoking the appropriate commands.
+@end deffn

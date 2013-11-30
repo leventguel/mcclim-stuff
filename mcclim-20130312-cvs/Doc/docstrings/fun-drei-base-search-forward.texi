@@ -1,0 +1,5 @@
+@anchor{Function drei-base:search-forward}
+@deffn {Function} {drei-base:search-forward} mark vector &key test
+@findex drei-base:search-forward
+move @code{mark} forward after the first occurence of @code{vector} after MARK
+@end deffn

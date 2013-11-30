@@ -1,0 +1,9 @@
+@anchor{Variable esa:*esa-instance*}
+@defvr {Variable} {esa:*esa-instance*}
+@vindex esa:*esa-instance*
+This symbol should be bound to an @code{esa} instance, though any
+object will do, provided the proper methods are defined. It will
+be used as the argument to the various "query" functions
+defined by @code{esa}. For the vast majority of ESAs, @code{*esa-instance*}
+will probably have the same value as @code{*application-frame*}.
+@end defvr

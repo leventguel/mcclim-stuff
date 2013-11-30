@@ -1,0 +1,7 @@
+@anchor{Function clim:simple-parse-error}
+@deffn {Function} {clim:simple-parse-error} format-string &rest format-args
+@findex clim:simple-parse-error
+Signals a @code{simple-parse-error} error while parsing an input
+token. Does not return. Format-string and format-args are as
+for format.
+@end deffn

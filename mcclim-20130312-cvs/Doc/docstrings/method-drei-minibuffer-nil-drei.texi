@@ -1,0 +1,5 @@
+@anchor{Method drei:minibuffer ((drei drei))}
+@deffn {Method} {drei:minibuffer} (drei drei)
+The minibuffer pane (or null)
+associated with the Drei instance. This may be NIL.
+@end deffn

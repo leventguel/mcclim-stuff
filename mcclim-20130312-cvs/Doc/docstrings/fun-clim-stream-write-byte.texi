@@ -1,0 +1,6 @@
+@anchor{Generic-Function clim:stream-write-byte}
+@deffn {Generic Function} {clim:stream-write-byte} stream integer
+@findex clim:stream-write-byte
+Implements WRITE-BYTE; writes the integer to the stream and
+  returns the integer as the result.
+@end deffn

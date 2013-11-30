@@ -1,0 +1,7 @@
+@anchor{Function drei-base:buffer-find-nonchar}
+@deffn {Function} {drei-base:buffer-find-nonchar} buffer start-offset max-offset
+@findex drei-base:buffer-find-nonchar
+Search through @code{buffer} from @code{start-offset}, returning the
+first offset at which a non-character object is found, or
+@code{max-offset}, whichever comes first.
+@end deffn

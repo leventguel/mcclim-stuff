@@ -1,0 +1,7 @@
+@anchor{Function drei-core:open-rectangle-line}
+@deffn {Function} {drei-core:open-rectangle-line} mark startcol endcol
+@findex drei-core:open-rectangle-line
+For the line that @code{mark} is in, move the string between column
+@code{startcol} and @code{endcol} to the right, replacing the area previously
+inhabited by it with space characters.
+@end deffn

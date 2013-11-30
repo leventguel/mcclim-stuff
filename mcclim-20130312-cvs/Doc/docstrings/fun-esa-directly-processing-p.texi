@@ -1,0 +1,7 @@
+@anchor{Generic-Function esa:directly-processing-p}
+@deffn {Generic Function} {esa:directly-processing-p} command-processor
+@findex esa:directly-processing-p
+Return true if @code{command-processor} is directly
+  processing commands. In most cases, this means that
+  @code{overriding-handler} is null.
+@end deffn

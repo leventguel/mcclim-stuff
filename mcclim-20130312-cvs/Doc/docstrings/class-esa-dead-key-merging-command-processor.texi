@@ -1,0 +1,16 @@
+@anchor{Class esa:dead-key-merging-command-processor}
+@deftp {Class} {esa:dead-key-merging-command-processor}
+@tindex esa:dead-key-merging-command-processor
+Class precedence list: @code{@w{dead-key-merging-command-processor}, @w{command-processor}, @w{standard-object}, @w{slot-object}, @w{t}}
+
+Slots:
+@itemize
+@item @code{%dead-key-state} 
+
+The state of dead key
+handling as per @code{merging-dead-keys}.
+@end itemize
+
+Helper class useful for asynchronous command
+processors, merges incoming dead keys with the following key.
+@end deftp

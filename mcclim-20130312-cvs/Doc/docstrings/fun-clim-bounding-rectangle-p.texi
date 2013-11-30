@@ -1,0 +1,5 @@
+@anchor{Generic-Function clim:bounding-rectangle-p}
+@deffn {Generic Function} {clim:bounding-rectangle-p} object
+@findex clim:bounding-rectangle-p
+Protocol predicate checking for class BOUNDING-RECTANGLE
+@end deffn

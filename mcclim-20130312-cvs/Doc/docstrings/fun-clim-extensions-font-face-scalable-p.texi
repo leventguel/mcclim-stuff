@@ -1,0 +1,6 @@
+@anchor{Generic-Function clim-extensions:font-face-scalable-p}
+@deffn {Generic Function} {clim-extensions:font-face-scalable-p} font-face
+@findex clim-extensions:font-face-scalable-p
+Return true if this font is scalable, as opposed to a bitmap font.  For
+a scalable font, arbitrary font sizes are expected to work.
+@end deffn

@@ -1,0 +1,7 @@
+@anchor{Variable drei:*keyword-drawing-options*}
+@defvr {Variable} {drei:*keyword-drawing-options*}
+@vindex drei:*keyword-drawing-options*
+The drawing options used for drawing the syntactical
+equivalent of keyword symbols. In Lisp, this is used for keyword
+symbols.
+@end defvr

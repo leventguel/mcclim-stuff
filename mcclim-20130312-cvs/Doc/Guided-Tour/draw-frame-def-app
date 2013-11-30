@@ -1,0 +1,25 @@
+(define-application-frame draw-frame ()
+  ((lines :accessor lines :initform nil)            ;; lines of drawing
+   (strings :accessor strings :initform nil))       ;; texts of drawing
+  (:panes (draw-pane (make-pane 'draw-pane))
+	  (interactor :interactor))
+  (:layouts (default-default (vertically ()
+			       draw-pane
+			       interactor)))
+  (:menu-bar t)
+  (:command-definer t)
+  (:top-level (default-frame-top-level)))
+
+(defclass draw-pane
+  (standard-extended-input-stream         ; must have precedence over basic-pane
+   basic-pane
+   permanent-medium-sheet-output-mixin)
+  ())
+
+(defmethod handle-repaint ((pane draw-pane) region)
+  (with-application-frame (frame)
+    (call-next-method)			  ; Paints the background
+    (dolist (line (lines frame))
+      (draw-line pane (car line) (cdr line)))
+    (dolist (pair (strings frame))
+      (draw-text pane (cdr pair) (car pair)))))

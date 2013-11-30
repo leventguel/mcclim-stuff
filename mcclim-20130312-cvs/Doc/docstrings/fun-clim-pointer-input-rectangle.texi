@@ -1,0 +1,6 @@
+@anchor{Function clim:pointer-input-rectangle}
+@deffn {Function} {clim:pointer-input-rectangle} &rest args &key stream pointer multiple-window rectangle finish-on-release
+@findex clim:pointer-input-rectangle
+Like @code{pointer-input-rectangle*}, but returns a bounding
+rectangle instead of coordinates.
+@end deffn

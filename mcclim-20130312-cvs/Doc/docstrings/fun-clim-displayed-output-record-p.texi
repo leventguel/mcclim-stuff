@@ -1,0 +1,5 @@
+@anchor{Generic-Function clim:displayed-output-record-p}
+@deffn {Generic Function} {clim:displayed-output-record-p} object
+@findex clim:displayed-output-record-p
+Protocol predicate checking for class DISPLAYED-OUTPUT-RECORD
+@end deffn

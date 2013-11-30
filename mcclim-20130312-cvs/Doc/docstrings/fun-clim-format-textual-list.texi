@@ -1,0 +1,11 @@
+@anchor{Function clim:format-textual-list}
+@deffn {Function} {clim:format-textual-list} sequence printer &key stream separator conjunction suppress-separator-before-conjunction suppress-space-after-conjunction
+@findex clim:format-textual-list
+Outputs the @code{sequence} of items as a "textual list" into
+STREAM. PRINTER is a function of an item and a stream. Between each
+two items the string SEPARATOR is placed. If the string CONJUCTION is
+supplied, it is placed before the last item.
+
+SUPPRESS-SEPARATOR-BEFORE-CONJUNCTION and
+SUPPRESS-SPACE-AFTER-CONJUNCTION are non-standard.
+@end deffn

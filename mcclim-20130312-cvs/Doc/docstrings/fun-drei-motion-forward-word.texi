@@ -1,0 +1,5 @@
+@anchor{Generic-Function drei-motion:forward-word}
+@deffn {Generic Function} {drei-motion:forward-word} mark syntax &optional count limit-action
+@findex drei-motion:forward-word
+Move @code{mark} forward by @code{count} words.
+@end deffn

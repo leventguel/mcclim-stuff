@@ -1,0 +1,11 @@
+@anchor{Class clim:standard-input-editing-stream}
+@deftp {Class} {clim:standard-input-editing-stream}
+@tindex clim:standard-input-editing-stream
+Class precedence list: @code{@w{standard-input-editing-stream}, @w{drei-input-editing-mixin}, @w{input-editing-stream}, @w{standard-encapsulating-stream}, @w{encapsulating-stream}, @w{fundamental-character-input-stream}, @w{fundamental-input-stream}, @w{fundamental-character-output-stream}, @w{fundamental-output-stream}, @w{fundamental-character-stream}, @w{fundamental-stream}, @w{standard-object}, @w{slot-object}, @w{stream}, @w{t}}
+
+The instantiable class that implements CLIM's
+standard input editor. This is the class of stream created by
+calling @code{with-input-editing}.
+
+Members of this class are mutable.
+@end deftp

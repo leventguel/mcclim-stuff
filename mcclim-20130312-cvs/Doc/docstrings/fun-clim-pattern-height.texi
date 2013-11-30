@@ -1,0 +1,5 @@
+@anchor{Generic-Function clim:pattern-height}
+@deffn {Generic Function} {clim:pattern-height} pattern
+@findex clim:pattern-height
+Return the height of pattern.
+@end deffn

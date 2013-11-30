@@ -1,0 +1,19 @@
+@anchor{Function clim:read-token}
+@deffn {Function} {clim:read-token} stream &key input-wait-handler pointer-button-press-handler click-only
+@findex clim:read-token
+Reads characters from the interactive stream stream until it
+encounters a delimiter or activation gesture, or a pointer
+gesture. Returns the accumulated string that was delimited by the
+delimiter or activation gesture, leaving the delimiter
+unread.
+
+If the first character of typed input is a quotation mark (#"),
+then @code{read-token} will ignore delimiter gestures until another
+quotation mark is seen. When the closing quotation mark is seen,
+@code{read-token} will proceed as above.
+
+Click-only is ignored for now.
+
+Input-wait-handler and pointer-button-press-handler are as
+for 34stream-read-gesture
+@end deffn

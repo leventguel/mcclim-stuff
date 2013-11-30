@@ -1,0 +1,5 @@
+@anchor{Method clim:output-record-parent ((drei-area drei-area))}
+@deffn {Method} {clim:output-record-parent} (drei-area drei-area)
+The parent output
+record of the Drei area instance.
+@end deffn

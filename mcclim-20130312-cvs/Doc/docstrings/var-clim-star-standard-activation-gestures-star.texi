@@ -1,0 +1,7 @@
+@anchor{Variable clim:*standard-activation-gestures*}
+@defvr {Variable} {clim:*standard-activation-gestures*}
+@vindex clim:*standard-activation-gestures*
+The default set of activation gestures. The exact set of
+standard activation is unspecified, but must include the gesture
+that corresponds to the #Newline character. 
+@end defvr

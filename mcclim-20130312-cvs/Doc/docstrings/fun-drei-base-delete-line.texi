@@ -1,0 +1,5 @@
+@anchor{Function drei-base:delete-line}
+@deffn {Function} {drei-base:delete-line} mark &optional count
+@findex drei-base:delete-line
+Delete @code{count} lines at @code{mark} from the buffer.
+@end deffn

@@ -1,0 +1,5 @@
+@anchor{Method drei-kill-ring:kill-ring-chain ((kill-ring kill-ring))}
+@deffn {Method} {drei-kill-ring:kill-ring-chain} (kill-ring kill-ring)
+The cursorchain associated with
+the kill ring.
+@end deffn

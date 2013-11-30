@@ -1,0 +1,10 @@
+@anchor{Generic-Function drei:offset-to-screen-position}
+@deffn {Generic Function} {drei:offset-to-screen-position} pane view offset
+@findex drei:offset-to-screen-position
+Returns the position of offset as a screen
+position.  Returns @code{x}, @code{y}, stroke-height, object-width as
+values if offset is on the screen, NIL if offset is before the
+beginning of the screen, and @code{t} if offset is after the end of the
+screen. Object-width may be an approximation if @code{offset} is at
+the end of the buffer.
+@end deffn

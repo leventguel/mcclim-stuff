@@ -1,0 +1,6 @@
+@anchor{Function clim-extensions:simple-event-loop}
+@deffn {Function} {clim-extensions:simple-event-loop} &optional frame
+@findex clim-extensions:simple-event-loop
+An simple event loop for applications that want all events to be handled by
+ handle-event methods
+@end deffn

@@ -1,0 +1,7 @@
+@anchor{Generic-Function clim:output-record-end-cursor-position}
+@deffn {Generic Function} {clim:output-record-end-cursor-position} record
+@findex clim:output-record-end-cursor-position
+Returns the x and y ending cursor position of RECORD. The
+positions are relative to the stream, where (0,0) is (initially) the
+upper-left corner of the stream.
+@end deffn

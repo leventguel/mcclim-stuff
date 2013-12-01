@@ -1,0 +1,195 @@
+(setq *read-default-float-format* 'double-float)
+(setq *readtable* (copy-readtable))
+
+(defvar *last-package* nil)
+(defvar *cached-prompt* nil)
+(defvar *prompt* nil)
+
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (sb-ext:without-package-locks
+    
+    (defun package-prompt (stream)
+      (unless (eq *last-package* *package*)
+	(setf *cached-prompt*
+	  (concatenate 'string (or (first (package-nicknames *package*))
+				 (package-name *package*))
+	    "> "))
+	(setf *last-package* *package*))
+      (terpri)
+      (princ *cached-prompt* stream))))
+
+(setf sb-int:*repl-prompt-fun* #'package-prompt) 
+
+(let ((*read-eval* t))
+  (let ((quicklisp-init (merge-pathnames "/home/wbooze/quicklisp/setup.lisp"
+			  (user-homedir-pathname))))
+    (if (probe-file quicklisp-init)
+      (load quicklisp-init)
+      (load "/home/wbooze/quicklisp.lisp"))))
+
+;;(setq sb-ext:*evaluator-mode* :interpret)
+#+asdf
+(progn
+  (push "/usr/share/common-lisp/" asdf:*central-registry*)
+  (push "/usr/share/common-lisp/systems/" asdf:*central-registry*)
+  (push "/usr/share/common-lisp/source/" asdf:*central-registry*)
+  (push "/home/wbooze/quicklisp/" asdf:*central-registry*))
+
+(defun quick ()
+  #+ quicklisp
+  (progn 
+      ;;; Check for --no-linedit command-line option.
+    (if (member "--no-linedit" sb-ext:*posix-argv* :test 'equal)
+      (setf sb-ext:*posix-argv* 
+	(remove "--no-linedit" sb-ext:*posix-argv* :test 'equal))
+      #+aclrepl
+      (progn
+	(ql:quickload :sb-aclrepl)
+	(when (interactive-stream-p *terminal-io*)
+	  (progn
+	    (ignore-errors (require 'sb-aclrepl))
+	    (when (find-package 'sb-aclrepl)
+	      (push :aclrepl cl:*features*))
+	    (setq sb-aclrepl:*max-history* 100)
+	    (setf (sb-aclrepl:alias "asdc") 
+	      #'(lambda (sys) (asdf:operate 'asdf:compile-op sys)))
+	    (sb-aclrepl:alias "l" (sys) (asdf:operate 'asdf:load-op sys))
+	    (sb-aclrepl:alias "t" (sys) (asdf:operate 'asdf:test-op sys))
+	    ;; The 1 below means that two characaters ("up") are required
+	    (sb-aclrepl:alias ("up" 1 "Use package") (package) (use-package package))
+	    ;; The 0 below means only the first letter ("r") is required, such as ":r base64"
+	    (sb-aclrepl:alias ("require" 0 "Require module") (sys) (require sys))
+	    (setq cl:*features* (delete :aclrepl cl:*features*))))))))
+
+
+(quick)
+  
+#+asdf
+(defmethod asdf:perform :around ((o asdf:load-op)
+				  (c asdf:cl-source-file))
+  (handler-case (call-next-method o c)
+    ;; If a fasl was stale, try to recompile and load (once).
+    (sb-ext:invalid-fasl ()
+      (asdf:perform (make-instance 'asdf:compile-op) c)
+      (call-next-method))))
+
+(map nil #'ql:quickload
+    '(
+       :clx
+       :esa
+       :mcclim
+       :clouseau
+       :clim-clx
+       :esa-mcclim
+       :drei-tests 
+       :mcclim-freetype 
+       :clim-examples
+       :clim-listener
+       :climacs
+;;       :antik
+;;       :mcclim-png-bitmaps 
+;;       :mcclim-gif-bitmaps 
+;;       :mcclim-jpeg-bitmaps 
+;;       :mcclim-tiff-bitmaps
+       ))
+
+  (load "/home/wbooze/quicklisp/dists/quicklisp/software/mcclim-20130312-cvs/Lisp-Dep/fix-sbcl.lisp")
+  (load "/home/wbooze/quicklisp/dists/quicklisp/software/mcclim-20130312-cvs/Lisp-Dep/mp-sbcl.lisp")
+  (load "/home/wbooze/quicklisp/dists/quicklisp/software/mcclim-20130312-cvs/Apps/Debugger/clim-debugger.lisp")
+
+  (in-package :clim-listener)
+  (ql:quickload :functional-geometry)
+
+;;  (defmethod asdf:perform :around ((o asdf:load-op) (s (eql (asdf:find-system :mcclim-freetype)))) 
+;;    (asdf:oos 'asdf:load-op :mcclim-truetype)))
+
+;;  (ql:quickload :tab-layout)
+
+(in-package :clim-user)
+
+(defparameter *default-font-family-name* "-misc-fixed-medium-r-normal--20-*-*-*-*-*-iso10646-1")
+
+(defun update-map-for-face-with-name (map family name)
+  (let ((current-face (getf map family)))
+    (unless current-face
+      (error "family ~A not found!" family))
+    (substitute `(,name ,@(cdr current-face)) current-face map)))
+
+(defun set-fix ()
+  (let ((*default-font-family-name* "-misc-fixed-medium-r-normal--20-*-*-*-*-*-iso10646-1"))
+    (setf clim-clx::*clx-text-family+face-map*
+      (clim-user::update-map-for-face-with-name
+	clim-clx::*clx-text-family+face-map* :fix clim-user::*default-font-family-name*))))
+
+(defun set-sans ()
+  (let ((*default-font-family-name* "-xos4-terminus-medium-r-normal--20-*-*-*-*-*-iso10646-1"))
+    (setf clim-clx::*clx-text-family+face-map*
+      (clim-user::update-map-for-face-with-name
+	clim-clx::*clx-text-family+face-map* :sans-serif clim-user::*default-font-family-name*))))
+
+(defun set-serif ()
+  (let ((*default-font-family-name* "-*-dejavu serif-medium-r-normal--17-*-*-*-*-*-iso10646-1"))
+    (setf clim-clx::*clx-text-family+face-map*
+      (clim-user::update-map-for-face-with-name
+	clim-clx::*clx-text-family+face-map* :serif clim-user::*default-font-family-name*))))
+
+(defmethod asdf:perform :after ((o asdf:load-op) (c (eql (asdf:find-system :clim-clx))))
+  (eval `(defmethod initialize-instance :around ((port ,(intern "CLX-PORT" :clim-clx)) &rest args)
+	   (setf (symbol-value (intern "*CLX-TEXT-FAMILY+FACE-MAP*" :clim-clx))
+	     (update-map-for-face-with-name
+	       (symbol-value (intern "*CLX-TEXT-FAMILY+FACE-MAP*" :clim-clx))
+	       :fix *default-font-family-name* :very-large))
+	   (sleep 0.01)
+	   (apply #'call-next-method port args))))
+
+(defmethod asdf:perform :after ((o asdf:load-op) (c (eql (asdf:find-system :clim-clx))))
+  (eval `(defmethod initialize-instance :around ((port ,(intern "CLX-PORT" :clim-clx)) &rest args)
+	   (setf (symbol-value (intern "*CLX-TEXT-FAMILY+FACE-MAP*" :clim-clx))
+	     (update-map-for-face-with-name
+	       (symbol-value (intern "*CLX-TEXT-FAMILY+FACE-MAP*" :clim-clx))
+	       :sans-serif *default-font-family-name* :very-large))
+	   (sleep 0.01)
+	   (apply #'call-next-method port args))))
+
+(defmethod asdf:perform :after ((o asdf:load-op) (c (eql (asdf:find-system :clim-clx))))
+  (eval `(defmethod initialize-instance :around ((port ,(intern "CLX-PORT" :clim-clx)) &rest args)
+	   (setf (symbol-value (intern "*CLX-TEXT-FAMILY+FACE-MAP*" :clim-clx))
+	     (update-map-for-face-with-name
+	       (symbol-value (intern "*CLX-TEXT-FAMILY+FACE-MAP*" :clim-clx))
+	       :serif *default-font-family-name* :very-large))
+	   (sleep 0.01)
+	   (apply #'call-next-method port args))))
+
+(in-package :cl-user)
+(defun clmx ()
+  (values
+    (clim-listener:run-listener :new-process t)
+    (climacs:climacs-rv :new-process t)))
+
+(defun clm ()
+  #+clim
+  (progn
+    (setf *debugger-hook* #'clim-debugger:debugger)
+    ;;(setf *invoke-debugger-hook* #'clim-debugger:debugger)
+    (let ((*read-default-float-format* 'double-float)
+	   (*debugger-hook* #'clim-debugger:debugger)
+	   (*trace-output* *standard-output*))
+      ;;(sb-ext:*invoke-debugger-hook* #'clim-debugger:debugger))
+      (let ((*trace-output* *standard-output*))
+	
+	;; pixie doesn't work, segfaults at tiffcp in libtiff
+	;;(setf clim:*default-frame-manager* (make-instance 'climi::pixie/clx-look :port (clim:find-port)))
+	
+	(setq drei::*highlight-strokes* nil)
+	(setq drei::*use-tabs-for-indentation* nil)
+	(setq drei::*show-mark* t)
+	(setq climacs-gui::*default-external-format* 'utf-8)
+	(setq climacs-gui::*climacs-text-style* (clim:make-text-style :fix :bold :very-large))
+	(sb-sys:without-interrupts				      
+	  (sb-sys:with-local-interrupts	
+	    (unwind-protect
+	      (values
+		(sleep 0.01)
+		(clim-listener:run-listener :new-process t)
+		(sleep 0.01)
+		(climacs:climacs-rv :new-process t)))))))))

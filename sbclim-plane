@@ -1,0 +1,3 @@
+#!/bin/sh
+export SBCL='sbcl --userinit /usr/local/bin/mbrc --dynamic-space-size=2564 --control-stack-size=16'
+exec rlwrap -b "[]()'\" " --remember -c -f /home/wbooze/.sbcl_completions -H /home/wbooze/.sbcl_history -s 65535 $SBCL

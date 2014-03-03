@@ -763,8 +763,8 @@ one can run the CMP-FUN"
 
 
 (in-package :cl-user)
-(defun am (args) (macroexpand args))
-(defun am-1 (args) (macroexpand-1 args))
+(defun ma (args) (macroexpand args))
+(defun ma-1 (args) (macroexpand-1 args))
 
 (export 'cl-user::clm)
 (export 'cl-user::mbrc)
@@ -778,8 +778,8 @@ one can run the CMP-FUN"
 (export 'cl-user::ucs-codes-t)
 (export 'cl-user::ucs-codes-tl)
 (export 'cl-user::pds)
-(export 'cl-user::am)
-(export 'cl-user::am-1)
+(export 'cl-user::ma)
+(export 'cl-user::ma-1)
 (export 'cl-user::nil-as-list)
 (export 'cl-user::remove-nil-as-list)
 
@@ -813,8 +813,8 @@ one can run the CMP-FUN"
 (import 'cl-user::extended-table-s)
 (import 'cl-user::paip)
 (import 'cl-user::paip-new)
-(import 'cl-user::am)
-(import 'cl-user::am-1)
+(import 'cl-user::ma)
+(import 'cl-user::ma-1)
 (import 'cl-user::nil-as-list)
 (import 'cl-user::remove-nil-as-list)
 

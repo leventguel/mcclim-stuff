@@ -7,6 +7,178 @@
 (if (not (member :rune-is-character *features*))
   (push :rune-is-character *features*))
 
+(defun nil-as-list () 
+(set-pprint-dispatch
+    '(eql nil)
+    (lambda (srm el)
+       (cond ((null (cdr el))
+              (format srm "()"))
+             (t
+              (pprint-fill srm el t))))
+    2))
+
+(nil-as-list)
+
+(defun remove-nil-as-list ()
+  (let* 
+    ((dispatch-table (slot-value *print-pprint-dispatch* 'sb-pretty::entries)))
+    (dolist (x dispatch-table)
+      (cond
+	((equal '(eql ()) (slot-value x 'sb-pretty::type))
+	(setf (slot-value *print-pprint-dispatch* 'sb-pretty::entries)
+	  (remove x dispatch-table)))))))
+	
+
+(setq *clocc-root* "/home/wbooze/clocc/")
+(load "clocc/src/ytools/ytload/ytload")
+(setq ytools::config-directory* "/home/wbooze/")
+(setq ytools::ytload-directory* "clocc/src/ytools/ytload/")
+
+(defun paip ()
+  (ignore-errors
+    (progn
+      (load "/home/wbooze/prg/lisp/paip/norvig-old/auxfns.lisp"))))
+
+(export 'cl-user::paip)
+
+(defun paip-new ()
+  (ignore-errors
+    (progn 
+      (load "/home/wbooze/prg/lisp/paip-pjb/norvig-paip-pjb.lisp"))))
+
+(export 'cl-user::paip-new)
+
+(defun make-loops (var-list-pairs last-loop-body)
+  (if (endp var-list-pairs)
+    last-loop-body
+    (destructuring-bind ((var list) . therest) var-list-pairs
+      `(loop for ,var in ,list do ,(make-loops therest last-loop-body)))))
+
+(defmacro make-comprehension (expr vars-in-lists guards)
+  (let ((accum (gensym)))
+    `(let ((,accum (list)))
+       (progn 
+	 ,(make-loops vars-in-lists
+	    `(if (and ,@guards)
+	       (push ,expr ,accum)))
+	 (nreverse ,accum)))))
+
+(defun bubble-sort (array cmp-fun) 
+  "Bubble sort implementation in common lisp. Using the extended loop facility."
+  (let ((result (copy-seq array)))
+    (loop for i from (1- (length result)) downto 0 do
+      (loop for j from 0 to i
+	when (funcall cmp-fun (aref result i) (aref result j))
+	do (rotatef (aref result i) (aref result j)) ))
+    result))
+
+(defun insertion-sort (cmp-fun array-to-sort) 
+  "Implementation of a destructive insertion sort on ARRAY-TO-SORT.
+The CMP-FUN is used to parametrize the order conditions. 
+This sort is generic, that means it can sort all kinds of objects for which
+one can run the CMP-FUN"
+
+  (flet ((insert-into-sorted (index)
+           ;; example of a local function all outer variables are 
+           ;; accessible from within this local function
+           (let ((el (aref array-to-sort index)))
+             ;; save the element for later insertion
+             (loop for j = (1- index) then (1- j)
+	       while (and (>= j 0) (not (funcall cmp-fun (aref array-to-sort j) el)))
+	       ;; the not is needed because the following should move all elements
+	       ;; not in order to the right
+	       do (setf (aref array-to-sort (1+ j)) (aref array-to-sort j))
+	       finally  (setf (aref array-to-sort (1+ j)) el)))))
+    ;; now we can add el at the proper place
+    (loop for i from 0 upto (1- (length array-to-sort))
+      do (insert-into-sorted i)))
+  array-to-sort)
+
+(defun small (list)
+  (or (null list) (null (cdr list))))
+
+(defun right-half (list)
+  (last list (ceiling (/ (length list) 2))))
+
+(defun left-half (list)
+  (ldiff list (right-half list)))
+
+(defun merge-lists (list1 list2)
+  (merge 'list list1 list2 #'<))
+
+(defun merge-sort (list)
+  (if (small list) list
+    (merge-lists
+      (merge-sort (left-half list))
+      (merge-sort (right-half list)))))
+
+(defgeneric lt (some other))
+
+(defmethod lt ((some number) (other number)) (< some other))
+
+(defmethod lt ((some string) (other string)) (string< some other))
+
+(defun qsort (l)
+  (when l (destructuring-bind (p . xs) l
+            (append (qsort (@ x x xs (lt x p))) (list p)
+	      (qsort (@ x x xs (not (lt x p))))))))
+
+(defun qsort-alt (list) 
+  (when list 
+    (destructuring-bind (p . xs) list 
+      (loop for x in xs if (lt x p) 
+	collect x into lesser 
+	else collect x into greater 
+	finally (return (append (quicksort-alt lesser) (list p) (quicksort-alt greater)))))))
+
+(defun gen-tuples-m (lst)
+  (reduce (lambda (b rest)
+            (loop for xs in rest
+	      append (loop for i from 1 to b
+		       collecting (cons i xs))))
+    lst
+    :from-end t
+    :initial-value '(())))
+
+(defun string-to-number (str &optional (base *read-base*) &rest rest)
+  (read-from-string str base))
+
+(defun number-to-string (num &optional (base *read-base*) &rest rest)
+  (write-to-string num :base base))
+
+(defun read-char-by-name (stream)
+  "blabla"
+  (let* ((input stream))
+    (cond
+      ((equal "^[0-9a-fA-F]+s" input)
+	(string-to-number input 16))
+      ((equal "^#" input)
+	(read input))
+      (t (read stream)))))
+
+(defun insert (&rest args)
+  args)
+
+(defun pds ()
+  (ignore-errors
+    (progn
+      (load "/home/wbooze/prg/lisp/lisp/ppmx.lisp")
+      (load "/home/wbooze/prg/lisp/lisp/dtrace.lisp")
+      (load "/home/wbooze/prg/lisp/lisp/sdraw.lisp"))))
+
+
+(defun lold ()
+  (ignore-errors
+    (progn
+      (load "/home/wbooze/prg/lisp/lisp/package.lisp")
+      (load "/home/wbooze/prg/lisp/lisp/onlisp-util.lisp")
+      (load "/home/wbooze/prg/lisp/lisp/onlisp-app.lisp")
+      (load "/home/wbooze/prg/lisp/lisp/lol-working.lisp")
+      (load "/home/wbooze/prg/lisp/lisp/generators.lisp"))))
+
+(defun acl2 ()
+  (load "/home/wbooze/prg/lisp/lisp/acl2.lisp"))
+
 (declaim (optimize (safety 3) (debug 3) (space 0) (speed 0) (compilation-speed 0) (inhibit-warnings 0)))
 (declaim (sb-ext:muffle-conditions sb-ext:compiler-note))
 (declaim (sb-ext:muffle-conditions sb-ext:code-deletion-note))
@@ -80,20 +252,18 @@
       (load quicklisp-init)
       (load "/home/wbooze/quicklisp.lisp")))))
 
-(init-quick)
-
 ;;(setq sb-ext:*evaluator-mode* :interpret)
 
+(require :sb-posix)
 (defun quick ()
-  #+ quicklisp
+  #+quicklisp
   (progn 
       ;;; Check for --no-linedit command-line option.
     (if (member "--no-linedit" sb-ext:*posix-argv* :test 'equal)
       (setf sb-ext:*posix-argv* 
 	(remove "--no-linedit" sb-ext:*posix-argv* :test 'equal))
-      #+aclrepl
       (progn
-	(ql:quickload :sb-aclrepl)
+	(require :sb-aclrepl)
 	(when (interactive-stream-p *terminal-io*)
 	  (progn
 	    (ignore-errors (require 'sb-aclrepl))
@@ -110,10 +280,7 @@
 	    (sb-aclrepl:alias ("require" 0 "Require module") (sys) (require sys))
 	    (setq cl:*features* (delete :aclrepl cl:*features*))))))))  
 
-;; you can enable it if you want!
-;;(quick)
 
-(require :sb-posix)
 (defun change-directory (pathname)
   "Ensure that the current directory seen by RUN-PROGRAM has changed, and update *default-pathname-defaults*"
   #+CMU (unix:unix-chdir (namestring pathname))
@@ -159,7 +326,7 @@
 ;;     :mcclim-jpeg-bitmaps 
 ;;     :mcclim-tiff-bitmaps))
 
-#+quicklisp
+#-quicklisp
 (init-quick)
 
 #+quicklisp
@@ -167,80 +334,70 @@
 
 #+quicklisp
 (ql:quickload :cl-unicode)
-#+asdf
 (asdf:oos 'asdf:load-op :cl-unicode)
 
 #+quicklisp
 (ql:quickload :cl-ppcre)
-#+asdf
 (asdf:oos 'asdf:load-op :cl-ppcre)
 
 #+quicklisp
 (ql:quickload :trivial-gray-streams)
-#+asdf
 (asdf:oos 'asdf:load-op :trivial-gray-streams)
 
 #+quicklisp
 (ql:quickload :flexi-streams)
-#+asdf
 (asdf:oos 'asdf:load-op :flexi-streams)
 
 #+quicklisp
 (ql:quickload :flexichain)
-#+asdf
 (asdf:oos 'asdf:load-op :flexichain)
 
 #+quicklisp
 (ql:quickload :spatial-trees)
-#+asdf
 (asdf:oos 'asdf:load-op :spatial-trees)
 
-#+asdf
-(asdf:oos 'asdf:load-op :trivial-sockets)
+;;#+asdf
+;;(asdf:oos 'asdf:load-op :trivial-sockets)
 
 #+quicklisp
 (ql:quickload :usocket)
-#+asdf
 (asdf:oos 'asdf:load-op :usocket)
 
 #+quicklisp
 (ql:quickload :usocket-udp)
-#+asdf
 (asdf:oos 'asdf:load-op :usocket-udp)
 
 #+quicklisp
 (ql:quickload :cl-vectors)
-#+asdf
 (asdf:oos 'asdf:load-op :cl-vectors)
 
 #+quicklisp
 (ql:quickload :zpb-ttf)
-#+asdf
 (asdf:oos 'asdf:load-op :zpb-ttf)
 
 #+quicklisp
 (ql:quickload :clx)
-#+asdf
 (asdf:oos 'asdf:load-op :clx)
 
 #+quicklisp
 (ql:quickload :mcclim)
-#+asdf
 (asdf:oos 'asdf:load-op :mcclim)
 
 (load "/home/wbooze/quicklisp/dists/quicklisp/software/mcclim-20130813-cvs/Lisp-Dep/fix-sbcl.lisp")
 (load "/home/wbooze/quicklisp/dists/quicklisp/software/mcclim-20130813-cvs/Lisp-Dep/mp-sbcl.lisp")
 
+(in-package :cl-user)
+
 #+quicklisp
 (ql:quickload :clouseau)
-#+asdf
 (asdf:oos 'asdf:load-op :clouseau)
 
 (load "/home/wbooze/quicklisp/dists/quicklisp/software/mcclim-20130813-cvs/Apps/Debugger/clim-debugger.lisp")
 
+(in-package :cl-user)
+
 #+quicklisp
 (ql:quickload :clim-clx)
-#+asdf
 (asdf:oos 'asdf:load-op :clim-clx)
 
 ;;(defmethod asdf:perform :after ((o asdf:load-op) (s (eql (asdf:find-system :clim-clx)))) 
@@ -248,52 +405,43 @@
 
 #+quicklisp
 (ql:quickload :clim-listener)
-#+asdf
 (asdf:oos 'asdf:load-op :clim-listener)
 
 #+quicklisp
 (ql:quickload :climacs)
-#+asdf
 (asdf:oos 'asdf:load-op :climacs)
 
 #+quicklisp
 (ql:quickload :mcclim-truetype)
-#+asdf
 (asdf:oos 'asdf:load-op :mcclim-truetype)
 
 #+quicklisp
 (ql:quickload :split-sequence)
-#+asdf
 (asdf:oos 'asdf:load-op :split-sequence)
 
 #+quicklisp
 (ql:quickload :cl-irc)
-#+asdf
 (asdf:oos 'asdf:load-op :cl-irc)
 
 #+quicklisp
 (ql:quickload :bordeaux-threads)
-#+asdf
 (asdf:oos 'asdf:load-op :bordeaux-threads)
 
 #+quicklisp
 (ql:quickload :alexandria)
-#+asdf
 (asdf:oos 'asdf:load-op :alexandria)
 
 #+quicklisp
 (ql:quickload :cl-fad)
-#+asdf
 (asdf:oos 'asdf:load-op :cl-fad)
 
 #+quicklisp
 (ql:quickload :beirc)
-#+asdf
 (asdf:oos 'asdf:load-op :beirc)
 
-;;#+quicklisp
-;;(ql:quickload :quicklisp-slime-helper)
-;;(asdf:oos 'asdf:load-op :quicklisp-slime-helper)
+#+quicklisp
+(ql:quickload :quicklisp-slime-helper)
+(asdf:oos 'asdf:load-op :quicklisp-slime-helper)
 
 ;;(map nil #'ql:quickload
 ;;    '( ;;:cl-unicode
@@ -388,7 +536,7 @@
     (lambda ()
 	(slot-value frame 'climi::panes-for-layout))))
 
-(defparameter *default-font-family-name* "-*-*-medium-r-*-*-*-180-*-*-c-*-iso8859-1")
+(defparameter *default-font-family-name* "-*-unifont-*-*-*-*-*-180-*-*-*-*-iso10646-1")
 ;;  (setq *default-font-family-name* (climi::make-text-style "misc-fixed" "medium-r" 18))
 
 (defun update-map-for-face-with-name (map family name)
@@ -398,7 +546,7 @@
     (substitute `(,name ,@(cdr current-face)) current-face map)))
 
 (defun set-fix ()
-  (let ((*default-font-family-name* "-*-*-medium-r-*-*-*-180-*-*-c-*-iso8859-1"))
+  (let ((*default-font-family-name* "-*-unifont-*-*-*-*-*-180-*-*-*-*-iso10646-1"))
     (setf clim-clx::*clx-text-family+face-map*
       (clim-user::update-map-for-face-with-name
   	clim-clx::*clx-text-family+face-map* :fix clim-user::*default-font-family-name*))))
@@ -444,7 +592,7 @@
 #+clim
 (let ((climi::*default-text-style* (climi::make-text-style :fix :roman :large)))
 (defun clm ()
-  (values 
+  (progn 
     (clmi)
     (clme))))
 
@@ -468,7 +616,8 @@
 	  (unwind-protect
 	    (values
 	      (sleep 0.01)
-	      (beirc:beirc :new-process t)
+	      (let ((*read-eval* nil))
+	      (beirc:beirc :new-process t))
 	      (sleep 0.01)))))))))
 
 ;;(load "/home/wbooze/clm-4/all.lisp")
@@ -524,3 +673,296 @@
 (export 'kill-first-of)
 (export 'kill-last-of) 
 (export 'kill-nth-of)
+
+
+(let ((*read-eval* t))
+  (defun rcl ()
+    (ql:quickload :closure)
+    #+closure
+    (closure:start)))
+
+(defun ucs-insert (&optional character (count 1))
+  "given a character returns the unicode symbol or reads input and then returns the symbol"
+
+  (if character
+    (let ((result (or (string (code-char character)) (string character))))
+      (progn
+        (dotimes (i count)
+         (format t "~s" result))))
+
+    (progn
+      (let* (
+             (character (read-char))
+             (result (or (string character) (string (code-char character)))))
+      (dotimes (i count)
+       (format t "~s" result))))))
+
+(defun ascii-table ()
+  (let ((i -1))
+    (format t "~&ASCII characters 32 thru 127.~&~%")
+    (format t "   Dec  Hex  Char         |   Dec  Hex   Char         |   Dec  Hex   Char         |   Dec  Hex   Char~%")
+    (loop while (< i 31) do
+      (princ (format nil "~4d ~4x    ~12s | ~4d ~4x    ~12s | ~4d ~4x    ~12s | ~4d ~4x    ~12s~%"
+	       (setq i (+ 33  i)) i (code-char i)
+	       (setq i (+ 32 i)) i (code-char i)
+	       (setq i (+ 32 i)) i (code-char i)
+	       (setq i (+ 1 i)) i (code-char i)))
+      (setq i (- i 95)))) (values))
+
+(defun ascii-table-s ()
+  (let ((i -1))
+    (format t "~&ASCII characters 32 thru 127.~&~%")
+    (format t "   Dec  Hex  Char         |   Dec  Hex   Char         |   Dec  Hex   Char         |   Dec  Hex   Char~%")
+    (loop while (< i 31) do
+      (princ (format nil "~4d ~4x    ~12s | ~4d ~4x    ~12s | ~4d ~4x    ~12s | ~4d ~4x    ~12s~%"
+	       (setq i (+ 33  i)) i (string (code-char i))
+	       (setq i (+ 32 i)) i (string (code-char i))
+	       (setq i (+ 32 i)) i (string (code-char i))
+	       (setq i (+ 1 i)) i (string (code-char i))))
+      (setq i (- i 95)))) (values))
+
+(defun extended-table ()
+  (let ((i 128))
+    (format t "~&extended ASCII characters (unicode) 128 thru 256.~&~%")
+    (format t " Dec   Hex   Char  |  Dec   Hex   Char~%")
+    (loop while (< i 256) do
+      (princ (format nil "~4d ~4x ~50s  |  ~4d ~4x ~50s~%"
+	       i i (code-char i)
+	       (incf i) i (code-char i)))
+      (incf i))) (values))
+
+(defun extended-table-s ()
+  (let ((i 128))
+    (format t "~&extended ascii characters (unicode) 128 thru 256.~&~%")
+    (format t " dec   hex   char  |  dec   hex   char~%")
+    (loop while (< i 256)
+          do (princ
+              (format nil "~4d ~4x ~50s  |  ~4d ~4x ~50s~%" 
+											i i (string (code-char i)) 
+											(incf i) i (string (code-char i))))
+					(incf i))) (values))
+
+(defun ucs-codes-t (start row col) ;; terminal version
+	(let ((x start) (somechars nil))
+		(do ((i 1 (1+ i)))
+			((> i row))
+			(terpri)
+			(do ((j 1 (1+ j)))
+				((> j col))
+				(format t "~s " (string (code-char x)))
+				(incf x)))))
+
+(defun ucs-codes-tl (start row col) ;; terminal-list version
+	(let ((x start) (somechars nil))
+		(do ((i 1 (1+ i)))
+			((> i row))
+			(do ((j 1 (1+ j)))
+				((> j col))
+				(setq somechars (append somechars (list (string (code-char x)))))
+				(incf x))) somechars))
+
+
+(in-package :cl-user)
+(defun am (args) (macroexpand args))
+(defun am-1 (args) (macroexpand-1 args))
+
+(export 'cl-user::clm)
+(export 'cl-user::mbrc)
+(export 'cl-user::insert)
+(export 'cl-user::ucs-insert)
+
+(export 'cl-user::ascii-table)
+(export 'cl-user::extended-table)
+(export 'cl-user::ascii-table-s)
+(export 'cl-user::extended-table-s)
+(export 'cl-user::ucs-codes-t)
+(export 'cl-user::ucs-codes-tl)
+(export 'cl-user::pds)
+(export 'cl-user::am)
+(export 'cl-user::am-1)
+(export 'cl-user::nil-as-list)
+(export 'cl-user::remove-nil-as-list)
+
+(in-package :clim-user)
+
+(setq *clocc-root* "/home/wbooze/clocc/")
+(load "clocc/src/ytools/ytload/ytload")
+(setq ytools::config-directory* "/home/wbooze/")
+(setq ytools::ytload-directory* "clocc/src/ytools/ytload/")
+
+(setf (logical-pathname-translations "NORVIG")
+  `(("NORVIG:**;*.*.*" "/home/wbooze/prg/lisp/paip-pjb/norvig/**/*.*")))
+
+(setq *default-pathname-defaults*
+  (merge-pathnames
+    *default-pathname-defaults*
+    (make-pathname :directory '(:relative "prg/lisp/paip-pjb/"))))
+
+(import 'cl-user::clm)
+(import 'cl-user::mbrc)
+(import 'cl-user::insert) 
+(import 'cl-user::ucs-insert) 
+
+(import 'cl-user::pds) 
+(import 'cl-user::lold) 
+(import 'cl::dribble) 
+
+(import 'cl-user::ascii-table) 
+(import 'cl-user::extended-table)
+(import 'cl-user::ascii-table-s)
+(import 'cl-user::extended-table-s)
+(import 'cl-user::paip)
+(import 'cl-user::paip-new)
+(import 'cl-user::am)
+(import 'cl-user::am-1)
+(import 'cl-user::nil-as-list)
+(import 'cl-user::remove-nil-as-list)
+
+(in-package :cl-user)
+
+(defun walk-tree (fun tree)
+  (subst-if t
+    (constantly nil)
+    tree
+    :key fun))
+
+(defun walk-tree-atoms (fun tree)
+  (tree-equal tree tree
+    :test (lambda (element-1 element-2)
+	    (declare (ignore element-2))
+	    (funcall fun element-1)
+	    t)))
+
+(defun list-of-bits (integer)
+  (let ((bits '()))
+    (dotimes (index (integer-length integer) bits)
+      (push (if (logbitp index integer) 1 0) bits))))
+
+(defun list-of-bits (integer)
+  (let ((i integer)
+	 (bits '()))
+    (dotimes (j (integer-length integer) bits)
+      (push (logand i 1) bits)
+      (setf i (ash i -1)))))
+
+(defun list-of-bits (integer)
+  (let ((mask 1)
+	 (bits '()))
+    (dotimes (i (integer-length integer) bits)
+      (push (if (logtest mask integer) 1 0) bits)
+      (setf mask (ash mask 1)))))
+
+(defun list-of-bits (integer)
+  (let ((bits '()))
+    (dotimes (position (integer-length integer) bits)
+      (push (ldb (byte 1 position) integer) bits))))
+
+(defun :bin (value &optional (size 8))
+  (format nil "#b~v,'0B" size value))
+
+(defun :bin (value &key (size 64) (byte 8))
+  (loop for position from (- size byte) downto -1 by byte
+
+    with result = (ldb (byte byte position) value)
+    and left-shift = (ash (ldb (byte byte position) value) 1)  
+    and right-shift = (ash (ldb (byte byte position) value) -1)
+
+    do
+    (format t "~%~70<~v,'0b~>~&~70<~v,'0b~>~&~70<~v,'0b~>~% " byte result byte left-shift byte right-shift)
+    ))
+
+(defun :oct (value &optional (size 3))
+  (format nil "#o~v,'0O" size value))
+
+(defun :hex (value &optional (size 3))
+  (format nil "#x~v,'0X" size value))
+
+(defun :dec (value &optional (size 3))
+  (format nil "#d~v,'0d" size value))
+
+(defun bin->hex (bin)
+  (:hex (values (read-from-string (:bin bin) t nil :start 2))))
+
+(defun hex->bin (hex)
+  (:bin (values (read-from-string (:hex hex) t nil :start 2))))
+
+(defun oct->bin (oct)
+  (:bin (values (read-from-string (:oct oct) t nil :start 2))))
+
+(defun bin->oct (bin)
+  (:oct (values (read-from-string (:bin bin) t nil :start 2))))
+
+(defun bin->dec (bin)
+  (:dec (values (read-from-string (:bin bin) t nil :start 2))))
+
+(defun dec->bin (dec)
+  (:bin (values (read-from-string (:dec dec) t nil :start 2))))
+
+(defun hex->dec (hex)
+  (:dec (values (read-from-string (:hex hex) t nil :start 2))))
+
+(defun dec->hex (dec)
+  (:hex (values (read-from-string (:dec dec) t nil :start 2))))
+
+(defun oct->dec (oct)
+  (:dec (values (read-from-string (:oct oct) t nil :start 2))))
+
+(defun dec->oct (dec)
+  (:oct (values (read-from-string (:dec dec) t nil :start 2))))
+
+(defun hex->oct (hex)
+  (:oct (values (read-from-string (:hex hex) t nil :start 2))))
+
+(defun oct->hex (oct)
+  (:hex (values (read-from-string (:oct oct) t nil :start 2))))
+
+(defun bits (value &optional (size 8))
+  (cond 
+    ((and (stringp value) (equal (values (read-from-string value nil nil :start 1 :end 2)) 'x))
+      (values (read-from-string (format nil "~v,'0B" size (hex->bin value)) t nil :start 2)))
+    ((and (stringp value) (equal (values (read-from-string value nil nil :start 1 :end 2)) 'o))
+      (values (read-from-string (format nil "~v,'0B" size (oct->bin value)) t nil :start 2)))
+    ((and (stringp value) (equal (values (read-from-string value nil nil :start 1 :end 2)) 'd))
+      (values (read-from-string (format nil "~v,'0B" size (dec->bin (read-from-string value t nil :start 2))) t nil :start 2)))
+    ((and (stringp value) (equal (values (read-from-string value nil nil :start 1 :end 2)) 'b))
+      (values (read-from-string (format nil "~v,'0B" size value) t nil :start 2)))
+    ((numberp value) (values (read-from-string (format nil "~v,'0B" size value))))
+    (t
+      (values (read-from-string (format nil "~v,'0B" size value) t nil :start 2)))))
+
+;;(export '(hex->bin bin->hex oct->bin bin->oct bin->dec dec->bin hex->dec dec->hex oct->dec dec->oct hex->oct oct->hex bits list-of-bits walk-tree;; walk-tree-atoms))
+
+
+(defun next-epsi (epsi) (/ epsi 2))
+
+(defun epsi-sig-single-p (epsi) (> (+ 1.0f0 epsi) 1.0f0))
+(defun epsi-sig-double-p (epsi) (> (+ 1.0d0 epsi) 1.0d0))
+
+(defun is-epsi-single-p (epsi) 
+  (and (epsi-sig-single-p epsi) 
+    (not (epsi-sig-single-p (next-epsi epsi)))))
+
+(defun is-epsi-double-p (epsi) 
+  (and (epsi-sig-double-p epsi) 
+    (not (epsi-sig-double-p (next-epsi epsi)))))
+
+(defun find-epsi-single (&OPTIONAL (epsi 1.0f0)) 
+  (if (is-epsi-single-p epsi)  ; if the next epsi candidate isn't significant
+    epsi  ; we have found epsilon
+    (find-epsi-single (next-epsi epsi)))) ; otherwise, go smaller
+
+(defun find-epsi-double (&OPTIONAL (epsi 1.0d0)) 
+  (if (is-epsi-double-p epsi)  ; if the next epsi candidate isn't significant
+    epsi  ; we have found epsilon
+    (find-epsi-double (next-epsi epsi)))) ; otherwise, go smaller
+
+(format t "~% machine-epsilon-single: ~a ~% machine-epsilon-double: ~a ~% epsi-sig-single-p? ~a ~% epsi-sig-double-p? ~a ~%"(find-epsi-single) (find-epsi-double) (epsi-sig-single-p (find-epsi-single)) (epsi-sig-double-p (find-epsi-double)))
+
+(print "Happy lisping!" t)
+(write-char #\Newline t) ;;is identical to (terpri t)
+(print (machine-version) t)
+(print (lisp-implementation-type) t)
+(print (machine-type) t)
+(print (lisp-implementation-version) t)
+(terpri t)
+(progn (terpri t) (run-program "/usr/bin/date" '() :output t) (values))

@@ -294,11 +294,17 @@ one can run the CMP-FUN"
   #+sbcl (sb-posix:chdir (namestring pathname))
  (setf *default-pathname-defaults* pathname))
 
-(defun list-directory (pathname)
+(defun list-dir (pathname)
   ;; (list-directory '/home/wbooze) for example
   (loop for f in 
     (directory (make-pathname :directory (string-downcase pathname) :name :wild :type :wild)) 
     collect f))
+
+(defun print-dir (pathname)
+  ;; (list-directory '/home/wbooze) for example
+  (loop for f in 
+    (directory (make-pathname :directory (string-downcase pathname) :name :wild :type :wild)) 
+    do (print f)))
 
 ;;#-asdf
 ;;(defmethod asdf:perform :around ((o asdf:load-op)

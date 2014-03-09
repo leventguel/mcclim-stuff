@@ -37,6 +37,7 @@
 (defun paip ()
   (ignore-errors
     (progn
+      (load "/home/wbooze/prg/lisp/paip/norvig-old/auxmacs.lisp")
       (load "/home/wbooze/prg/lisp/paip/norvig-old/auxfns.lisp"))))
 
 (export 'cl-user::paip)
@@ -255,31 +256,35 @@ one can run the CMP-FUN"
 ;;(setq sb-ext:*evaluator-mode* :interpret)
 
 (require :sb-posix)
-(defun quick ()
-  #+quicklisp
-  (progn 
-      ;;; Check for --no-linedit command-line option.
-    (if (member "--no-linedit" sb-ext:*posix-argv* :test 'equal)
-      (setf sb-ext:*posix-argv* 
-	(remove "--no-linedit" sb-ext:*posix-argv* :test 'equal))
-      (progn
-	(require :sb-aclrepl)
-	(when (interactive-stream-p *terminal-io*)
-	  (progn
-	    (ignore-errors (require 'sb-aclrepl))
-	    (when (find-package 'sb-aclrepl)
-	      (push :aclrepl cl:*features*))
-	    (setq sb-aclrepl:*max-history* 100)
-	    (setf (sb-aclrepl:alias "asdc") 
-	      #'(lambda (sys) (asdf:operate 'asdf:compile-op sys)))
-	    (sb-aclrepl:alias "l" (sys) (asdf:operate 'asdf:load-op sys))
-	    (sb-aclrepl:alias "t" (sys) (asdf:operate 'asdf:test-op sys))
-	    ;; The 1 below means that two characaters ("up") are required
-	    (sb-aclrepl:alias ("up" 1 "Use package") (package) (use-package package))
-	    ;; The 0 below means only the first letter ("r") is required, such as ":r base64"
-	    (sb-aclrepl:alias ("require" 0 "Require module") (sys) (require sys))
-	    (setq cl:*features* (delete :aclrepl cl:*features*))))))))  
 
+(defun quick ()
+   ;;; Check for --no-linedit command-line option.
+  #+quicklisp
+  (if (member "--no-linedit" sb-ext:*posix-argv* :test 'equal)
+    (setf sb-ext:*posix-argv* (remove "--no-linedit" sb-ext:*posix-argv* :test 'equal))
+    (progn
+      (if (interactive-stream-p *terminal-io*)
+	(ignore-errors (require :sb-aclrepl)))
+	(if (find-package :sb-aclrepl)
+	  (progn
+	  (push :aclrepl cl:*features*)
+	  (setq sb-aclrepl:*max-history* 100)
+	  (setf (sb-aclrepl:alias "asdc") #'(lambda (sys) (asdf:operate 'asdf:compile-op sys)))
+	  (sb-aclrepl:alias "l" (sys) (asdf:operate 'asdf:load-op sys))
+	  (sb-aclrepl:alias "t" (sys) (asdf:operate 'asdf:test-op sys))
+	  ;; The 1 below means that two characaters ("up") are required
+	  (sb-aclrepl:alias ("up" 1 "Use package") (package) (use-package package))
+	  ;; The 0 below means only the first letter ("r") is required, such as ":r base64"
+	  (sb-aclrepl:alias ("require" 0 "Require module") (sys) (require sys)))
+	  (setq cl:*features* (delete :aclrepl cl:*features*))))))
+
+#+quicklisp
+(defun sa (args)
+  (ql:system-apropos (string-downcase args)))
+
+#+quicklisp
+(defun ql (args)
+  (ql-quickload (string-downcase args)))
 
 (defun change-directory (pathname)
   "Ensure that the current directory seen by RUN-PROGRAM has changed, and update *default-pathname-defaults*"
@@ -290,9 +295,10 @@ one can run the CMP-FUN"
  (setf *default-pathname-defaults* pathname))
 
 (defun list-directory (pathname)
-  ;; Sooner or later, I'm putting all the sb-posix junk back in.
-  ;; I *really* don't like truenames.
-  (directory pathname))
+  ;; (list-directory '/home/wbooze) for example
+  (loop for f in 
+    (directory (make-pathname :directory (string-downcase pathname) :name :wild :type :wild)) 
+    collect f))
 
 ;;#-asdf
 ;;(defmethod asdf:perform :around ((o asdf:load-op)
@@ -372,6 +378,10 @@ one can run the CMP-FUN"
 (asdf:oos 'asdf:load-op :cl-vectors)
 
 #+quicklisp
+(ql:quickload :cl-freetype2)
+(asdf:oos 'asdf:load-op :cl-freetype2)
+
+#+quicklisp
 (ql:quickload :zpb-ttf)
 (asdf:oos 'asdf:load-op :zpb-ttf)
 
@@ -442,6 +452,89 @@ one can run the CMP-FUN"
 #+quicklisp
 (ql:quickload :quicklisp-slime-helper)
 (asdf:oos 'asdf:load-op :quicklisp-slime-helper)
+
+(defun load-sdl ()
+  (progn
+    #+quicklisp
+    (ql:quickload :trivial-garbage)
+    (asdf:oos 'asdf:load-op :trivial-garbage)
+    
+    #+quicklisp
+    (ql:quickload :trivial-features)
+    (asdf:oos 'asdf:load-op :trivial-features)
+    
+    #+quicklisp
+    (ql:quickload :babel)
+    (asdf:oos 'asdf:load-op :babel)
+    
+    #+quicklisp
+    (ql:quickload :cffi)
+    (asdf:oos 'asdf:load-op :cffi)
+    
+    #+quicklisp
+    (ql:quickload :lispbuilder-sdl)
+    (asdf:oos 'asdf:load-op :lispbuilder-sdl)))
+
+(defun load-png-stuff ()
+  (progn
+    
+    #+quicklisp
+    (ql:quickload :iterate)
+    (asdf:oos 'asdf:load-op :iterate)
+
+    #+quicklisp
+    (ql:quickload :chipz)
+    (asdf:oos 'asdf:load-op :chipz)
+
+    #+quicklisp
+    (ql:quickload :png-read)
+    (asdf:oos 'asdf:load-op :png-read)
+
+    #+quicklisp
+    (ql:quickload :mcclim-png-bitmaps)
+    (asdf:oos 'asdf:load-op :mcclim-png-bitmaps)))
+
+(defun load-jpeg-stuff ()
+  (progn
+    
+    #+quicklisp
+    (ql:quickload :cl-jpeg)
+    (asdf:oos 'asdf:load-op :cl-jpeg)
+
+    #+quicklisp
+    (ql:quickload :mcclim-jpeg-bitmaps)
+    (asdf:oos 'asdf:load-op :mcclim-jpeg-bitmaps)))
+
+(defun load-gif-stuff ()
+  (progn
+
+    #+quicklisp
+    (ql:quickload :skippy)
+    (asdf:oos 'asdf:load-op :skippy)
+
+    #+quicklisp
+    (ql:quickload :mcclim-gif-bitmaps)
+    (asdf:oos 'asdf:load-op :mcclim-gif-bitmaps)))
+
+(defun load-tiff-stuff ()
+  (progn
+
+    #+quicklisp
+    (ql:quickload :ieee-floats)
+    (asdf:oos 'asdf:load-op :ieee-floats)
+
+    #+quicklisp
+    (ql:quickload :com.gigamonkeys.binary-data)
+    (asdf:oos 'asdf:load-op :com.gigamonkeys.binary-data)
+
+    #+quicklisp
+    (ql:quickload :retrospectiff)
+    (asdf:oos 'asdf:load-op :retrospectiff)
+
+    #+quicklisp
+    (ql:quickload :mcclim-tiff-bitmaps)
+    (asdf:oos 'asdf:load-op :mcclim-tiff-bitmaps)))
+
 
 ;;(map nil #'ql:quickload
 ;;    '( ;;:cl-unicode
@@ -782,6 +875,7 @@ one can run the CMP-FUN"
 (export 'cl-user::ma-1)
 (export 'cl-user::nil-as-list)
 (export 'cl-user::remove-nil-as-list)
+(export 'cl-user::ql-sa)
 
 (in-package :clim-user)
 
@@ -817,6 +911,7 @@ one can run the CMP-FUN"
 (import 'cl-user::ma-1)
 (import 'cl-user::nil-as-list)
 (import 'cl-user::remove-nil-as-list)
+(import 'cl-user::ql-sa)
 
 (in-package :cl-user)
 

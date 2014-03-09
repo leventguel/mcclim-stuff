@@ -284,7 +284,7 @@ one can run the CMP-FUN"
 
 #+quicklisp
 (defun ql (args)
-  (ql-quickload (string-downcase args)))
+  (ql:quickload (string-downcase args)))
 
 (defun change-directory (pathname)
   "Ensure that the current directory seen by RUN-PROGRAM has changed, and update *default-pathname-defaults*"
@@ -301,7 +301,7 @@ one can run the CMP-FUN"
     collect f))
 
 (defun print-dir (pathname)
-  ;; (list-directory '/home/wbooze) for example
+  ;; (print-directory '/home/wbooze) for example
   (loop for f in 
     (directory (make-pathname :directory (string-downcase pathname) :name :wild :type :wild)) 
     do (print f)))
@@ -458,6 +458,33 @@ one can run the CMP-FUN"
 #+quicklisp
 (ql:quickload :quicklisp-slime-helper)
 (asdf:oos 'asdf:load-op :quicklisp-slime-helper)
+
+(defun load-gsl ()
+  #+quicklisp
+    (map nil #'ql:quickload 
+      '(:osicat 
+	 :metabang-bind 
+	 :static-vectors 
+	 :puri
+	 :cl-base64
+	 :cl+ssl
+	 :chunga
+	 :drakma
+	 :asdf-system-connections
+	 :antik
+	 :gsll))
+  (map nil #'(lambda (x) (asdf:oos 'asdf:load-op x))
+      '(:osicat 
+	 :metabang-bind 
+	 :static-vectors 
+	 :puri
+	 :cl-base64
+	 :cl+ssl
+	 :chunga
+	 :drakma
+	 :asdf-system-connections
+	 :antik
+	 :gsll)))
 
 (defun load-sdl ()
   (progn

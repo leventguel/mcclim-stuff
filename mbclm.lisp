@@ -926,11 +926,13 @@ one can run the CMP-FUN"
     *default-pathname-defaults*
     (make-pathname :directory '(:relative "prg/lisp/paip-pjb/"))))
 
-(defun subclasses (arg) (clim-listener::com-show-class-subclasses arg))
-(defun superclasses (arg) (clim-listener::com-show-class-superclasses arg))
-(defun gfs (arg) (clim-listener::com-show-class-generic-functions arg))
-(defun slots (arg) (clim-listener::com-show-class-slots arg))
+(defun subclasses (class) (clim-listener::com-show-class-subclasses class))
+(defun superclasses (class) (clim-listener::com-show-class-superclasses class))
+(defun gfs (class) (clim-listener::com-show-class-generic-functions class))
+(defun slots (class) (clim-listener::com-show-class-slots class))
 (defun info (obj) (describe (find-class (find obj (apropos-list obj nil t)))))
+(defun gf (gf) (clim-listener::com-show-generic-function
+		  (sb-pcl::find-generic-function gf)))
 
 (import 'cl-user::clm)
 (import 'cl-user::mbrc)

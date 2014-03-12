@@ -686,7 +686,8 @@ one can run the CMP-FUN"
 	   (sleep 0.01)
 	   (apply #'call-next-method port args))))
 
-  
+
+
 (in-package :cl-user)
 
 (defun clme ()
@@ -924,6 +925,12 @@ one can run the CMP-FUN"
   (merge-pathnames
     *default-pathname-defaults*
     (make-pathname :directory '(:relative "prg/lisp/paip-pjb/"))))
+
+(defun subclasses (arg) (clim-listener::com-show-class-subclasses arg))
+(defun superclasses (arg) (clim-listener::com-show-class-superclasses arg))
+(defun gfs (arg) (clim-listener::com-show-class-generic-functions arg))
+(defun slots (arg) (clim-listener::com-show-class-slots arg))
+(defun info (obj) (describe (find-class (find obj (apropos-list obj nil t)))))
 
 (import 'cl-user::clm)
 (import 'cl-user::mbrc)

@@ -345,6 +345,10 @@ one can run the CMP-FUN"
 (quick)
 
 #+quicklisp
+(ql:quickload :closer-mop)
+(asdf:oos 'asdf:load-op :closer-mop)
+
+#+quicklisp
 (ql:quickload :cl-unicode)
 (asdf:oos 'asdf:load-op :cl-unicode)
 
@@ -932,12 +936,8 @@ one can run the CMP-FUN"
 (defun slots (class) (clim-listener::com-show-class-slots class))
 (defun info (obj) (describe
 		    (or
-		      (or
-			(find-class (find obj (apropos-list obj nil t)) nil)
-			(find-class (first (apropos-list obj nil t)) nil))
-		      (or 
-			(find-class (first (apropos-list obj nil t)) nil)
-			(find-class (find obj (apropos-list obj nil t)) nil)))))
+		      (find-class (find obj (apropos-list obj nil t)) nil)
+		      (find-class (first (apropos-list obj nil t)) nil))))
 
 (defun gf (gf) (clim-listener::com-show-generic-function
 		  (sb-pcl::find-generic-function gf)))
@@ -961,7 +961,8 @@ one can run the CMP-FUN"
 (import 'cl-user::ma-1)
 (import 'cl-user::nil-as-list)
 (import 'cl-user::remove-nil-as-list)
-(import 'cl-user::ql-sa)
+(import 'cl-user::sa)
+(import 'cl-user::ql)
 
 (in-package :cl-user)
 

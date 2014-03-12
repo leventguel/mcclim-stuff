@@ -930,7 +930,15 @@ one can run the CMP-FUN"
 (defun superclasses (class) (clim-listener::com-show-class-superclasses class))
 (defun gfs (class) (clim-listener::com-show-class-generic-functions class))
 (defun slots (class) (clim-listener::com-show-class-slots class))
-(defun info (obj) (describe (find-class (find obj (apropos-list obj nil t)))))
+(defun info (obj) (describe
+		    (or
+		      (or
+			(find-class (find obj (apropos-list obj nil t)) nil)
+			(find-class (first (apropos-list obj nil t)) nil))
+		      (or 
+			(find-class (first (apropos-list obj nil t)) nil)
+			(find-class (find obj (apropos-list obj nil t)) nil)))))
+
 (defun gf (gf) (clim-listener::com-show-generic-function
 		  (sb-pcl::find-generic-function gf)))
 

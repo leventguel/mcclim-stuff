@@ -20,13 +20,13 @@
     2))
 
 (defun remove-nil-as-list ()
-  (let* 
-    ((dispatch-table (slot-value *print-pprint-dispatch* 'sb-pretty::entries)))
-    (dolist (x dispatch-table)
-      (cond
-	((equal '(eql ()) (slot-value x 'sb-pretty::type))
-	(setf (slot-value *print-pprint-dispatch* 'sb-pretty::entries)
-	  (remove x dispatch-table)))))))
+	(let* 
+			((dispatch-table (slot-value *print-pprint-dispatch* 'sb-pretty::entries)))
+		(dolist (x dispatch-table)
+			(cond
+				((equal '(eql ()) (slot-value x 'sb-pretty::type))
+				 (setf (slot-value *print-pprint-dispatch* 'sb-pretty::entries)
+							 (remove x dispatch-table)))))))
 
 (defun pprint-dispatch-cons-entries (&optional p)
 	(let*
@@ -42,6 +42,14 @@
 				(dolist (x dispatch-table)
 					(print x))
 				dispatch-table)))
+
+(defun pprint-dispatch-find (term) ;; (pprint-dispatch-find '(eql ())) after (nil-as-list) for example
+	(let*
+			((dispatch-table (slot-value *print-pprint-dispatch* 'sb-pretty::entries)))
+		(dolist (x dispatch-table)
+					(cond
+						((equal term (slot-value x 'sb-pretty::type))
+						 (return x))))))
 
 (setq *clocc-root* "/home/wbooze/clocc/")
 (load "clocc/src/ytools/ytload/ytload")

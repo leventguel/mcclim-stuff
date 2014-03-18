@@ -20,8 +20,9 @@
     2))
 
 (defun remove-nil-as-list ()
-	(let* 
-			((dispatch-table (slot-value *print-pprint-dispatch* 'sb-pretty::entries)))
+	(let*
+			((*print-pretty* nil)
+			(dispatch-table (slot-value *print-pprint-dispatch* 'sb-pretty::entries)))
 		(dolist (x dispatch-table)
 			(cond
 				((equal '(eql ()) (slot-value x 'sb-pretty::type))
@@ -30,14 +31,16 @@
 
 (defun pprint-dispatch-cons-entries (&optional p)
 	(let*
-			((dispatch-table (slot-value *print-pprint-dispatch* 'sb-pretty::cons-entries)))
+			((*print-pretty* nil)
+			(dispatch-table (slot-value *print-pprint-dispatch* 'sb-pretty::cons-entries)))
 		(loop for key being the hash-keys of dispatch-table
 					using (hash-value value)
 							collect (cons key (list value)))))
 							
 (defun pprint-dispatch-entries (&optional p)
 	(let*
-			((dispatch-table (slot-value *print-pprint-dispatch* 'sb-pretty::entries)))
+			((*print-pretty* nil)
+			(dispatch-table (slot-value *print-pprint-dispatch* 'sb-pretty::entries)))
 		(if p
 				(dolist (x dispatch-table)
 					(print x))
@@ -45,18 +48,29 @@
 
 (defun pprint-dispatch-find (term) ;; (pprint-dispatch-find '(eql ())) after (nil-as-list) for example
 	(let*
-			((dispatch-table (slot-value *print-pprint-dispatch* 'sb-pretty::entries)))
+			((*print-pretty* nil)
+			(dispatch-table (slot-value *print-pprint-dispatch* 'sb-pretty::entries)))
 		(dolist (x dispatch-table)
 					(cond
 						((equal term (slot-value x 'sb-pretty::type))
 						 (return x))))))
 
+;;; snippet to specialize on geneeral search terms
+
+;;;(let ((dispatch-table (slot-value *print-pprint-dispatch* 'sb-pretty::cons-entries)))
+;;;  (loop for key being the hash-keys of dispatch-table using (hash-value value)
+;;;        collect (if (equal '(cons (eql quote)) (slot-value value 'type))
+;;                    value)))
+
 ;; don't forget if you want your 'a stuff to expand to (quote a) properly set *print-pretty* to nil (disable)
 ;; else lookups are made via the pprint dispatch tables and the pprinter has its own ways of printing stuff!
 ;; especially don't forget to disable it when using/defining macro character functions!
 ;; else expansions might not be the same as expected which will confuse just more....
+;; http://www.lispworks.com/documentation/HyperSpec/Body/22_ab.htm
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;; and tho *print-pretty* is a special var disabling/enabling it from the listener won't affect it's value
+;;;; in the sbcl repl!
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;,;;;;;;;;;;;;;;;;;
 
 (setq *clocc-root* "/home/wbooze/clocc/")
 (load "clocc/src/ytools/ytload/ytload")

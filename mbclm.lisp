@@ -822,11 +822,31 @@ one can run the CMP-FUN"
 (defun kill-nth-of (n)
   (sb-thread:terminate-thread (nth n (sb-thread:list-all-threads)))))
 
+(defun kill-listener ()
+	(let ((thread-list (sb-thread:list-all-threads)))
+		(dolist (x thread-list)
+			(if (equal "Listener" (sb-thread:thread-name x))
+					(sb-thread:terminate-thread x)))))
+
+(defun kill-climacs ()
+	(let ((thread-list (sb-thread:list-all-threads)))
+		(dolist (x thread-list)
+			(if (equal (or "Climacs-RV" "Climacs") (sb-thread:thread-name x))
+					(sb-thread:terminate-thread x)))))
+
+(defun kill-beirc ()
+	(let ((thread-list (sb-thread:list-all-threads)))
+		(dolist (x thread-list)
+			(if (equal "Beirc GUI process" (sb-thread:thread-name x))
+					(sb-thread:terminate-thread x)))))
+
 (export 'thread-list)
 (export 'kill-first-of)
 (export 'kill-last-of) 
 (export 'kill-nth-of)
-
+(export 'kill-listener)
+(export 'kill-climacs)
+(export 'kill-beirc)
 
 (let ((*read-eval* t))
   (defun rcl ()

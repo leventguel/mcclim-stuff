@@ -51,6 +51,13 @@
 						((equal term (slot-value x 'sb-pretty::type))
 						 (return x))))))
 
+;; don't forget if you want your 'a stuff to expand to (quote a) properly set *print-pretty* to nil (disable)
+;; else lookups are made via the pprint dispatch tables and the pprinter has its own ways of printing stuff!
+;; especially don't forget to disable it when using/defining macro character functions!
+;; else expansions might not be the same as expected which will confuse just more....
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 (setq *clocc-root* "/home/wbooze/clocc/")
 (load "clocc/src/ytools/ytload/ytload")
 (setq ytools::config-directory* "/home/wbooze/")

@@ -1,7 +1,9 @@
+(in-package :cl-user)
+
 (setq *print-pretty* t 
       *print-right-margin* 110 
       *read-default-float-format* 'double-float
-      *readtable* (copy-readtable nil)
+;;      *readtable* (copy-readtable nil)
       *break-on-signals* nil)
 
 (if (not (member :rune-is-character *features*))
@@ -17,8 +19,6 @@
               (pprint-fill srm el t))))
     2))
 
-(nil-as-list)
-
 (defun remove-nil-as-list ()
   (let* 
     ((dispatch-table (slot-value *print-pprint-dispatch* 'sb-pretty::entries)))
@@ -27,7 +27,21 @@
 	((equal '(eql ()) (slot-value x 'sb-pretty::type))
 	(setf (slot-value *print-pprint-dispatch* 'sb-pretty::entries)
 	  (remove x dispatch-table)))))))
-	
+
+(defun pprint-dispatch-cons-entries (&optional p)
+	(let*
+			((dispatch-table (slot-value *print-pprint-dispatch* 'sb-pretty::cons-entries)))
+		(loop for key being the hash-keys of dispatch-table
+					using (hash-value value)
+							collect (cons key (list value)))))
+							
+(defun pprint-dispatch-entries (&optional p)
+	(let*
+			((dispatch-table (slot-value *print-pprint-dispatch* 'sb-pretty::entries)))
+		(if p
+				(dolist (x dispatch-table)
+					(print x))
+				dispatch-table)))
 
 (setq *clocc-root* "/home/wbooze/clocc/")
 (load "clocc/src/ytools/ytload/ytload")
@@ -179,6 +193,10 @@ one can run the CMP-FUN"
 
 (defun acl2 ()
   (load "/home/wbooze/prg/lisp/lisp/acl2.lisp"))
+
+(export 'cl-user::pds)
+(export 'cl-user::lold)
+(export 'cl-user::acl2)
 
 (declaim (optimize (safety 3) (debug 3) (space 0) (speed 0) (compilation-speed 0) (inhibit-warnings 0)))
 (declaim (sb-ext:muffle-conditions sb-ext:compiler-note))
@@ -609,6 +627,7 @@ one can run the CMP-FUN"
 
 (in-package :clim-user)
 
+
 (defun current-view (&optional (pane-name *standard-output*))
   (funcall
     (lambda ()
@@ -772,11 +791,6 @@ one can run the CMP-FUN"
 ;;	(load "/home/wbooze/prg/lisp/lisp/lol-book.lisp")
 ;;	(load "/home/wbooze/prg/lisp/lisp/generators.lisp")))))
 
-;;(export 'pds)
-;;(export 'lold) 
-;;(pds) 
-;;(lold)
-
 (eval-when (:compile-toplevel :load-toplevel :execute)
 (defun thread-list ()
   (funcall
@@ -897,6 +911,9 @@ one can run the CMP-FUN"
 (defun ma (args) (macroexpand args))
 (defun ma-1 (args) (macroexpand-1 args))
 
+(export 'cl-user::pds)
+(export 'cl-user::lold)
+(export 'cl-user::acl2)
 (export 'cl-user::clm)
 (export 'cl-user::mbrc)
 (export 'cl-user::insert)
@@ -913,7 +930,8 @@ one can run the CMP-FUN"
 (export 'cl-user::ma-1)
 (export 'cl-user::nil-as-list)
 (export 'cl-user::remove-nil-as-list)
-(export 'cl-user::ql-sa)
+(export 'cl-user::sa)
+(export 'cl-user::ql)
 
 (in-package :clim-user)
 
@@ -948,7 +966,9 @@ one can run the CMP-FUN"
 (import 'cl-user::ucs-insert) 
 
 (import 'cl-user::pds) 
-(import 'cl-user::lold) 
+(import 'cl-user::lold)
+(import 'cl-user::acl2)
+
 (import 'cl::dribble) 
 
 (import 'cl-user::ascii-table) 
@@ -963,6 +983,38 @@ one can run the CMP-FUN"
 (import 'cl-user::remove-nil-as-list)
 (import 'cl-user::sa)
 (import 'cl-user::ql)
+
+(lold) ;;via this we get (#{1 5}) for expanding into (1 2 3 4 5) and the pg namespace funcs
+
+(defun |#{-reader| (stream char arg)
+  (declare (ignore char arg))
+  (let ((pair (read-delimited-list #\} stream t)) (accum ()))
+    (push (mapcon #'(lambda (x) (mapcar #'(lambda (y) (list (car x) y)) (cdr x))) pair) accum)
+    (list 'quote (first accum))))
+
+(defun |#{-reader| (stream char arg)
+  (declare (ignore char arg))
+  (let ((pair (read-delimited-list #\} stream t)) (accum ()) (arg (if arg arg 2)))
+    (push (paul-graham:group pair arg) accum)
+    (list 'quote (first accum))))
+
+(set-dispatch-macro-character #\# #\{ #'|#{-reader|)
+(set-macro-character #\} (get-macro-character #\) nil))
+
+;;via the above we get (#2{a b c d}) expanding into pairs i.e. ((a b) (c d)), numerical arg changes grouping!
+
+
+;;(defun quote-as-apostrophe (&optional (*readtable* (copy-readtable *read-table*)))
+;;  (set-macro-character #\' 
+;;    #'(lambda (stream char) 
+;;	(declare (ignore char)) 
+;;	(list '' (read stream t nil t)))))
+
+;;(defun quote-as-literal-quote (&optional (*readtable* (copy-readtable *read-table*)))
+;;  (set-macro-character #\' 
+;;    #'(lambda (stream char) 
+;;	(declare (ignore char)) 
+;;	(list 'quote (read stream t nil t)))))
 
 (in-package :cl-user)
 

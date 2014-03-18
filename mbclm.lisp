@@ -960,6 +960,9 @@ one can run the CMP-FUN"
 (export 'cl-user::remove-nil-as-list)
 (export 'cl-user::sa)
 (export 'cl-user::ql)
+(export 'cl-user::pprint-dispatch-cons-entries)
+(export 'cl-user::pprint-dispatch-entries)
+(export 'cl-user::pprint-dispatch-find)
 
 (in-package :clim-user)
 
@@ -1011,6 +1014,9 @@ one can run the CMP-FUN"
 (import 'cl-user::remove-nil-as-list)
 (import 'cl-user::sa)
 (import 'cl-user::ql)
+(import 'cl-user::pprint-dispatch-cons-entries)
+(import 'cl-user::pprint-dispatch-entries)
+(import 'cl-user::pprint-dispatch-find)
 
 (lold) ;;via this we get (#{1 5}) for expanding into (1 2 3 4 5) and the pg namespace funcs
 

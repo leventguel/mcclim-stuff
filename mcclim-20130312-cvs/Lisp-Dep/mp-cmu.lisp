@@ -54,8 +54,8 @@
 (defun %release-lock (lock) ; copied from with-lock-held in multiproc.lisp
   #+i486 (kernel:%instance-set-conditional
 	  lock 2 mp:*current-process* nil)
-  #-i486 (when (eq (mp::lock-process lock) mp:*current-process*)
-	   (setf (mp::lock-process lock) nil)))
+  #-i486 (when (eq (lock-process lock) mp:*current-process*)
+	   (setf (lock-process lock) nil)))
 
 (defun condition-wait (cv lock &optional timeout)
   (declare (ignore timeout))		;For now

@@ -66,7 +66,6 @@
 (defmethod stream-read-gesture ((stream goatee-input-editing-stream)
 				&rest rest-args &key peek-p
 				&allow-other-keys)
-
   (with-keywords-removed (rest-args (:peek-p))
     (rescan-if-necessary stream)
     (with-slots (buffer insertion-pointer scan-pointer activation-gesture)

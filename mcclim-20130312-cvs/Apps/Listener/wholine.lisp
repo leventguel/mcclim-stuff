@@ -24,7 +24,7 @@
 ;; Wholine Pane
 
 (defclass wholine-pane (application-pane) ()
-  (:default-initargs :background +gray90+))
+  (:default-initargs :background +gray20+ :foreground +wheat4+))
 
 (defmethod compose-space ((pane wholine-pane) &key width height)
   (declare (ignore width height))  
@@ -41,7 +41,7 @@
 
 (defun print-package-name (stream)
   (let ((foo (package-name *package*)))
-    (with-drawing-options (stream :ink +blue+)
+    (with-drawing-options (stream :ink +slate-blue+)
       (format stream "~A" (reduce (lambda (&optional (a foo) (b foo))
                                     (if (< (length a) (length b)) a b))
                                   (package-nicknames *package*))))))

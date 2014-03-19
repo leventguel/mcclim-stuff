@@ -112,8 +112,8 @@
       ("View"   :menu view-menu)
       ("Search" :menu search-menu)))
     (:panes
-;    (raised     (raising (:border-width 3 :background +Gray83+)
-;                  (make-pane 'check-box :choices '("First" "Second" "Third"))))
+    (raised     (raising (:border-width 3 :background +Gray83+)
+                  (make-pane 'check-box :choices '("First" "Second" "Third"))))
      (tf1        :push-button
                  :text-style (make-text-style :fix :roman 24)
                  :label "Text Field")

@@ -138,12 +138,12 @@ the incoming selection."))
                              (+ start-y baseline (text-style-descent text-style stream)
                                 *marking-border*)))))))
 
-(defgeneric draw-marking (medium marking)
-  (:documentation "Draw the marking to medium."))
-
-(defmethod draw-marking (stream (marking string-marking))
-  (draw-design (sheet-medium stream) (marking-region marking)
-               :ink +flipping-ink+))
+;(defgeneric draw-marking (medium marking)
+;  (:documentation "Draw the marking to medium."))
+;
+;(defmethod draw-marking (stream (marking string-marking))
+;  (draw-design (sheet-medium stream) (marking-region marking)
+;               :ink +flipping-ink+))
 
 ;;;;
 

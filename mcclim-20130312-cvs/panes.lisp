@@ -224,7 +224,7 @@ order to produce a double-click")
 
 ;;; Space Requirements
 
-(defconstant +fill+ (or (expt 10 (floor (log most-positive-fixnum 10))) (expt 10 (floor (log most-negative-fixnum 10)))))
+(defconstant +fill+ (expt 10 (floor (log most-positive-fixnum 10))))
 
 (defclass space-requirement () ())
 
@@ -489,12 +489,12 @@ order to produce a double-click")
                          ((:left)   x)
                          ((:center) (+ x (/ (- width child-width) 2)))
                          ((:right)  (+ x (- width child-width)))
-                         ((:expand)  (or x -x)) ))
+                         ((:expand)  x) ))
          (child-y      (ecase align-y
                          ((:top)    y)
                          ((:center) (+ y (/ (- height child-height) 2)))
                          ((:bottom) (+ y (- height child-height)))
-                         ((:expand)  (or y -y)) )))
+                         ((:expand)  y) )))
     ;; Actually layout the child
     (move-sheet child child-x child-y)    
     (resize-sheet child child-width child-height)
@@ -2314,7 +2314,7 @@ order to produce a double-click")
   `(make-pane 'label-pane ,@options :contents (list ,@contents)))
 
 (defmethod label-pane-margins ((pane label-pane))
-  (let ((m0 1)
+  (let ((m0 2)
         (a (text-style-ascent (pane-text-style pane) pane))
         (d (text-style-descent (pane-text-style pane) pane)))
     (values
@@ -2339,7 +2339,7 @@ order to produce a double-click")
   (let* ((w (text-size pane (label-pane-label pane)))
          (a (text-style-ascent (pane-text-style pane) pane))
          (d (text-style-descent (pane-text-style pane) pane))
-         (m0 1)
+         (m0 2)
          (h (+ a d m0 m0)))
     (cond ((and (sheet-children pane)
                 ;; ### this other test below seems to be neccessary since
@@ -2359,7 +2359,7 @@ order to produce a double-click")
           (t
            (incf w m0)
            (incf w m0)
-           (let ((sr1 (make-space-requirement :width w :min-width w :max-width w
+           (let ((sr1 (make-space-requirement :width w :min-width w
                                               :height h :min-height h :max-height h)))
              (when (sheet-children pane)
                (let ((sr2 (compose-space (first (sheet-children pane)))))
@@ -2385,7 +2385,7 @@ order to produce a double-click")
 
 (defmethod handle-repaint ((pane label-pane) region)
   (declare (ignore region))
-  (let ((m0 1)
+  (let ((m0 2)
         (a (text-style-ascent (pane-text-style pane) pane))
         (d (text-style-descent (pane-text-style pane) pane))
         (tw (text-size pane (label-pane-label pane))))
@@ -2749,7 +2749,7 @@ to computed distance to scroll in response to mouse wheel events."))
 ;;; Pointer Documentation Pane
 
 (defparameter *default-pointer-documentation-background* +black+)
-(defparameter *default-pointer-documentation-foreground* +white+)
+(defparameter *default-pointer-documentation-foreground* +slate-blue+)
 (defvar *background-message-minimum-lifetime* 1
   "The amount of seconds a background message will be kept
 alive.")
@@ -2770,7 +2770,7 @@ current background message was set."))
    :height     '(2 :line)
    :min-height '(2 :line)
    :max-height '(2 :line)
-   :text-style (make-text-style :sans-serif :roman :normal)
+   :text-style (make-text-style :sans-serif :italic :large)
    :foreground *default-pointer-documentation-foreground*
    :background *default-pointer-documentation-background*
    :end-of-line-action :allow

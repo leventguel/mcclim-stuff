@@ -123,11 +123,11 @@
       (t
         (let ((rect-seq (clipping-region->rect-seq clipping-region)))
           (when rect-seq
-            ;;#+nil
+            #+nil
             ;; ok, what McCLIM is generating is not :yx-banded...
             ;; (currently at least)
             (setf (xlib:gcontext-clip-mask gc :yx-banded) rect-seq)
-            ;;#-nil
+            #-nil
             ;; the region code doesn't support yx-banding...
             ;; or does it? what does y-banding mean in this implementation?
             ;; well, apparantly it doesn't mean what y-sorted means
@@ -343,7 +343,7 @@
                          (let ((ink-index (aref image-array y x)))
                            (when (< (elt opacity-map ink-index) #x40)  ; FIXME? Arbitrary threshold.
                              (setf (elt mask-data mask-index) (logxor (elt mask-data mask-index) mask-bitcursor)))
-                           ;;#+nil
+                           #+NIL
                            (setf (elt converted-data (+ index 0)) (elt blue-map  ink-index)
                                  (elt converted-data (+ index 1)) (elt green-map ink-index)
                                  (elt converted-data (+ index 2)) (elt red-map   ink-index))
@@ -577,7 +577,7 @@ time an indexed pattern is drawn.")
 
 ;;;;
 
-;;#+nil
+#+nil
 (defun clipping-region->rect-seq (clipping-region)
   (loop for region in (nreverse (region-set-regions clipping-region
                                                     :normalize :x-banding))
@@ -852,12 +852,12 @@ time an indexed pattern is drawn.")
 				 radius-1-dx radius-1-dy
 				 radius-2-dx radius-2-dy
 				 start-angle end-angle filled)
-  (unless (or (= radius-2-dx radius-1-dy 0) (= radius-1-dx radius-2-dy 0))
-    (error "MEDIUM-DRAW-ELLIPSE* not yet implemented for non axis-aligned ellipses."))
+;;  (unless (or (= radius-2-dx radius-1-dy 0) (= radius-1-dx radius-2-dy 0))
+;;    (error "MEDIUM-DRAW-ELLIPSE* not yet implemented for non axis-aligned ellipses."))
   (with-transformed-position ((sheet-native-transformation (medium-sheet medium))
                               center-x center-y)
     (let* ((arc-angle (- end-angle start-angle))
-           (arc-angle (if (< arc-angle 0)
+	    (arc-angle (if (< arc-angle 0)
                           (+ (* pi 2) arc-angle)
                           arc-angle)))
       (with-clx-graphics (medium)
@@ -867,7 +867,7 @@ time an indexed pattern is drawn.")
 	       (min-y (round-coordinate (- center-y radius-dy)))
 	       (max-x (round-coordinate (+ center-x radius-dx)))
 	       (max-y (round-coordinate (+ center-y radius-dy))))
-	   (when (typep mirror 'xlib:pixmap) ;;#+nil
+	   #+nil (when (typep mirror 'xlib:pixmap)
 		  (break))
           (xlib:draw-arc mirror gc
                          min-x min-y (- max-x min-x) (- max-y min-y)

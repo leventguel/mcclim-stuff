@@ -2495,7 +2495,7 @@ returned in its place."
   "Marker for a constant that we can safely modify
 destructively.")
 
-(defparameter +quote-marker+ 'quote
+(defparameter +quote-marker+ 'quote 
   "The marker used for identifying quote forms in backquoted
 forms.")
 (defparameter +quote-nil-marker+ (list +quote-marker+ nil))

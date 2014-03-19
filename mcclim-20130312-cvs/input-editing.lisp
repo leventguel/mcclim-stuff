@@ -436,43 +436,42 @@ quotation mark is seen. When the closing quotation mark is seen,
 
 `Input-wait-handler' and `pointer-button-press-handler' are as
 for 34stream-read-gesture"
-    
-    (declare (ignore click-only))		;XXX For now
-    (let ((result (make-array 1
-		    :adjustable t
-		    :fill-pointer 0
-		    :element-type 'character))
-	   (in-quotes nil))
-      ;; The spec says that read-token ignores delimiter gestures if the
-      ;; first character is #\", until it sees another.  OK... what about
-      ;; other occurences of #\"?  Guess we'll just accumulate them.
-      (loop for first-char = t then nil
-	for gesture = (read-gesture
-			:stream stream
-			:input-wait-handler input-wait-handler
-			:pointer-button-press-handler
-			pointer-button-press-handler)
-	do (cond ((or (null gesture)
-		    (activation-gesture-p gesture)
-		    (typep gesture 'pointer-button-event)
-		    (and (not in-quotes)
-		      (delimiter-gesture-p gesture)))
-		   (loop-finish))
-	     ((characterp gesture)
-	       (if (eql gesture #\")
-		 (cond (first-char
-			 (setq in-quotes t))
-		   (in-quotes
-		     (setq in-quotes nil))
-		   (t (vector-push-extend gesture result)))
-		 (vector-push-extend gesture result)))
-	     (t nil))
-	finally (progn
-		  (when gesture
-		    (unread-gesture gesture :stream stream))
-		  ;; Return a simple string.  XXX Would returning an
-		  ;; adjustable string be so bad?
-		  (return (subseq result 0))))))
+  (declare (ignore click-only))		;XXX For now
+  (let ((result (make-array 1
+			    :adjustable t
+			    :fill-pointer 0
+			    :element-type 'character))
+	(in-quotes nil))
+    ;; The spec says that read-token ignores delimiter gestures if the
+    ;; first character is #\", until it sees another.  OK... what about
+    ;; other occurences of #\"?  Guess we'll just accumulate them.
+    (loop for first-char = t then nil
+	  for gesture = (read-gesture
+			 :stream stream
+			 :input-wait-handler input-wait-handler
+			 :pointer-button-press-handler
+			 pointer-button-press-handler)
+	  do (cond ((or (null gesture)
+			(activation-gesture-p gesture)
+			(typep gesture 'pointer-button-event)
+			(and (not in-quotes)
+			     (delimiter-gesture-p gesture)))
+		    (loop-finish))
+		   ((characterp gesture)
+		    (if (eql gesture #\")
+			(cond (first-char
+			       (setq in-quotes t))
+			      (in-quotes
+			       (setq in-quotes nil))
+			      (t (vector-push-extend gesture result)))
+			(vector-push-extend gesture result)))
+		   (t nil))
+	  finally (progn
+		    (when gesture
+		      (unread-gesture gesture :stream stream))
+		    ;; Return a simple string.  XXX Would returning an
+		    ;; adjustable string be so bad?
+		    (return (subseq result 0))))))
 
 (defun write-token (token stream &key acceptably)
   "This function is the opposite of `read-token' given the string
@@ -484,13 +483,12 @@ token with quotation marks (#\").
 
 Typically, `present' methods will use `write-token' instead of
 `write-string'."
-    
-    (let ((put-in-quotes (and acceptably (some #'delimiter-gesture-p token))))
-      (when put-in-quotes
-	(write-char #\" stream))
-      (write-string token stream)
-      (when put-in-quotes
-	(write-char #\" stream))))
+  (let ((put-in-quotes (and acceptably (some #'delimiter-gesture-p token))))
+    (when put-in-quotes
+      (write-char #\" stream))
+    (write-string token stream)
+    (when put-in-quotes
+      (write-char #\" stream))))
 
 ;;; Signalling Errors Inside present (sic)
 

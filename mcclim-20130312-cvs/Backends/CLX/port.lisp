@@ -317,7 +317,7 @@
          :name (format nil "~S's event process." port)))
       #+nil(format *trace-output* "~&Started CLX event loop process ~A~%" (port-event-process port))) ))
 
-;;#+nil
+#+nil
 (defmethod (setf sheet-mirror-transformation) :after (new-value (sheet mirrored-sheet-mixin))
   )
 
@@ -337,7 +337,7 @@
          (r* (transform-region
               (sheet-native-transformation (sheet-parent sheet))
               (transform-region (sheet-transformation sheet) r)))
-         ;;#+nil
+         #+nil
          (r*
           (bounding-rectangle
            (region-intersection
@@ -445,7 +445,7 @@
 
 (defmethod realize-mirror ((port clx-port) (sheet top-level-sheet-pane))
   (let ((q (compose-space sheet)))
-    ;;#+nil ; SHEET and its descendants are grafted, but unmirrored :-\ -- APD
+    #+nil ; SHEET and its descendants are grafted, but unmirrored :-\ -- APD
     (allocate-space sheet
                     (space-requirement-width q)
                     (space-requirement-height q))
@@ -530,12 +530,12 @@
   (declare (ignore transformation))
   nil)
 
-;;#+nil
+#+nil
 (defmethod port-set-sheet-transformation ((port clx-port) (pane application-pane) transformation)
   (declare (ignore transformation))
   nil)
 
-;;#+nil
+#+nil
 (defmethod port-set-sheet-transformation ((port clx-port) (pane interactor-pane) transformation)
   (declare (ignore transformation))
   nil)
@@ -950,20 +950,20 @@
 
 (defparameter *clx-text-family+face-map*
   '(:fix
-    ;;#-nil
+    #-nil
     ("adobe-courier"
      (:roman               "medium-r"
       :bold                "bold-r"
       :italic              "medium-o"
       :bold-italic         "bold-o"
       :italic-bold         "bold-o"))
-    ;;#+nil
-    ;;("gnu-unifont"
-    ;; (:roman               "medium-r"
-    ;;  :bold                "bold-r"
-    ;;  :italic              "medium-r"
-    ;;  :bold-italic         "bold-r"
-    ;;  :italic-bold         "bold-r"))
+    #+nil
+    ("*-lucidatypewriter"
+     (:roman               "medium-r"
+      :bold                "bold-r"
+      :italic              "medium-r"
+      :bold-italic         "bold-r"
+      :italic-bold         "bold-r"))
     :sans-serif
     ("adobe-helvetica"
      (:roman               "medium-r"
@@ -1159,7 +1159,7 @@
 	   +pointer-wheel-down+)
 	  (t 0)))
 
-;;#+nil
+#+nil
 (defmethod pointer-modifier-state ((pointer clx-pointer))
   (multiple-value-bind (x y same-screen-p child mask)
       (xlib:query-pointer (clx-port-window (port pointer)))
@@ -1383,7 +1383,7 @@
         (time      (event-timestamp event)))
     (when (null property)
       (format *trace-output* "~&* Requestor property is null! *~%"))
-    ;;#+nil ; debugging output
+    #+nil ; debugging output
     (progn
       (describe event *trace-output*)
       (force-output *trace-output*))
@@ -1391,7 +1391,7 @@
 	     ;; debugging output, but the KDE Klipper client turns out
 	     ;; to poll other clients for selection, which means it
 	     ;; would be bad to print at every request.
-             ;;#+nil
+             #+nil
              (format *trace-output*
                      "~&;; clim-clx::send-selection - Requested target ~A, sent ~A to property ~A. time ~S~%"
                      (selection-event-target event)

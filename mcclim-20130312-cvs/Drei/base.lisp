@@ -275,7 +275,10 @@ constituent character of the line."
            until (end-of-buffer-p mark2)
            while (or (eql object #\Space) (eql object #\Tab))
            do (incf indentation
-                    (if (eql (object-after mark2) #\Tab) tab-width 1))
+                    (cond 
+		      ((eql (object-after mark2) #\Tab) tab-width 1)
+		      ((eql (object-after mark2) #\Space) tab-width 1)
+		      (t 0)))
            (incf (offset mark2))
            finally (return indentation)))))
 

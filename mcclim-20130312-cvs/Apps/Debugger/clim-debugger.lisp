@@ -89,8 +89,8 @@
 
 ;;; Borrowed from Andy Hefner
 (defmacro bold ((stream) &body body)
-  `(with-text-face (,stream :bold)
-     ,@body))
+  `(with-text-style (,stream (make-text-style :sans-serif :roman :large))
+	,@body))
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -167,7 +167,7 @@
                :background +gray15+
                :foreground +wheat3+
 	       :display-function #'display-debugger
-	       :end-of-line-action :allow
+	       :end-of-line-action :wrap
 	       :end-of-page-action :scroll)))
 
 (define-application-frame clim-debugger ()
@@ -258,10 +258,10 @@
 (defun std-form (pane first second &key (family :sans-serif))
   (formatting-row 
       (pane)
-    (with-text-family (pane :sans-serif)
+    (with-text-style (pane (make-text-style family :roman :large))
       (formatting-cell (pane) (bold (pane) (format t "~A" first))))
     (formatting-cell (pane)
-      (with-text-family (pane family) 
+      (with-text-style (pane (make-text-style family :roman :large))
        (format t "~A" second)))))
 
 (defun display-debugger (frame pane)
@@ -273,10 +273,10 @@
                                                             pane)))
       (when (condition-extra (condition-info pane))
         (std-form pane "Extra:" (condition-extra (condition-info pane))
-                  :family :fix)))
+                  :family :sans-serif)))
     (fresh-line)
     
-    (with-text-family (pane :sans-serif)
+    (with-text-style (pane (make-text-style :sans-serif :roman :large))
       (bold (pane) (format t "Restarts:")))
     (fresh-line)
     (format t " ")
@@ -289,7 +289,7 @@
                   (format pane "~A" (restart-name r)))
               
                 (formatting-cell (pane)
-                  (with-text-family (pane :sans-serif)
+                  (with-text-style (pane (make-text-style :sans-serif :roman :large))
                     (format pane "~A" r)))))))
     (fresh-line)
     (display-backtrace frame pane)
@@ -300,7 +300,7 @@
 
 (defun display-backtrace (frame pane)
   (declare (ignore frame)) 
-  (with-text-family (pane :sans-serif)
+  (with-text-style (pane (make-text-style :sans-serif :roman :large))
     (bold (pane) (format t "Backtrace:")))
   (fresh-line)
   (format t " ")
@@ -335,7 +335,7 @@
   (progn
     (princ (frame-string object) stream)
     (fresh-line)
-    (with-text-family (stream :sans-serif)
+    (with-text-style (stream (make-text-style :sans-serif :roman :large))
       (bold (stream) (format t "  Locals:")))
     (fresh-line)
     (format t "     ")

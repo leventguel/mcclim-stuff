@@ -41,12 +41,20 @@ their specific print lengths, if they have one.")
 	:documentation "The object being inspected"))
   (:pointer-documentation t)
   (:panes
-   (app :application :width 600 :height 500
+   (app :application 
+        :width 800 
+        :height 600
 	:scroll-bars nil
-	:text-style (make-text-style :sans-serif :roman :normal)
-        :incremental-redisplay t
+	:text-style (make-text-style :sans-serif :bold :normal)
+        :background +gray20+
+        :foreground +wheat4+
 	:display-function 'display-app)
-   (int :interactor :width 600 :height 100 :max-height 100))
+   (int :interactor 
+        :width 800 
+        :height 600 
+        :max-height 100
+        :background +gray20+
+        :foreground +wheat4+))
   (:layouts
    (default (vertically () (scrolling () app) int))))
 
@@ -460,7 +468,7 @@ pane. Display a given message, which defaults to 'Usage Graph'."
 		       :filled t :ink pattern :line-thickness 0)
       (draw-rectangle* pane 0 0 150 20 :filled nil :ink +black+)
       (draw-text* pane message 7 10 :align-y :center :align-x :left
-		  :text-size :small :ink text-color :text-face :italic))))
+		  :text-size :normal :ink text-color :text-face :italic))))
 
 (defmethod inspect-object-briefly ((object hash-table) pane)
   (with-output-as-presentation

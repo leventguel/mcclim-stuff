@@ -13,6 +13,7 @@ then
 
     sbclsystem=$SBCL_PWD/../../src/runtime/sbcl
     sbclcore=$SBCL_PWD/../../output/sbcl.core
+    sbclcontrib=$SBCL_PWD/../../contrib/asdf/asdf.lisp
     if [ -e $sbclsystem ] && [ -e $sbclcore ]
     then
         SBCLRUNTIME="$sbclsystem --core $sbclcore"
@@ -23,7 +24,7 @@ else
     SBCLRUNTIME="$1"
 fi
 
-SBCL="$SBCLRUNTIME --noinform --no-sysinit --no-userinit --noprint"
+SBCL="$SBCLRUNTIME --noinform --no-sysinit --no-userinit --noprint --disable-debugger"
 
 # Output directory.  This has to end with a slash (it's interpreted by
 # Lisp's `pathname' function) or you lose.  This is normally set from
@@ -32,6 +33,8 @@ DOCSTRINGDIR="${DOCSTRINGDIR:-docstrings/}"
 
 echo /creating docstring snippets from SBCL=\'$SBCLRUNTIME\' for packages \'$PACKAGES\'
 $SBCL <<EOF
+
+(load "/home/wbooze/quicklisp/asdf.lisp")
 (require :asdf)
 (push (pathname "$SYSTEMSDIR") asdf:*central-registry*)
 (asdf:oos 'asdf:load-op :cl-ppcre)

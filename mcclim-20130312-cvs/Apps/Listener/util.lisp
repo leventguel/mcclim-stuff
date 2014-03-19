@@ -359,7 +359,7 @@ function specified by :ABBREVIATOR. Abbreviate is controlled by the variables
     
     (dolist (item items)
       (let ((record (with-output-to-output-record (stream)
-                      (with-end-of-line-action (stream :allow)
+                      (with-end-of-line-action (stream :wrap)
                         (funcall printer item stream)))))
         (setf (gethash item hash) record)
         (incf mean (bounding-rectangle-width record))))
@@ -471,7 +471,7 @@ with some attempt to convert arguments intelligently."
      stream)))
 
 ;;; Don't install this by default, because no one uses it.
-#+NIL
+;;#+NIL
 (set-dispatch-macro-character #\# #\!
   #'(lambda (stream char p)
       (declare (ignore char p))
@@ -488,7 +488,7 @@ with some attempt to convert arguments intelligently."
 (defparameter *graph-size* 600)
 (defparameter *graph-width* nil)
 (defparameter *graph-height* nil)
-(defparameter *graph-ink* +black+)
+(defparameter *graph-ink* +gray20+)
 
 (defun draw-thin-bar-graph-1 (medium function scale min max dx)
   (loop for i from 0 below (floor (- max min) dx)

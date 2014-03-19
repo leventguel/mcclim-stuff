@@ -16,7 +16,7 @@
   (let ((disassembly-string (with-output-to-string (*standard-output*)
 			      (disassemble object))))
     (with-input-from-string (stream disassembly-string)
-      (with-text-family (pane :fix)
+      (with-text-style (pane (make-text-style :sans-serif :bold :normal))
 	(loop for line = (read-line stream nil nil)
 	      while line
 	      do (let ((shortened-line (subseq line 2)))
@@ -29,6 +29,6 @@
 #-sbcl
 (defun display-disassembly (object pane)
   (let ((*standard-output* pane))
-    (with-text-family (pane :fix)
+    (with-text-style (pane (make-text-style :sans-serif :bold :normal))
       (fresh-line pane)
       (disassemble object))))

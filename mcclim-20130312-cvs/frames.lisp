@@ -1630,12 +1630,12 @@ have a `pointer-documentation-pane' as pointer documentation,
 				  context-type frame event window
 				  x y))
 	  ;; XXX only support finish-on-release for now.
-	  ;;#-(and)(:presentation-button-press ())
+	  #-(and)(:presentation-button-press ())
 	  (:presentation-button-release (&key presentation event)
 	    (setq destination-presentation presentation
 		  last-event event)
 	    (return-from do-tracking nil))
-	  ;;#-(and)(:button-press ())
+	  #-(and)(:button-press ())
 	  (:button-release (&key event)
 	    (setq last-event event)
 	    (return-from do-tracking nil))))

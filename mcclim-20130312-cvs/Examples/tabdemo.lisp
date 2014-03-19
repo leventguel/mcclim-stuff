@@ -8,8 +8,6 @@
 
 ;;; example and testing code
 
-(define-presentation-type normal-page ())
-
 (define-presentation-type special-page ())
 
 (define-application-frame tabdemo ()
@@ -27,9 +25,9 @@
    (default
        (vertically ()
 	 (with-tab-layout ('tab-page :name 'tabdemo-layout :height 200)
-           ("A" a :presentation-type 'normal-page)
-           ("B" b :presentation-type 'normal-page)
-           ("C" c :presentation-type 'normal-page)
+           ("A" a)
+           ("B" b)
+           ("C" c)
            ("Special Page" special-page :presentation-type 'special-page))
 	 io
 	 pointer-doc))))
@@ -67,19 +65,8 @@
 			    ("Presentation Tests"
 			     :menu tabdemo-presentation-tests-menu)))
 
-(defun tabdemo (&key (new-process t) port frame-manager (process-name "tabdemo") (package :tabdemo))
-  (let* ((fm (or frame-manager (find-frame-manager :port (or port (find-port)))))
-         (frame (make-application-frame 'tabdemo
-                                        :frame-manager fm)))
-    (flet ((run()
-              (let ((*package* (find-package package)))
-                (unwind-protect
-                  (run-frame-top-level frame)
-                  (disown-frame fm frame)))))
-      (if new-process
-          (values (clim-sys:make-process #'run :name process-name)
-                  frame)
-          (run)))))
+(defun tabdemo ()
+  (run-frame-top-level (make-application-frame 'tabdemo)))
 
 ;;;(define-presentation-to-command-translator remove-pane
 ;;;    (tab-page com-remove-tab-page tabdemo
@@ -114,7 +101,7 @@
 
 (define-tabdemo-command (com-choose-any-page :name t)
     ()
-  (format *standard-input* "You choice: ~A~%" (accept 'normal-page)))
+  (format *standard-input* "You choice: ~A~%" (accept 'tab-page)))
 
 (define-tabdemo-command (com-choose-special-page :name t)
     ()

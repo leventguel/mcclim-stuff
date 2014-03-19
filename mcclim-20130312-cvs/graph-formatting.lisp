@@ -871,10 +871,10 @@ cutoff-depth.  GENERATE-GRAPH-NODES seems to obey this precondition."
                (prin1 (class-name x) s)))))
        #'(lambda (x)
            (clim-mop:class-direct-subclasses x))
-       :generation-separation '(10 :line)
+       :generation-separation '(1 :character)
        :within-generation-separation '(1 :character)
        :stream *query-io*
-       :orientation :vertical)))
+       :orientation :horizontal)))
 
 (define-graph-test-command foobar ()
   (with-drawing-options (*query-io* :text-size 20))

@@ -62,7 +62,7 @@
   (with-slots (picture1 picture2) picture
     (with-scaling (sheet 1 0.5)
       (draw sheet picture1)
-      (with-translation (sheet 0.1 1)
+      (with-translation (sheet 0 1)
         (draw sheet picture2)))))
 
 (defclass horizontal-picture (picture)
@@ -73,7 +73,7 @@
   (with-slots (picture1 picture2) picture
     (with-scaling (sheet 0.5 1)
       (draw sheet picture1)
-      (with-translation (sheet 1 0.1)
+      (with-translation (sheet 1 0)
         (draw sheet picture2)))))
 
 (defun below (picture1 picture2)
@@ -94,14 +94,14 @@
   ())
 
 (defmethod draw :around (sheet (picture vertically-flipped-picture))
-  (with-drawing-options (sheet :transformation (make-reflection-transformation* 0.1 0.5 1 0.5))
+  (with-drawing-options (sheet :transformation (make-reflection-transformation* 0 0.5 1 0.5))
     (call-next-method sheet picture)))
 
 (defclass horizontally-flipped-picture (picture-transformer)
   ())
 
 (defmethod draw :around (sheet (picture horizontally-flipped-picture))
-  (with-drawing-options (sheet :transformation (make-reflection-transformation* 0.5 0.1 0.5 1))
+  (with-drawing-options (sheet :transformation (make-reflection-transformation* 0.5 0 0.5 1))
     (call-next-method sheet picture)))
 
 (defun flip-vert (picture)
@@ -165,8 +165,8 @@
 ;;; --- Test 2: Rotation and slanting ---
 (defun make-slanting-transformation (k)
   "Make transformation (x,y) -> (x, y+kx)"
-  (make-3-point-transformation* 0.1 0.1 1 0.1 0.1 1
-                                0.1 0.1 1 0.1 k 1))
+  (make-3-point-transformation* 0 0 1 0 0 1
+                                0 0 1 0 k 1))
 
 (defmacro with-slanting ((medium k) &body body)
   `(with-drawing-options (,medium :transformation (make-slanting-transformation ,k))
@@ -174,7 +174,7 @@
 
 (defun draw-my-square (sheet)
   (draw-rectangle* sheet -0.5 -0.5 0.5 0.5 :filled nil)
-  (draw-circle* sheet 0.1 0.1 0.5 :start-angle (* pi 0.5) :ink +red+))
+  (draw-circle* sheet 0 0 0.5 :start-angle (* pi 0.5) :ink +red+))
 
 (defconstant +slanting-full-angle+ (* pi 0.5))
 (defconstant +slanting-full-slant+ 3)
@@ -191,12 +191,12 @@
                 (with-rotation (sheet angle)
                   (draw-my-square sheet)))
               (draw-lines* sheet '(
-                                   -0.5 0.1 0.5 0.1
-                                   0.1 -0.5 0.1 0.5)
+                                   -0.5 0 0.5 0
+                                   0 -0.5 0 0.5)
                            :ink +blue+))))))))
 
 (defun test-slantings (sheet)
-  (with-scaling (sheet 300)
+  (with-scaling (sheet 30)
     (with-translation (sheet 1 1)
       (draw-slantings sheet))))
 
@@ -216,28 +216,28 @@
                                                          :end-angle w
                                                          :ink +blue+
                                                          :filled nil))
-                            (draw-lines* sheet '(0.1 0.5 1.0 0.5
-                                                     0.5 0.1 0.5 1.0)
+                            (draw-lines* sheet '(0.0 0.5 1.0 0.5
+                                                     0.5 0.0 0.5 1.0)
                                          :ink +red+)))))))
 
 (defun test-continuity (sheet)
-  (with-scaling (sheet 300)
+  (with-scaling (sheet 30)
                 (draw-sectors sheet)))
 ;;; Test
 
 (defun transformations-test ()
   (with-open-file (file *transformations-test-file* :direction :output)
     (with-output-to-postscript-stream (stream file)
-;;      (with-output-recording-options (stream :record nil)
+      (with-output-recording-options (stream :record nil)
         (test-painter stream)
         (new-page stream)
 
-;;        (test-slantings stream)
-;;        (new-page stream))))
+        (test-slantings stream)
+        (new-page stream)
 
         (test-continuity stream)
         (new-page stream)
 
         (with-drawing-options (stream :transformation
-                                      (make-reflection-transformation* 0.1 500 500 0.1))
-          (test-continuity stream)))))
+                                      (make-reflection-transformation* 0 500 500 0))
+          (test-continuity stream))))))

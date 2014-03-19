@@ -78,10 +78,10 @@
   (apply #'call-next-method stream object type :single-box t args)
   ;; we would do this, but CLIM:PRESENT calls STREAM-PRESENT with all
   ;; the keyword arguments explicitly.  *sigh*.
-  #+nil 
+  #+nil
   (if sbp
     (call-next-method)
-    (apply #'call-next-method stream object type :single-box t args))))
+    (apply #'call-next-method stream object type :single-box nil args))))
 
 ;;; Listener application frame
 (define-application-frame listener (standard-application-frame)
@@ -91,19 +91,18 @@
   (:panes (interactor-container
 	    (make-clim-stream-pane
               :type 'listener-interactor-pane
-	      :background +gray15+
+	      :background +gray10+
 	      :foreground +wheat4+
-	      :width 1014
+	      :width 1210
 	      :height 768
-	      :stream-text-margin 160
-	      :text-margin 1000
-	      :end-of-line-action :wrap
-              :name 'interactor :scroll-bars t
+	      :text-margin 1210
+	      :margin 1210
+              :name 'interactor :scroll-bars :both
               :default-view +listener-view+))
     (doc :pointer-documentation :default-view +listener-pointer-documentation-view+)
     (wholine (make-pane 'wholine-pane
 	       :display-function 'display-wholine :scroll-bars nil
-	       :display-time :command-loop :end-of-line-action :allow)))
+	       :display-time :command-loop :end-of-line-action :wrap)))
   (:top-level (default-frame-top-level :prompt 'print-listener-prompt))
   (:command-table (listener
 		    :inherit-from (application-commands
@@ -177,7 +176,7 @@
 (defun print-listener-prompt (stream frame)
   (declare (ignore frame))
   (with-output-as-presentation (stream *package* 'package :single-box t)
-    (with-drawing-options (stream :text-size 16)
+    (with-drawing-options (stream :text-face :italic :text-size :large)
       (print-package-name stream)
     (princ " > " stream))))
 
@@ -185,12 +184,10 @@
   (get-frame-pane frame 'interactor))
 
 (defun run-listener (&key (new-process nil)
-		      (width 1024)
-		      (height 786)
-		      (stream-text-margin 160)
-		      (text-margin 1000)
-		      (end-of-line-action :wrap)
-		      (background +gray20+)
+		      (width 1210)
+		      (height 768)
+		      (text-margin 1210)
+		      (background +gray10+)
 		      (foreground +wheat4+)
 		      port
 		      frame-manager
@@ -201,9 +198,7 @@
 		   :frame-manager fm
 		   :width width
 		   :height height
-		   :stream-text-margin stream-text-margin
 		   :text-margin text-margin
-		   :end-of-line-action end-of-line-action
 		   :background background
 		   :foreground foreground)))
     (flet ((run () 

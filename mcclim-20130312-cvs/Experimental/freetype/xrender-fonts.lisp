@@ -27,7 +27,7 @@
 
 (declaim (optimize (speed 1) (safety 3) (debug 1) (space 0)))
 
-(defparameter *dpi* 72)
+(defparameter *dpi* 75)
 
 ;;;; Notes
 
@@ -314,11 +314,11 @@
 (defparameter *sizes*
   '(:normal 12
     :small 10
-    :very-small 8
+    :very-small 9
     :tiny 8
     :large 14
-    :very-large 18
-    :huge 24))
+    :very-large 16
+    :huge 18))
 
 (defparameter *vera-families/faces*
   '(((:fix :roman) . "VeraMono.ttf")
@@ -346,7 +346,7 @@
     ((:FIX (:ITALIC :BOLD)) . "DejaVuSansMono-BoldOblique.ttf") 
     ((:FIX :BOLD) . "DejaVuSansMono-Bold.ttf")
     ((:SERIF :ROMAN) . "DejaVuSerif.ttf") 
-    ((:SERIF :ITALIC) . "DejaVuSerif-Italic.ttf")
+    ((:SERIF :ITALIC) . "DejaVuSerif-Oblique.ttf")
     ((:SERIF (:BOLD :ITALIC)) . "DejaVuSerif-BoldOblique.ttf")
     ((:SERIF (:ITALIC :BOLD)) . "DejaVuSerif-BoldOblique.ttf") 
     ((:SERIF :BOLD) . "DejaVuSerif-Bold.ttf")
@@ -358,7 +358,6 @@
 
 (defparameter *families/faces* *dejavu-families/faces*)
 
-(defparameter *freetype-font-path* #p"/usr/share/fonts/truetype/")
 (defparameter *truetype-font-path* #p"/usr/share/fonts/truetype/")
 
 (fmakunbound 'clim-clx::text-style-to-x-font)

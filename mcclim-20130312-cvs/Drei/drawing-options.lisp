@@ -33,11 +33,11 @@ and size.")
   "A face specifying an italic style, but with unspecified
 family and size.")
 
-(defvar +bold-face+ (make-face :style (make-text-style (or :fix nil) (or :bold :normal) (or :large nil)))
+(defvar +bold-face+ (make-face :style (make-text-style nil (or :bold :normal) nil))
   "A face specifying a boldface style, but with unspecified
 family and size.")
 
-(defvar +bold-italic-face+ (make-face :style (make-text-style nil :bold nil))
+(defvar +bold-italic-face+ (make-face :style (make-text-style nil (and :bold :italic) nil))
   "A face specifying an italic boldface style, but with
 unspecified family and size.")
 

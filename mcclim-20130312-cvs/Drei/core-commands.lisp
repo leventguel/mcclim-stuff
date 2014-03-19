@@ -206,7 +206,7 @@ of that word to upper case and the rest of the letters to lower case.
 Leave point at the word end."
   (capitalize-word (point) (current-syntax)))
 
-(set-key 'com-capitalize-word
+(set-key `com-capitalize-word
 	 'case-table
 	 '((#\c :meta)))
 
@@ -224,18 +224,24 @@ Uses TAB-SPACE-COUNT of the STREAM-DEFAULT-VIEW of the pane."
 
 (define-command (com-set-tab-stops :name t :command-table editing-table)
     ((tab-stops '(sequence (integer 0)) :prompt "List of tab stops"))
+  (require-minibuffer)
   "Accept a list of tab positions (in columns) for the view."
   (setf (drei::tab-stop-columns (current-view)) 
 	tab-stops))
 
+(set-key `com-set-tab-stops
+         'editing-table
+         '((#\t :control)))
+
+
 (define-command (com-indent-line :name t :command-table indent-table) ()
   (indent-current-line (current-view) (point)))
 
-(set-key 'com-indent-line
+(set-key `com-indent-line
 	 'indent-table
 	 '((#\Tab)))
 
-(set-key 'com-indent-line
+(set-key `com-indent-line
 	 'indent-table
 	 '((#\i :control)))
 
@@ -607,8 +613,8 @@ A page is delimited by the sequence #\Newline #\Page."
 (define-command (com-comment-region :name t :command-table comment-table) ()
   (comment-region (current-syntax) (point) (mark)))
 
-;; (defparameter *insert-pair-alist*
-;; 	      '((#\( #\)) (#\[ #\]) (#\{ #\}) (#\< #\>) (#\" #\") (#\' #\') (#\` #\')))
+ (defparameter *insert-pair-alist*
+ 	      '((#\( #\)) (#\[ #\]) (#\{ #\}) (#\< #\>) (#\" #\") (#\' #\') (#\` #\')))
 
 (defun insert-parentheses (mark syntax count)
   (insert-pair mark syntax count #\( #\)))

@@ -25,6 +25,13 @@
 ;;;
 ;;; Command tables
 
+(defvar *unsupplied-argument-marker* '%unsupplied-argument-marker%)
+(defvar *numeric-argument-marker* '%numeric-argument-marker%)
+
+(defvar *command-name-delimiters* '(command-delimiter))
+
+(defvar *command-argument-delimiters* '(command-delimiter))
+
 (defgeneric command-table-name (command-table))
 (defgeneric command-table-inherit-from (command-table))
 
@@ -671,12 +678,6 @@ examine the type of the command menu item to see if it is
 (defparameter *command-parser-table* (make-hash-table)
   "Mapping from command names to argument parsing functions.")
 
-(defvar *unsupplied-argument-marker* '%unsupplied-argument-marker%)
-(defvar *numeric-argument-marker* '%numeric-argument-marker%)
-
-(defvar *command-name-delimiters* '(command-delimiter))
-
-(defvar *command-argument-delimiters* '(command-delimiter))
 
 ;;; A type indicating empty input. For example, if one types <space>
 ;;; to get the default value of a keyword argument, and then types
@@ -958,7 +959,7 @@ examine the type of the command menu item to see if it is
                                                             ,readable-command-name)
                                                     (present object (presentation-type-of object) ; type?
                                                              :stream stream
-                                                             :acceptably nil
+                                                             :acceptably t
                                                              :sensitive nil))
                                                   documentationp)
                                             &allow-other-keys)

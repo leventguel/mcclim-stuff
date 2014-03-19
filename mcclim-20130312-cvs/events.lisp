@@ -237,9 +237,9 @@
 
 (defmacro get-window-position ((sheet event) &body body)
   `(multiple-value-bind (x y)
-     (transform-position (sheet-native-transformation ,sheet)
-       (window-configuration-event-native-x ,event)
-       (window-configuration-event-native-y ,event))
+       (transform-position (sheet-native-transformation ,sheet)
+			   (window-configuration-event-native-x ,event)
+			   (window-configuration-event-native-y ,event))
      (declare (ignorable x y))
      ,@body))
 
@@ -252,25 +252,6 @@
 
 (defmethod window-configuration-event-y ((event window-configuration-event))
   (get-window-position ((event-sheet event) event) y))
-
-;;(defmacro get-window-size ((sheet event) &body body)
-;;  `(multiple-value-bind (width height)
-;;     (transform-position (sheet-native-transformation ,sheet)
-;;       (window-configuration-event-width ,event)
-;;       (window-configuration-event-height ,event))
-;;     (declare (ignorable width height))
-;;     ,@body))
-
-
-;;(defgeneric window-configuration-event-width (window-configuration-event))
-
-;;(defmethod window-configuration-event-width ((event window-configuration-event))
-;;  (get-window-size ((event-sheet event) event) width))
-
-;;(defgeneric window-configuration-event-height (window-configuration-event))
-
-;;(defmethod window-configuration-event-height ((event window-configuration-event))
-;;  (get-window-size ((event-sheet event) event) height))
 
 (define-event-class window-unmap-event (window-event)
   ())

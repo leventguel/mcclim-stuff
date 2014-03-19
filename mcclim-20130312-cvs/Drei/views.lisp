@@ -47,7 +47,7 @@ invoking the debugger)."))
   "If non-NIL, use tabs when indenting lines. Otherwise, use spaces.")
 
 (defclass tabify-mixin ()
-  ((%tab-space-count :initform 8
+  ((%tab-space-count :initform 2
                      :accessor tab-space-count
                      :initarg :tab-space-count)
    ;; We save the old values for performance. Doesn't take text-style
@@ -286,7 +286,7 @@ all."
 (defmethod flip-undo-record ((record insert-record))
   (with-slots (buffer offset objects) record
     (change-class record 'delete-record
-                  :length (length objects))
+		               :length (length objects))
     (insert-buffer-sequence buffer offset objects)))
 
 (defmethod flip-undo-record ((record delete-record))
@@ -1089,7 +1089,7 @@ into its buffer."))
 
 (defclass textual-drei-syntax-view (drei-syntax-view point-mark-view textual-view)
   ((%auto-fill-mode :initform nil :accessor auto-fill-mode)
-   (%auto-fill-column :initform 110 :accessor auto-fill-column)
+   (%auto-fill-column :initform 80 :accessor auto-fill-column)
    (%region-visible-p :initform nil :accessor region-visible-p)
    ;; for dynamic abbrev expansion
    (%original-prefix :initform nil :accessor original-prefix)

@@ -107,7 +107,6 @@ activated with GESTURE"))
   (setf (cursor-visibility stream) nil)
   (let ((real-stream (encapsulating-stream-stream stream))
 	(record (drei:drei-instance stream)))
-
     (cond (input-sensitizer
            (erase-output-record record real-stream)
            (funcall input-sensitizer

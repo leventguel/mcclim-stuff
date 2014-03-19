@@ -162,9 +162,9 @@
 (defconstant *undefined-text-style* *default-text-style*)
 
 (defconstant *smaller-sizes* '(:huge :very-large :large :normal
-			       :small :very-small :tiny))
+			       :small :very-small :tiny :tiny))
 
-(defconstant *font-scaling-factor* 1.0)
+(defconstant *font-scaling-factor* 4/3)
 (defconstant *font-min-size* 6)
 (defconstant *font-max-size* 48)
 
@@ -174,7 +174,7 @@
     (cadr (member size *smaller-sizes*))))
 
 (defconstant *larger-sizes* '(:tiny :very-small :small :normal
-			      :large :very-large :huge))
+			      :large :very-large :huge :huge))
 
 (defun find-larger-size (size)
   (if (numberp size)

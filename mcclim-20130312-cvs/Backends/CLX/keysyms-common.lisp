@@ -77,7 +77,7 @@
 (eval-when (:compile-toplevel :load-toplevel :execute)
 (defconstant +shift-lock+ 1)
 (defconstant +caps-lock+ 2)
-(defconstant +mode-switch+ 5)
+(defconstant +mode-switch+ 4)
 )
 
 (defconstant +clim-modifiers+ '(((:meta-left :meta-right) #.+meta-key+)

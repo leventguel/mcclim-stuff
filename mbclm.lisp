@@ -29,14 +29,14 @@
 				 (setf (slot-value *print-pprint-dispatch* 'sb-pretty::entries)
 							 (remove x dispatch-table)))))))
 
-(defun pprint-dispatch-cons-entries (&optional p)
+(defun pprint-dispatch-cons-entries ()
 	(let*
 			((*print-pretty* nil)
 			(dispatch-table (slot-value *print-pprint-dispatch* 'sb-pretty::cons-entries)))
 		(loop for key being the hash-keys of dispatch-table
 					using (hash-value value)
-							collect (cons key (list value)))))
-							
+							collect (list key value))))
+
 (defun pprint-dispatch-entries (&optional p)
 	(let*
 			((*print-pretty* nil)
@@ -55,12 +55,38 @@
 						((equal term (slot-value x 'sb-pretty::type))
 						 (return x))))))
 
-;;; snippet to specialize on geneeral search terms
+(defun pprint-dispatch-remove-quote ()
+	(let ((dispatch-table (slot-value *print-pprint-dispatch* (quote sb-pretty::cons-entries))))
+		(loop for key being the hash-keys of dispatch-table using (hash-value hash-value)
+					collect (if (equal (quote (cons (eql quote))) (slot-value hash-value (quote type)))
+											(remhash key dispatch-table)))))
 
-;;;(let ((dispatch-table (slot-value *print-pprint-dispatch* 'sb-pretty::cons-entries)))
-;;;  (loop for key being the hash-keys of dispatch-table using (hash-value value)
-;;;        collect (if (equal '(cons (eql quote)) (slot-value value 'type))
-;;                    value)))
+
+(defun remove-from-pprint-dispatch (term)
+	(let ((dispatch-table (slot-value *print-pprint-dispatch* (quote sb-pretty::cons-entries))))
+		(loop for key being the hash-keys of dispatch-table using (hash-value hash-value)
+					collect (if (equal term (slot-value hash-value (quote type)))
+											(remhash key dispatch-table)))))
+
+(defun dohash (table)
+	(let (result)
+		(maphash (lambda (k v) (push (list k v) result)) table)
+		(nreverse result)))
+
+(defmacro do-hash ((key-var val-var hash-expr &optional result-form) &body body)
+  (let ((hash-var (gensym "HASH-")))
+     `(loop with ,hash-var = ,hash-expr
+            for ,key-var being the hash-keys of ,hash-var
+            for ,val-var being the hash-values of ,hash-var
+            do (progn ,@body)
+            finally (return ,result-form))))
+
+;;; usage like...
+;;;(do-hash (k v table (dohash table))
+;;;  (terpri)
+;;;  (with-drawing-options (t :text-size 16 :text-face :bold)
+;;    (format t "key: ~s, value: ~s" k v)))
+
 
 ;; don't forget if you want your 'a stuff to expand to (quote a) properly set *print-pretty* to nil (disable)
 ;; else lookups are made via the pprint dispatch tables and the pprinter has its own ways of printing stuff!

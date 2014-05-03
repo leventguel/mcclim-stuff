@@ -111,24 +111,26 @@
         (formatting-row (stream*)
           (output-timestamp-column :left)
 	  
-	  (let ((random (random 20)) (color))
-	    (cond
-	      ((< random 5) (setf color +olivedrab+))
-	      ((and (> random 5) (< random 10)) (setf color +forest-green+))
-	      ((and (> random 10) (< random 15)) (setf color +dark-green+))
-	      ((and (> random 15) (< random 20)) (setf color +olivedrab4+)))
+	  (let* ((colors
+		   (list
+		     +blue+ +green+ +red+ +brown+ +purple+ +orange+ +yellow+ +light-green+
+		     +dark-cyan+ +cyan+ +royal-blue+ +pink+ +forest-green+
+		     +dark-green+ +burlywood4+ +burlywood3+ +burlywood2+ +burlywood+
+		     +olivedrab+ +olivedrab1+ +olivedrab2+ +olivedrab3+ +olivedrab4+
+		     +brown+))
+		  (my-color (elt colors (random (length colors)))))
 
 	    (formatting-cell (stream* :align-x :right :min-width '(3 :character))
 
 	      ;; this is the place to change the nicknames appearance!	      
-	      (with-drawing-options (stream* :ink color :text-size :very-large)
+	      (with-drawing-options (stream* :ink my-color :text-size 18)
 		(funcall preamble-writer)))
 	    
 	    (formatting-cell (stream* :align-x :left
 			       :min-width `(,*default-fill-column* :character))
 	      
 	      ;; this is the place to change the message area text appearance!
-	      (with-drawing-options (stream* :ink color :text-size 18)
+	      (with-drawing-options (stream* :ink my-color :text-size 18)
 		(funcall message-body-writer))))
 	  
 	  (output-timestamp-column :right))))))

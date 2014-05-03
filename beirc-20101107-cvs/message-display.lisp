@@ -112,12 +112,16 @@
           (output-timestamp-column :left)
 	  
 	  (let* ((colors
-		   (list
-		     +blue+ +green+ +red+ +brown+ +purple+ +orange+ +yellow+ +light-green+
-		     +dark-cyan+ +cyan+ +royal-blue+ +pink+ +forest-green+
-		     +dark-green+ +burlywood4+ +burlywood3+ +burlywood2+ +burlywood+
-		     +olivedrab+ +olivedrab1+ +olivedrab2+ +olivedrab3+ +olivedrab4+
-		     +brown+))
+		   (list +green+ +red+ +brown+ +purple+ +orange+ +yellow+ +light-green+
+		     +dark-cyan+ +cyan+ +royal-blue+ +pink+ +forest-green+ +dark-green+
+		     +burlywood1+ +burlywood2+ +burlywood3+ +burlywood4+
+		     +olivedrab1+ +olivedrab2+ +olivedrab3+ +olivedrab4+
+		     +wheat1+ +wheat2+ +wheat3+ +wheat4+
+		     +seashell1+ +seashell2+ +seashell3+ +seashell4+
+		     +cornsilk1+ +cornsilk2+ +cornsilk3+ +cornsilk4+
+		     +slateblue1+ +slateblue2+ +slateblue3+ +slateblue4+
+		     +goldenrod1+ +goldenrod2+ +goldenrod3+ +goldenrod4+
+		     +darkgoldenrod1+ +darkgoldenrod2+ +darkgoldenrod3+ +darkgoldenrod4+))
 		  (my-color (elt colors (random (length colors)))))
 
 	    (formatting-cell (stream* :align-x :right :min-width '(3 :character))

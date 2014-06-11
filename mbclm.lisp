@@ -1,89 +1,93 @@
 (in-package :cl-user)
 
-(setq *print-pretty* t 
-      *print-right-margin* 110 
-      *read-default-float-format* 'double-float
-;;      *readtable* (copy-readtable nil)
-      *break-on-signals* nil)
+(setq 
+ *print-pretty* t
+ *print-escape* nil
+ *print-circle* nil
+ *print-right-margin* 110 
+ *read-default-float-format* 'double-float
+ *readtable* (copy-readtable nil))
+ ;;*break-on-signals* nil)
 
 (if (not (member :rune-is-character *features*))
   (push :rune-is-character *features*))
 
 (defun nil-as-list () 
-(set-pprint-dispatch
+  (set-pprint-dispatch
     '(eql nil)
     (lambda (srm el)
-       (cond ((null (cdr el))
+      (cond ((null (cdr el))
               (format srm "()"))
-             (t
-              (pprint-fill srm el t))))
+	(t
+	  (pprint-fill srm el t))))
     2))
 
 (defun remove-nil-as-list ()
-	(let*
-			((*print-pretty* nil)
-			(dispatch-table (slot-value *print-pprint-dispatch* 'sb-pretty::entries)))
-		(dolist (x dispatch-table)
-			(cond
-				((equal '(eql ()) (slot-value x 'sb-pretty::type))
-				 (setf (slot-value *print-pprint-dispatch* 'sb-pretty::entries)
-							 (remove x dispatch-table)))))))
+  (let*
+    ((*print-pretty* nil)
+      (dispatch-table (slot-value *print-pprint-dispatch* 'sb-pretty::entries)))
+    (dolist (x dispatch-table)
+      (cond
+	((equal '(eql ()) (slot-value x 'sb-pretty::type))
+	  (setf (slot-value *print-pprint-dispatch* 'sb-pretty::entries)
+	    (remove x dispatch-table)))))))
 
 (defun pprint-dispatch-cons-entries ()
-	(let*
-			((*print-pretty* nil)
-			(dispatch-table (slot-value *print-pprint-dispatch* 'sb-pretty::cons-entries)))
-		(loop for key being the hash-keys of dispatch-table
-					using (hash-value value)
-							collect (list key value))))
+  (let*
+    ((*print-pretty* nil)
+      (dispatch-table (slot-value *print-pprint-dispatch* 'sb-pretty::cons-entries)))
+    (loop for key being the hash-keys of dispatch-table
+      using (hash-value value)
+      collect (list key value))))
 
 (defun pprint-dispatch-entries (&optional p)
-	(let*
-			((*print-pretty* nil)
-			(dispatch-table (slot-value *print-pprint-dispatch* 'sb-pretty::entries)))
-		(if p
-				(dolist (x dispatch-table)
-					(print x))
-				dispatch-table)))
+  (let*
+    ((*print-pretty* nil)
+      (dispatch-table (slot-value *print-pprint-dispatch* 'sb-pretty::entries)))
+    (if p
+      (dolist (x dispatch-table)
+	(print x))
+      dispatch-table)))
 
 (defun pprint-dispatch-find (term) ;; (pprint-dispatch-find '(eql ())) after (nil-as-list) for example
-	(let*
-			((*print-pretty* nil)
-			(dispatch-table (slot-value *print-pprint-dispatch* 'sb-pretty::entries)))
-		(dolist (x dispatch-table)
-					(cond
-						((equal term (slot-value x 'sb-pretty::type))
-						 (return x))))))
+  (let*
+    ((*print-pretty* nil)
+      (dispatch-table (slot-value *print-pprint-dispatch* 'sb-pretty::entries)))
+    (dolist (x dispatch-table)
+      (cond
+	((equal term (slot-value x 'sb-pretty::type))
+	  (return x))))))
 
 (defun pprint-dispatch-remove-quote ()
-	(let ((dispatch-table (slot-value *print-pprint-dispatch* (quote sb-pretty::cons-entries))))
-		(loop for key being the hash-keys of dispatch-table using (hash-value hash-value)
-					collect (if (equal (quote (cons (eql quote))) (slot-value hash-value (quote type)))
-											(remhash key dispatch-table)))))
+  (let ((dispatch-table (slot-value *print-pprint-dispatch* (quote sb-pretty::cons-entries))))
+    (loop for key being the hash-keys of dispatch-table using (hash-value hash-value)
+      collect (if (equal (quote (cons (eql quote))) (slot-value hash-value (quote type)))
+		(remhash key dispatch-table)))))
 
 
 (defun remove-from-pprint-dispatch (term)
-	(let ((dispatch-table (slot-value *print-pprint-dispatch* (quote sb-pretty::cons-entries))))
-		(loop for key being the hash-keys of dispatch-table using (hash-value hash-value)
-					collect (if (equal term (slot-value hash-value (quote type)))
-											(remhash key dispatch-table)))))
+  (let ((dispatch-table (slot-value *print-pprint-dispatch* (quote sb-pretty::cons-entries))))
+    (loop for key being the hash-keys of dispatch-table using (hash-value hash-value)
+      collect (if (equal term (slot-value hash-value (quote type)))
+		(remhash key dispatch-table)))))
 
 (defun dohash (table)
-	(let (result)
-		(maphash (lambda (k v) (push (list k v) result)) table)
-		(nreverse result)))
+  (let (result)
+    (maphash (lambda (k v) (push (list k v) result)) table)
+    (nreverse result)))
 
 (defmacro do-hash ((key-var val-var hash-expr &optional result-form) &body body)
   (let ((hash-var (gensym "HASH-")))
-     `(loop with ,hash-var = ,hash-expr
-            for ,key-var being the hash-keys of ,hash-var
-            for ,val-var being the hash-values of ,hash-var
-            do (progn ,@body)
-            finally (return ,result-form))))
+    `(loop with ,hash-var = ,hash-expr
+       for ,key-var being the hash-keys of ,hash-var
+       for ,val-var being the hash-values of ,hash-var
+       do (progn ,@body)
+       finally (return ,result-form))))
 
 ;;; usage like...
 ;;;(do-hash (k v table (dohash table))
 ;;;  (terpri)
+;;;  #+:clim
 ;;;  (with-drawing-options (t :text-size 16 :text-face :bold)
 ;;    (format t "key: ~s, value: ~s" k v)))
 
@@ -95,7 +99,7 @@
 ;; http://www.lispworks.com/documentation/HyperSpec/Body/22_ab.htm
 
 ;;;; and tho *print-pretty* is a special var disabling/enabling it from the listener won't affect it's value
-;;;; in the sbcl repl!
+;;;; in the sbcl repl! (threads ?)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;,;;;;;;;;;;;;;;;;;
 
 (setq *clocc-root* "/home/wbooze/clocc/")
@@ -236,15 +240,15 @@ one can run the CMP-FUN"
       (load "/home/wbooze/prg/lisp/lisp/dtrace.lisp")
       (load "/home/wbooze/prg/lisp/lisp/sdraw.lisp"))))
 
-
-(defun lold ()
-  (ignore-errors
-    (progn
-      (load "/home/wbooze/prg/lisp/lisp/package.lisp")
-      (load "/home/wbooze/prg/lisp/lisp/onlisp-util.lisp")
-      (load "/home/wbooze/prg/lisp/lisp/onlisp-app.lisp")
-      (load "/home/wbooze/prg/lisp/lisp/lol-working.lisp")
-      (load "/home/wbooze/prg/lisp/lisp/generators.lisp"))))
+  (defun lold ()
+    (ignore-errors
+      (progn
+	(load "/home/wbooze/prg/lisp/lisp/package.lisp")
+	(load "/home/wbooze/prg/lisp/lisp/onlisp-util.lisp")
+	(load "/home/wbooze/prg/lisp/lisp/onlisp-app.lisp")
+	(load "/home/wbooze/prg/lisp/lisp/lol-working.lisp")
+	(load "/home/wbooze/prg/lisp/lisp/lol-book.lisp")
+	(load "/home/wbooze/prg/lisp/lisp/generators.lisp"))))
 
 (defun acl2 ()
   (load "/home/wbooze/prg/lisp/lisp/acl2.lisp"))
@@ -285,7 +289,7 @@ one can run the CMP-FUN"
 (setf sb-int:*repl-prompt-fun* #'package-prompt) 
 
 (require :asdf)
-(require :sb-bsd-sockets)
+
 
 
 ;; decided to use the asdf2 source-registry no more asdf:*central-registry* for first!
@@ -319,16 +323,17 @@ one can run the CMP-FUN"
 
 #-quicklisp
 (defun init-quick ()
-(let ((*read-eval* t))
-  (let ((quicklisp-init (merge-pathnames "/home/wbooze/quicklisp/setup.lisp"
-			  (user-homedir-pathname))))
-    (if (probe-file quicklisp-init)
-      (load quicklisp-init)
-      (load "/home/wbooze/quicklisp.lisp")))))
+  (let ((*read-eval* t))
+    (let ((quicklisp-init (merge-pathnames "/home/wbooze/quicklisp/setup.lisp"
+			    (user-homedir-pathname))))
+      (if (probe-file quicklisp-init)
+	(load quicklisp-init)
+	(load "/home/wbooze/quicklisp.lisp")))))
 
 ;;(setq sb-ext:*evaluator-mode* :interpret)
 
-(require :sb-posix)
+
+(require :sb-aclrepl)
 
 (defun quick ()
    ;;; Check for --no-linedit command-line option.
@@ -336,10 +341,11 @@ one can run the CMP-FUN"
   (if (member "--no-linedit" sb-ext:*posix-argv* :test 'equal)
     (setf sb-ext:*posix-argv* (remove "--no-linedit" sb-ext:*posix-argv* :test 'equal))
     (progn
-      (if (interactive-stream-p *terminal-io*)
-	(ignore-errors (require :sb-aclrepl)))
-	(if (find-package :sb-aclrepl)
-	  (progn
+      (if (interactive-stream-p *standard-output*)
+	(require :sb-aclrepl)
+	(require :sb-aclrepl))
+      (if (find-package :sb-aclrepl)
+	(progn
 	  (push :aclrepl cl:*features*)
 	  (setq sb-aclrepl:*max-history* 100)
 	  (setf (sb-aclrepl:alias "asdc") #'(lambda (sys) (asdf:operate 'asdf:compile-op sys)))
@@ -349,35 +355,8 @@ one can run the CMP-FUN"
 	  (sb-aclrepl:alias ("up" 1 "Use package") (package) (use-package package))
 	  ;; The 0 below means only the first letter ("r") is required, such as ":r base64"
 	  (sb-aclrepl:alias ("require" 0 "Require module") (sys) (require sys)))
-	  (setq cl:*features* (delete :aclrepl cl:*features*))))))
+	(setq cl:*features* (delete :aclrepl cl:*features*))))))
 
-#+quicklisp
-(defun sa (args)
-  (ql:system-apropos (string-downcase args)))
-
-#+quicklisp
-(defun ql (args)
-  (ql:quickload (string-downcase args)))
-
-(defun change-directory (pathname)
-  "Ensure that the current directory seen by RUN-PROGRAM has changed, and update *default-pathname-defaults*"
-  #+CMU (unix:unix-chdir (namestring pathname))
-  #+scl (unix:unix-chdir (ext:unix-namestring pathname))
-  #+clisp (ext:cd pathname)
-  #+sbcl (sb-posix:chdir (namestring pathname))
- (setf *default-pathname-defaults* pathname))
-
-(defun list-dir (pathname)
-  ;; (list-directory '/home/wbooze) for example
-  (loop for f in 
-    (directory (make-pathname :directory (string-downcase pathname) :name :wild :type :wild)) 
-    collect f))
-
-(defun print-dir (pathname)
-  ;; (print-directory '/home/wbooze) for example
-  (loop for f in 
-    (directory (make-pathname :directory (string-downcase pathname) :name :wild :type :wild)) 
-    do (print f)))
 
 ;;#-asdf
 ;;(defmethod asdf:perform :around ((o asdf:load-op)
@@ -411,68 +390,85 @@ one can run the CMP-FUN"
 ;;     :mcclim-jpeg-bitmaps 
 ;;     :mcclim-tiff-bitmaps))
 
-#-quicklisp
+#-:quicklisp
 (init-quick)
 
-#+quicklisp
+
+#+:quicklisp
 (quick)
 
-#+quicklisp
+(ql:quickload :asdf) ;; upgrade it on the way (to eventually higher versions)
+(require :sb-posix)
+(require :sb-bsd-sockets)
+
+#+:quicklisp
+(defun sa (args)
+  (ql:system-apropos (string-downcase args)))
+
+#+:quicklisp
+(defun ql (args)
+  (ql:quickload (string-downcase args)))
+
+#+:quicklisp
+(ql:quickload :named-readtables)
+(asdf:oos 'asdf:load-op :named-readtables)
+
+#+:quicklisp
 (ql:quickload :closer-mop)
 (asdf:oos 'asdf:load-op :closer-mop)
 
-#+quicklisp
+#+:quicklisp
 (ql:quickload :cl-unicode)
 (asdf:oos 'asdf:load-op :cl-unicode)
 
-#+quicklisp
+#+:quicklisp
 (ql:quickload :cl-ppcre)
 (asdf:oos 'asdf:load-op :cl-ppcre)
 
-#+quicklisp
+#+:quicklisp
 (ql:quickload :trivial-gray-streams)
 (asdf:oos 'asdf:load-op :trivial-gray-streams)
 
-#+quicklisp
+#+:quicklisp
 (ql:quickload :flexi-streams)
 (asdf:oos 'asdf:load-op :flexi-streams)
 
-#+quicklisp
+#+:quicklisp
 (ql:quickload :flexichain)
 (asdf:oos 'asdf:load-op :flexichain)
 
-#+quicklisp
+#+:quicklisp
 (ql:quickload :spatial-trees)
 (asdf:oos 'asdf:load-op :spatial-trees)
 
 ;;#+asdf
 ;;(asdf:oos 'asdf:load-op :trivial-sockets)
 
-#+quicklisp
+#+:quicklisp
 (ql:quickload :usocket)
 (asdf:oos 'asdf:load-op :usocket)
 
-#+quicklisp
+#+:quicklisp
 (ql:quickload :usocket-udp)
 (asdf:oos 'asdf:load-op :usocket-udp)
 
-#+quicklisp
+#+:quicklisp
 (ql:quickload :cl-vectors)
 (asdf:oos 'asdf:load-op :cl-vectors)
 
-#+quicklisp
+#+:quicklisp
 (ql:quickload :cl-freetype2)
 (asdf:oos 'asdf:load-op :cl-freetype2)
 
-#+quicklisp
+#+:quicklisp
 (ql:quickload :zpb-ttf)
 (asdf:oos 'asdf:load-op :zpb-ttf)
 
-#+quicklisp
+#+:quicklisp
 (ql:quickload :clx)
 (asdf:oos 'asdf:load-op :clx)
 
-#+quicklisp
+#+:quicklisp
 (ql:quickload :mcclim)
 (asdf:oos 'asdf:load-op :mcclim)
 
@@ -481,7 +477,7 @@ one can run the CMP-FUN"
 
 (in-package :cl-user)
 
-#+quicklisp
+#+:quicklisp
 (ql:quickload :clouseau)
 (asdf:oos 'asdf:load-op :clouseau)
 
@@ -489,162 +485,252 @@ one can run the CMP-FUN"
 
 (in-package :cl-user)
 
-#+quicklisp
+#+:quicklisp
 (ql:quickload :clim-clx)
 (asdf:oos 'asdf:load-op :clim-clx)
 
 ;;(defmethod asdf:perform :after ((o asdf:load-op) (s (eql (asdf:find-system :clim-clx)))) 
 ;;  (asdf:oos 'asdf:load-op :mcclim-truetype))
 
-#+quicklisp
+#+:quicklisp
 (ql:quickload :clim-listener)
 (asdf:oos 'asdf:load-op :clim-listener)
 
-#+quicklisp
+#+:quicklisp
 (ql:quickload :climacs)
 (asdf:oos 'asdf:load-op :climacs)
 
-#+quicklisp
+#+:quicklisp
 (ql:quickload :mcclim-truetype)
 (asdf:oos 'asdf:load-op :mcclim-truetype)
 
-#+quicklisp
+#+:quicklisp
 (ql:quickload :split-sequence)
 (asdf:oos 'asdf:load-op :split-sequence)
 
-#+quicklisp
+#+:quicklisp
 (ql:quickload :cl-irc)
 (asdf:oos 'asdf:load-op :cl-irc)
 
-#+quicklisp
+#+:quicklisp
 (ql:quickload :bordeaux-threads)
 (asdf:oos 'asdf:load-op :bordeaux-threads)
 
-#+quicklisp
+#+:quicklisp
 (ql:quickload :alexandria)
 (asdf:oos 'asdf:load-op :alexandria)
 
-#+quicklisp
+#+:quicklisp
 (ql:quickload :cl-fad)
 (asdf:oos 'asdf:load-op :cl-fad)
 
-#+quicklisp
+#+:quicklisp
 (ql:quickload :beirc)
 (asdf:oos 'asdf:load-op :beirc)
 
-#+quicklisp
+#+:quicklisp
+(ql:quickload :cxml)
+(asdf:oos 'asdf:load-op :cxml)
+
+#+:quicklisp
+(ql:quickload :cl-gd)
+(asdf:oos 'asdf:load-op :cl-gd)
+
+#+:quicklisp
+(ql:quickload :imago)
+(asdf:oos 'asdf:load-op :imago)
+
+#+:quicklisp
+(ql:quickload :clem)
+(asdf:oos 'asdf:load-op :clem)
+
+#+:quicklisp
+(ql:quickload :ch-image)
+(asdf:oos 'asdf:load-op :ch-image)
+
+#+:quicklisp
+(ql:quickload :cl-graph)
+(asdf:oos 'asdf:load-op :cl-graph)
+
+#+:quicklisp
+(ql:quickload :ph-maths)
+(asdf:oos 'asdf:load-op :ph-maths)
+
+#+:quicklisp
+(ql:quickload :generic-math)
+(asdf:oos 'asdf:load-op :generic-math)
+
+#+:quicklisp
+(ql:quickload :antik)
+(asdf:oos 'asdf:load-op :antik)
+
+#+:quicklisp
+(ql:quickload :gsll)
+(asdf:oos 'asdf:load-op :gsll)
+
+#+:quicklisp
+(ql:quickload :math-high)
+(asdf:oos 'asdf:load-op :math-high)
+
+#+:quicklisp
+(ql:quickload :math-functions)
+(asdf:oos 'asdf:load-op :math-functions)
+
+#+:quicklisp
+(ql:quickload :cl-css)
+(asdf:oos 'asdf:load-op :cl-css)
+
+#+:quicklisp
+(ql:quickload :cl-json)
+(asdf:oos 'asdf:load-op :cl-json)
+
+#+:quicklisp
+(ql:quickload :st-json)
+(asdf:oos 'asdf:load-op :st-json)
+
+#+:quicklisp
+(ql:quickload :yason)
+(asdf:oos 'asdf:load-op :yason)
+
+#+:quicklisp
+(ql:quickload :closure)
+(asdf:oos 'asdf:load-op :closure)
+
+#+:quicklisp
 (ql:quickload :quicklisp-slime-helper)
 (asdf:oos 'asdf:load-op :quicklisp-slime-helper)
 
 (defun load-gsl ()
   #+quicklisp
-    (map nil #'ql:quickload 
-      '(:osicat 
-	 :metabang-bind 
-	 :static-vectors 
-	 :puri
-	 :cl-base64
-	 :cl+ssl
-	 :chunga
-	 :drakma
-	 :asdf-system-connections
-	 :antik
-	 :gsll))
+  (map nil #'ql:quickload 
+    '(:osicat 
+       :metabang-bind 
+       :static-vectors 
+       :puri
+       :cl-base64
+       :cl+ssl
+       :chunga
+       :drakma
+       :asdf-system-connections
+       :antik
+       :gsll
+       :colorize))
   (map nil #'(lambda (x) (asdf:oos 'asdf:load-op x))
-      '(:osicat 
-	 :metabang-bind 
-	 :static-vectors 
-	 :puri
-	 :cl-base64
-	 :cl+ssl
-	 :chunga
-	 :drakma
-	 :asdf-system-connections
-	 :antik
-	 :gsll)))
+    '(:osicat 
+       :metabang-bind 
+       :static-vectors 
+       :puri
+       :cl-base64
+       :cl+ssl
+       :chunga
+       :drakma
+       :asdf-system-connections
+       :antik
+       :gsll
+       :colorize)))
 
 (defun load-sdl ()
   (progn
-    #+quicklisp
+    #+:quicklisp
     (ql:quickload :trivial-garbage)
     (asdf:oos 'asdf:load-op :trivial-garbage)
     
-    #+quicklisp
+    #+:quicklisp
     (ql:quickload :trivial-features)
     (asdf:oos 'asdf:load-op :trivial-features)
     
-    #+quicklisp
+    #+:quicklisp
     (ql:quickload :babel)
     (asdf:oos 'asdf:load-op :babel)
     
-    #+quicklisp
+    #+:quicklisp
     (ql:quickload :cffi)
     (asdf:oos 'asdf:load-op :cffi)
     
-    #+quicklisp
+    #+:quicklisp
     (ql:quickload :lispbuilder-sdl)
     (asdf:oos 'asdf:load-op :lispbuilder-sdl)))
 
 (defun load-png-stuff ()
   (progn
     
-    #+quicklisp
+    #+:quicklisp
     (ql:quickload :iterate)
     (asdf:oos 'asdf:load-op :iterate)
 
-    #+quicklisp
+    #+:quicklisp
     (ql:quickload :chipz)
     (asdf:oos 'asdf:load-op :chipz)
 
-    #+quicklisp
+    #+:quicklisp
     (ql:quickload :png-read)
     (asdf:oos 'asdf:load-op :png-read)
 
-    #+quicklisp
+    #+:quicklisp
     (ql:quickload :mcclim-png-bitmaps)
     (asdf:oos 'asdf:load-op :mcclim-png-bitmaps)))
 
 (defun load-jpeg-stuff ()
   (progn
     
-    #+quicklisp
+    #+:quicklisp
     (ql:quickload :cl-jpeg)
     (asdf:oos 'asdf:load-op :cl-jpeg)
 
-    #+quicklisp
+    #+:quicklisp
     (ql:quickload :mcclim-jpeg-bitmaps)
     (asdf:oos 'asdf:load-op :mcclim-jpeg-bitmaps)))
 
 (defun load-gif-stuff ()
   (progn
 
-    #+quicklisp
+    #+:quicklisp
     (ql:quickload :skippy)
     (asdf:oos 'asdf:load-op :skippy)
 
-    #+quicklisp
+    #+:quicklisp
     (ql:quickload :mcclim-gif-bitmaps)
     (asdf:oos 'asdf:load-op :mcclim-gif-bitmaps)))
 
 (defun load-tiff-stuff ()
   (progn
 
-    #+quicklisp
+    #+:quicklisp
     (ql:quickload :ieee-floats)
     (asdf:oos 'asdf:load-op :ieee-floats)
 
-    #+quicklisp
+    #+:quicklisp
     (ql:quickload :com.gigamonkeys.binary-data)
     (asdf:oos 'asdf:load-op :com.gigamonkeys.binary-data)
 
-    #+quicklisp
+    #+:quicklisp
     (ql:quickload :retrospectiff)
     (asdf:oos 'asdf:load-op :retrospectiff)
 
-    #+quicklisp
+    #+:quicklisp
     (ql:quickload :mcclim-tiff-bitmaps)
     (asdf:oos 'asdf:load-op :mcclim-tiff-bitmaps)))
 
+
+(defun load-ernestine ()
+  (progn
+    #+:quicklisp
+    (map nil #'ql:quickload
+      '(cl-ppcre
+	 drakma
+	 split-sequence
+	 cl-prevalence
+	 s-sysdeps
+	 s-xml
+	 ernestine))
+    (map nil #'(lambda (x) (asdf:oos 'asdf:load-op x))
+      '(cl-ppcre
+	 drakma
+	 split-sequence
+	 cl-prevalence
+	 s-sysdeps
+	 s-xml
+	 ernestine))))
 
 ;;(map nil #'ql:quickload
 ;;    '( ;;:cl-unicode
@@ -669,7 +755,7 @@ one can run the CMP-FUN"
 ;;       :mcclim-tiff-bitmaps))
 
 (in-package :clim-listener)
-#+quicklisp
+#+:quicklisp
 (ql:quickload :functional-geometry)
 (asdf:oos 'asdf:load-op :functional-geometry)
 
@@ -679,14 +765,13 @@ one can run the CMP-FUN"
 
 ;;  (ql:quickload :tab-layout)
 
-
 (in-package :clim-user)
 
 
 (defun current-view (&optional (pane-name *standard-output*))
   (funcall
     (lambda ()
-	(stream-default-view pane-name))))
+      (stream-default-view pane-name))))
 
 (defun current-frame-name (&optional (frame *application-frame*))
   (funcall
@@ -728,25 +813,26 @@ one can run the CMP-FUN"
 (defun current-frame-layouts (&optional (frame *application-frame*))
   (funcall
     (lambda ()
-	(slot-value frame 'climi::layouts))))
+      (slot-value frame 'climi::layouts))))
 
 (defun current-frame-layout (&optional (frame *application-frame*))
   (funcall
     (lambda ()
-	(slot-value frame 'climi::current-layout))))
+      (slot-value frame 'climi::current-layout))))
 
 (defun current-frame-layout-panes (&optional (frame *application-frame*))
   (funcall
     (lambda ()
-	(slot-value frame 'climi::panes-for-layout))))
+      (slot-value frame 'climi::panes-for-layout))))
 
-(defparameter *default-font-family-name* "-*-unifont-*-*-*-*-*-180-*-*-*-*-iso10646-1")
+;;(defparameter *default-font-family-name* "-*-unifont-*-*-*-*-*-180-*-*-*-*-iso10646-1")
+(defparameter *default-font-family-name* "-*-dejavu sans mono-bold-r-normal-*-*-180-*-*-*-*-iso10646-1")
 ;;  (setq *default-font-family-name* (climi::make-text-style "misc-fixed" "medium-r" 18))
 
 (defun update-map-for-face-with-name (map family name)
   (let ((current-face (getf map family)))
     (unless current-face
-	(error "family ~A not found!" family))
+      (error "family ~A not found!" family))
     (substitute `(,name ,@(cdr current-face)) current-face map)))
 
 (defun set-fix ()
@@ -765,8 +851,27 @@ one can run the CMP-FUN"
 	   (apply #'call-next-method port args))))
 
 
-
 (in-package :cl-user)
+
+(defun change-directory (pathname)
+  "Ensure that the current directory seen by RUN-PROGRAM has changed, and update *default-pathname-defaults*"
+  #+CMU (unix:unix-chdir (namestring pathname))
+  #+scl (unix:unix-chdir (ext:unix-namestring pathname))
+  #+clisp (ext:cd pathname)
+  #+sbcl (sb-posix:chdir (pathname (namestring pathname)))
+  (setf *default-pathname-defaults* (pathname (namestring pathname))))
+
+(defun list-dir (pathname)
+  ;; (list-dir '/home/wbooze) for example
+  (loop for f in 
+    (directory (make-pathname :directory (string-downcase pathname) :name :wild :type :wild)) 
+    collect f))
+
+(defun print-dir (pathname)
+  ;; (print-directory '/home/wbooze) for example
+  (loop for f in 
+    (directory (make-pathname :directory (string-downcase pathname) :name :wild :type :wild)) 
+    do (print f)))
 
 (defun clme ()
   (setq climacs-gui::*default-external-format* 'utf-8)
@@ -783,8 +888,8 @@ one can run the CMP-FUN"
       ;;(setf clim:*default-frame-manager* (make-instance 'climi::pixie/clx-look :port (clim:find-port)))
       
       ;;(setq drei::*highlight-strokes* nil)
-      (setq drei::*use-tabs-for-indentation* t)
-      (setq drei::*show-mark* t)
+      ;;(setq drei::*use-tabs-for-indentation* t)
+      ;;(setq drei::*show-mark* t)
 
       (sb-sys:without-interrupts				      
 	(sb-sys:with-local-interrupts	
@@ -796,34 +901,37 @@ one can run the CMP-FUN"
 
 #+clim
 (let ((climi::*default-text-style* (climi::make-text-style :fix :roman :large)))
-(defun clm ()
-  (progn 
-    (clmi)
-    (clme))))
+  (defun clm ()
+    (progn 
+      (clmi)
+      (clme))))
 
 #+clim
-(let ((climi::*default-text-style* (climi::make-text-style :sans-serif :roman :large)))
-(defun mbrc ()
-  #+clim
-  (progn
-    (setf *debugger-hook* #'clim-debugger:debugger)
-    (setf *invoke-debugger-hook* #'clim-debugger:debugger)
-    (let* ((*read-default-float-format* 'double-float))
-      ;; pixie doesn't work, segfaults at tiffcp in libtiff
-      ;;(setf clim:*default-frame-manager* (make-instance 'climi::pixie/clx-look :port (clim:find-port)))
-      
-      ;;(setq drei::*highlight-strokes* nil)
-      (setq drei::*use-tabs-for-indentation* t)
-      (setq drei::*show-mark* t)
+(let ((climi::*default-text-style* (climi::make-text-style :sans-serif :roman :very-large))
+      (climacs-gui::*climacs-text-style* (clim:make-text-style :sans-serif :roman :very-large)))
+  (defun mbrc ()
+    #+clim
+    (progn
+      (setf *debugger-hook* #'clim-debugger:debugger)
+      (setf *invoke-debugger-hook* #'clim-debugger:debugger)
+      (let* ((*read-default-float-format* 'double-float))
+	;; pixie doesn't work, segfaults at tiffcp in libtiff
+	;;(setf clim:*default-frame-manager* (make-instance 'climi::pixie/clx-look :port (clim:find-port)))
+	
+	;;(setq drei::*highlight-strokes* nil)
+	(setq drei::*use-tabs-for-indentation* t)
+	(setq drei::*show-mark* t)
 
-      (sb-sys:without-interrupts				      
-	(sb-sys:with-local-interrupts	
-	  (unwind-protect
-	    (values
-	      (sleep 0.01)
-	      (let ((*read-eval* nil))
-	      (beirc:beirc :new-process t))
-	      (sleep 0.01)))))))))
+	(sb-sys:without-interrupts				      
+	  (sb-sys:with-local-interrupts	
+	    (unwind-protect
+	      (values
+		(sleep 0.01)
+		(let ((*read-eval* nil))
+		  (beirc:beirc :new-process t))
+		(sleep 0.01)))))))))
+
+
 
 ;;(load "/home/wbooze/clm-4/all.lisp")
 
@@ -834,7 +942,7 @@ one can run the CMP-FUN"
 ;;	(load "/home/wbooze/prg/lisp/lisp/ppmx.lisp")
 ;;	(load "/home/wbooze/prg/lisp/lisp/dtrace.lisp")
 ;;	(load "/home/wbooze/prg/lisp/lisp/sdraw.lisp"))))
-  
+
 ;;  (defun lold ()
 ;;    (ignore-errors
 ;;      (progn
@@ -847,59 +955,58 @@ one can run the CMP-FUN"
 ;;	(load "/home/wbooze/prg/lisp/lisp/generators.lisp")))))
 
 (eval-when (:compile-toplevel :load-toplevel :execute)
-(defun thread-list ()
-  (funcall
-    (let ()
-      (lambda ()
-	(sb-thread:list-all-threads)))))
+  (defun thread-list ()
+    (funcall
+      (let ()
+	(lambda ()
+	  (sb-thread:list-all-threads)))))
 
-(defun current-threads ()
+  (defun current-threads ()
     (let ()
       (lambda () (thread-list))))
 
-(setf (symbol-value 'thread-list) (funcall (symbol-function 'thread-list)))
-(setf (symbol-value 'current-threads) (current-threads))
+  (setf (symbol-value 'thread-list) (funcall (symbol-function 'thread-list)))
+  (setf (symbol-value 'current-threads) (current-threads))
 
-(defun kill-first-of ()
-  (sb-thread:terminate-thread (first (sb-thread:list-all-threads))))
+  (defun kill-first-of ()
+    (sb-thread:terminate-thread (first (sb-thread:list-all-threads))))
 
-(defun kill-last-of ()
-  (sb-thread:terminate-thread (first (last (sb-thread:list-all-threads)))))
+  (defun kill-last-of ()
+    (sb-thread:terminate-thread (first (last (sb-thread:list-all-threads)))))
 
-(defun kill-nth-of (n)
-  (sb-thread:terminate-thread (nth n (sb-thread:list-all-threads)))))
+  (defun kill-nth-of (n)
+    (sb-thread:terminate-thread (nth n (sb-thread:list-all-threads)))))
 
 (defun kill-listener ()
-	(let ((thread-list (sb-thread:list-all-threads)))
-		(dolist (x thread-list)
-			(cond ((equal "Listener" (sb-thread:thread-name x))
-					(sb-thread:terminate-thread x))))))
+  (let ((thread-list (sb-thread:list-all-threads)))
+    (dolist (x thread-list)
+      (cond ((equal "Listener" (sb-thread:thread-name x))
+	      (sb-thread:terminate-thread x))))))
 
 (defun kill-climacs ()
-	(let ((thread-list (sb-thread:list-all-threads)))
-		(dolist (x thread-list)
-			(cond ((equal (or "Climacs-RV" "Climacs") (sb-thread:thread-name x))
-					(sb-thread:terminate-thread x))))))
+  (let ((thread-list (sb-thread:list-all-threads)))
+    (dolist (x thread-list)
+      (cond ((equal (or "Climacs-RV" "Climacs") (sb-thread:thread-name x))
+	      (sb-thread:terminate-thread x))))))
 
 (defun kill-beirc ()
-	(let ((thread-list (sb-thread:list-all-threads)))
-		(dolist (x thread-list)
-			(cond ((equal "Beirc GUI process" (sb-thread:thread-name x))
-					(sb-thread:terminate-thread x))))))
+  (let ((thread-list (sb-thread:list-all-threads)))
+    (dolist (x thread-list)
+      (cond ((equal "Beirc GUI process" (sb-thread:thread-name x))
+	      (sb-thread:terminate-thread x))))))
 
-(export 'thread-list)
-(export 'kill-first-of)
-(export 'kill-last-of) 
-(export 'kill-nth-of)
-(export 'kill-listener)
-(export 'kill-climacs)
-(export 'kill-beirc)
+(defun kill-closure ()
+  (let ((thread-list (sb-thread:list-all-threads)))
+    (dolist (x thread-list)
+      (cond ((equal "Closure" (sb-thread:thread-name x))
+	      (sb-thread:terminate-thread x))))))
 
-(let ((*read-eval* t))
-  (defun rcl ()
-    (ql:quickload :closure)
-    #+closure
-    (closure:start)))
+(defun rcl ()
+  (load-png-stuff)
+  (load-gif-stuff)
+  (load-jpeg-stuff)
+  (load-tiff-stuff)
+  (closure:start))
 
 (defun ucs-insert (&optional character (count 1))
   "given a character returns the unicode symbol or reads input and then returns the symbol"
@@ -908,14 +1015,14 @@ one can run the CMP-FUN"
     (let ((result (or (string (code-char character)) (string character))))
       (progn
         (dotimes (i count)
-         (format t "~s" result))))
+	  (format t "~s" result))))
 
     (progn
       (let* (
-             (character (read-char))
-             (result (or (string character) (string (code-char character)))))
-      (dotimes (i count)
-       (format t "~s" result))))))
+	      (character (read-char))
+	      (result (or (string character) (string (code-char character)))))
+	(dotimes (i count)
+	  (format t "~s" result))))))
 
 (defun ascii-table ()
   (let ((i -1))
@@ -956,35 +1063,42 @@ one can run the CMP-FUN"
     (format t "~&extended ascii characters (unicode) 128 thru 256.~&~%")
     (format t " dec   hex   char  |  dec   hex   char~%")
     (loop while (< i 256)
-          do (princ
-              (format nil "~4d ~4x ~50s  |  ~4d ~4x ~50s~%" 
-											i i (string (code-char i)) 
-											(incf i) i (string (code-char i))))
-					(incf i))) (values))
+      do (princ
+	   (format nil "~4d ~4x ~50s  |  ~4d ~4x ~50s~%" 
+	     i i (string (code-char i)) 
+	     (incf i) i (string (code-char i))))
+      (incf i))) (values))
 
 (defun ucs-codes-t (start row col) ;; terminal version
-	(let ((x start) (somechars nil))
-		(do ((i 1 (1+ i)))
-			((> i row))
-			(terpri)
-			(do ((j 1 (1+ j)))
-				((> j col))
-				(format t "~s " (string (code-char x)))
-				(incf x)))))
+  (let ((x start) (somechars nil))
+    (do ((i 1 (1+ i)))
+      ((> i row))
+      (terpri)
+      (do ((j 1 (1+ j)))
+	((> j col))
+	(format t "~s " (string (code-char x)))
+	(incf x)))))
 
 (defun ucs-codes-tl (start row col) ;; terminal-list version
-	(let ((x start) (somechars nil))
-		(do ((i 1 (1+ i)))
-			((> i row))
-			(do ((j 1 (1+ j)))
-				((> j col))
-				(setq somechars (append somechars (list (string (code-char x)))))
-				(incf x))) somechars))
+  (let ((x start) (somechars nil))
+    (do ((i 1 (1+ i)))
+      ((> i row))
+      (do ((j 1 (1+ j)))
+	((> j col))
+	(setq somechars (append somechars (list (string (code-char x)))))
+	(incf x))) somechars))
 
 
 (in-package :cl-user)
 (defun ma (args) (macroexpand args))
 (defun ma-1 (args) (macroexpand-1 args))
+
+(defun load-maxima ()
+  (cl-user::change-directory "/home/wbooze/maxima-code/src/")
+  (load "maxima-build.lisp")
+  (cl-user::maxima-load)
+  (cl-user::change-directory "/home/wbooze/"))
+
 
 (export 'cl-user::pds)
 (export 'cl-user::lold)
@@ -1011,15 +1125,74 @@ one can run the CMP-FUN"
 (export 'cl-user::pprint-dispatch-entries)
 (export 'cl-user::pprint-dispatch-find)
 
+(export 'cl-user::change-directory)
+(export 'cl-user::list-dir)
+
+(export 'cl-user::clme)
+(export 'cl-user::clmi)
+
+(export 'cl-user::thread-list)
+(export 'cl-user::kill-first-of)
+(export 'cl-user::kill-last-of) 
+(export 'cl-user::kill-nth-of)
+(export 'cl-user::kill-listener)
+(export 'cl-user::kill-climacs)
+(export 'cl-user::kill-beirc)
+(export 'cl-user::kill-closure)
+(export 'cl-user::load-maxima)
+
 (in-package :clim-user)
 
-(setq *clocc-root* "/home/wbooze/clocc/")
-(load "clocc/src/ytools/ytload/ytload")
-(setq ytools::config-directory* "/home/wbooze/")
-(setq ytools::ytload-directory* "clocc/src/ytools/ytload/")
+#+clim
+(let ((*print-pretty* nil))
+  (defmacro in-listener (&rest body)
+    `(clim-user::with-drawing-options (*standard-output* :text-size :very-large) ,@body)))
 
-(setf (logical-pathname-translations "NORVIG")
-  `(("NORVIG:**;*.*.*" "/home/wbooze/prg/lisp/paip-pjb/norvig/**/*.*")))
+#+clim
+(let ((*print-pretty* nil))
+  (defmacro in-clim (&rest body)
+      `(if (and 
+          (equal *package* (find-package :clim-user))
+          (find :clim *features*))
+         (clim-user::with-drawing-options (*standard-output* :text-size :huge) (progn ,@body))
+         (progn ,@body))))
+
+;; for this to work remove the installed version of maxima and 
+;; get the sources and compile it in some directory
+;; the way it's told in README.lisp or INSTALL.lisp
+;; (load "configure.lisp") (configure) (quit)
+;; (load "maxima-build.lisp") (maxima-compile) (quit)
+;; and rename your maxima-init.mac to something else like maxima-init-old.mac!
+;; i don't know why it interferes with.
+(defun load-maxima ()
+  (cl-user::change-directory "/home/wbooze/maxima-code/src/")
+  (load "maxima-build.lisp")
+  (maxima-load)
+  (cl-user::change-directory "/home/wbooze/"))
+
+;; package change again!
+(in-package :cl-user)
+
+(load "/home/wbooze/clocc/clocc.lisp")
+(setf *clocc-root* "/home/wbooze/clocc/")
+(compile-file (concatenate 'string *clocc-root* "clocc"))
+(load (compile-file (concatenate 'string *clocc-root* "clocc")))
+
+(load "clocc/src/ytools/ytload/ytload")
+(setq ytools::config-directory* "/home/wbooze")
+(setq ytools::ytload-directory* "clocc/src/ytools/ytload")
+
+(defun load-sys (sys)
+ (load (concatenate 'string *clocc-root* "clocc"))
+  (load (translate-logical-pathname (concatenate 'string "clocc:src;" sys))))
+
+(load-sys "cllib;base")
+(load-sys "cllib;autoload")
+(load-sys "cllib;simple")
+(load-sys "cllib;clhs")
+
+(setf (logical-pathname-translations "norvig")
+  `(("norvig:**;*.*.*" "/home/wbooze/prg/lisp/paip-pjb/norvig/**/*.*")))
 
 (setq *default-pathname-defaults*
   (merge-pathnames
@@ -1036,7 +1209,7 @@ one can run the CMP-FUN"
 		      (find-class (first (apropos-list obj nil t)) nil))))
 
 (defun gf (gf) (clim-listener::com-show-generic-function
-		  (sb-pcl::find-generic-function gf)))
+		 (sb-pcl::find-generic-function gf)))
 
 (import 'cl-user::clm)
 (import 'cl-user::mbrc)
@@ -1065,6 +1238,21 @@ one can run the CMP-FUN"
 (import 'cl-user::pprint-dispatch-entries)
 (import 'cl-user::pprint-dispatch-find)
 
+(import 'cl-user::change-directory)
+(import 'cl-user::list-dir)
+
+(import 'cl-user::clme)
+(import 'cl-user::clmi)
+
+(import 'cl-user::thread-list)
+(import 'cl-user::kill-first-of)
+(import 'cl-user::kill-last-of) 
+(import 'cl-user::kill-nth-of)
+(import 'cl-user::kill-listener)
+(import 'cl-user::kill-climacs)
+(import 'cl-user::kill-beirc)
+(import 'cl-user::kill-closure)
+
 (lold) ;;via this we get (#{1 5}) for expanding into (1 2 3 4 5) and the pg namespace funcs
 
 (defun |#{-reader| (stream char arg)
@@ -1077,7 +1265,7 @@ one can run the CMP-FUN"
   (declare (ignore char arg))
   (let ((pair (read-delimited-list #\} stream t)) (accum ()) (arg (if arg arg 2)))
     (push (paul-graham:group pair arg) accum)
-    (list 'quote (first accum))))
+    (lambda () (list 'quote (first accum)))))
 
 (set-dispatch-macro-character #\# #\{ #'|#{-reader|)
 (set-macro-character #\} (get-macro-character #\) nil))
